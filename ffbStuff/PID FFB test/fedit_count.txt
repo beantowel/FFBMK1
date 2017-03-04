@@ -1,0 +1,15 @@
+Packet Type: Create New Effect Report --> ID:11
+Packet Type: Device Gain Report --> ID:1D
+Packet Type: Effect Report --> ID:11
+Packet Type: Envelope Report --> ID:12
+Packet Type: PID Device Contro --> ID:1C
+Packet Type: Periodic Report --> ID:14
+
+Effect Type: Square
+Effect Type: Triangle
+
+Effect Block Index: 1
+
+Cmd:000B000F
+Cmd:000B0191
+

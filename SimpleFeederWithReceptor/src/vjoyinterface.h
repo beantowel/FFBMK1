@@ -12,6 +12,7 @@
 
 
 ///////////////////////////// vJoy device (collection) status ////////////////////////////////////////////
+#pragma pack(1) //set enum to 1Byte !!Important
 #ifndef VJDSTAT
 #define VJDSTAT
 enum VjdStat  /* Declares an enumeration data type */
@@ -42,7 +43,7 @@ enum VjdStat  /* Declares an enumeration data type */
 #define INTERFACE_DEF_LOG_FILE	"vJoyInterface.log"
 
 /* Compatibility definitions */
-#define FFB_EFF_CONST 	FFB_EFF_REPORT
+#define FFB_EFF_CONST 	FFB_EFF_REPORT // fuck you naming rule
 #define PFFB_EFF_CONST 	PFFB_EFF_REPORT
 #define Ffb_h_Eff_Const Ffb_h_Eff_Report
 
@@ -93,7 +94,7 @@ struct DEV_INFO {
 typedef void (CALLBACK *RemovalCB)(BOOL, BOOL, PVOID);
 
 
-enum FFBEType // FFB Effect Type
+enum FFBEType : unsigned char // FFB Effect Type
 {
 
 	// Effect Type
@@ -112,7 +113,7 @@ enum FFBEType // FFB Effect Type
 	ET_CSTM		=	12,   //    Custom Force Data
 };
 
-enum FFBPType // FFB Packet Type
+enum FFBPType : unsigned char // FFB Packet Type
 {
 	// Write
 	PT_EFFREP	=  HID_ID_EFFREP,	// Usage Set Effect Report
@@ -135,14 +136,14 @@ enum FFBPType // FFB Packet Type
 	PT_POOLREP	=  HID_ID_POOLREP+0x10,		// Usage PID Pool Report
 };
 
-enum FFBOP
+enum FFBOP : unsigned char
 {
 	EFF_START	= 1, // EFFECT START
 	EFF_SOLO	= 2, // EFFECT SOLO START
 	EFF_STOP	= 3, // EFFECT STOP
 };
 
-enum FFB_CTRL
+enum FFB_CTRL : unsigned char
 {
 	CTRL_ENACT		= 1,	// Enable all device actuators.
 	CTRL_DISACT		= 2,	// Disable all the device actuators.
@@ -175,13 +176,13 @@ typedef struct _FFB_DATA {
 
 typedef struct _FFB_EFF_CONSTANT { 
 	BYTE EffectBlockIndex; 
-	LONG Magnitude; 			  // Constant force magnitude: 	-10000 - 10000
+	WORD Magnitude; 			  // Constant force magnitude: 	-10000 - 10000
 } FFB_EFF_CONSTANT, *PFFB_EFF_CONSTANT;
 
 typedef struct _FFB_EFF_RAMP {
 	BYTE		EffectBlockIndex;
-	LONG 		Start;             // The Normalized magnitude at the start of the effect (-10000 - 10000)
-	LONG 		End;               // The Normalized magnitude at the end of the effect	(-10000 - 10000)
+	int16_t 	Start;             // The Normalized magnitude at the start of the effect (-10000 - 10000)
+	int16_t 	End;               // The Normalized magnitude at the end of the effect	(-10000 - 10000)
 } FFB_EFF_RAMP, *PFFB_EFF_RAMP;
 
 typedef struct _FFB_EFF_REPORT { 
@@ -192,7 +193,7 @@ typedef struct _FFB_EFF_REPORT {
 	WORD		SamplePrd;
 	BYTE		Gain;
 	BYTE		TrigerBtn;
-	BOOL		Polar; // How to interpret force direction Polar (0-360? or Cartesian (X,Y)
+	BYTE		Polar; // How to interpret force direction Polar (0-360? or Cartesian (X,Y)
 	union
 	{
 		BYTE	Direction; // Polar direction: (0x00-0xFF correspond to 0-360?
@@ -207,12 +208,19 @@ typedef struct _FFB_EFF_OP {
 	BYTE		LoopCount;
 } FFB_EFF_OP, *PFFB_EFF_OP;
 
+// typedef struct _FFB_EFF_PERIOD {
+// 	BYTE		EffectBlockIndex;
+// 	DWORD		Magnitude;			// Range: 0 - 10000
+// 	LONG 		Offset;				// Range: ?0000 - 10000
+// 	DWORD 		Phase;				// Range: 0 - 35999
+// 	DWORD 		Period;				// Range: 0 - 32767
+// } FFB_EFF_PERIOD, *PFFB_EFF_PERIOD;
 typedef struct _FFB_EFF_PERIOD {
 	BYTE		EffectBlockIndex;
-	DWORD		Magnitude;			// Range: 0 - 10000
-	LONG 		Offset;				// Range: ?0000 - 10000
-	DWORD 		Phase;				// Range: 0 - 35999
-	DWORD 		Period;				// Range: 0 - 32767
+	WORD		Magnitude;			// Range: 0 - 10000
+	int16_t 	Offset;				// Range: ?0000 - 10000
+	WORD 		Phase;				// Range: 0 - 35999
+	WORD 		Period;				// Range: 0 - 32767
 } FFB_EFF_PERIOD, *PFFB_EFF_PERIOD;
 
 typedef struct _FFB_EFF_COND {
@@ -228,8 +236,8 @@ typedef struct _FFB_EFF_COND {
 
 typedef struct _FFB_EFF_ENVLP {
 	BYTE		EffectBlockIndex;
-	DWORD 		AttackLevel;   // The Normalized magnitude of the stating point: 0 - 10000
-	DWORD 		FadeLevel;	   // The Normalized magnitude of the stopping point: 0 - 10000
+	WORD 		AttackLevel;   // The Normalized magnitude of the stating point: 0 - 10000
+	WORD 		FadeLevel;	   // The Normalized magnitude of the stopping point: 0 - 10000
 	DWORD 		AttackTime;	   // Time of the attack: 0 - 4294967295
 	DWORD 		FadeTime;	   // Time of the fading: 0 - 4294967295
 } FFB_EFF_ENVLP, *PFFB_EFF_ENVLP;

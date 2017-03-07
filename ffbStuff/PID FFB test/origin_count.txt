@@ -1,0 +1,22 @@
+Packet Type: Constant Force Report --> ID:15 --> Cmd:000B000F
+Packet Type: Create New Effect Report --> ID:11 --> Cmd:000B0191
+Packet Type: Device Gain Report --> ID:1D --> Cmd:000B000F
+Packet Type: Effect Operation Report --> ID:1A --> Cmd:000B000F
+Packet Type: Effect Report --> ID:11 --> Cmd:000B000F
+Packet Type: Envelope Report --> ID:12 --> Cmd:000B000F
+Packet Type: PID Block Free Report --> ID:1B --> Cmd:000B000F
+Packet Type: PID Device Contro --> ID:1C --> Cmd:000B000F
+Packet Type: Periodic Report --> ID:14 --> Cmd:000B000F
+
+Effect Type: Constant Force
+Effect Type: Sine
+Effect Type: Triangle
+
+Effect Block Index: 1
+
+Cmd:000B000F
+Cmd:000B0191
+
+Loop 0 times
+Loop 1 times
+

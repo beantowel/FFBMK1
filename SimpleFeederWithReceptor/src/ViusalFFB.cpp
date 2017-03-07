@@ -13,6 +13,7 @@
 #include <time.h>
 char line[MaxLineLength];
 static FFBRender ffbRender;
+extern void FFBMngrEffRun(uint16_t deltaT, int32_t &Tx, int32_t &Ty);
 
 int Visual_main() {
 
@@ -30,7 +31,7 @@ DWORD WINAPI Glut_Window(LPVOID args) {
 	thoroughW = 600;
 
 	glutInitDisplayMode(GLUT_SINGLE | GLUT_RGB);
-	glutInitWindowSize(800, 600);
+	glutInitWindowSize(400, 300);
 	glutCreateWindow("FFBviusal");
 	glutDisplayFunc(RenderScene);
 	glutReshapeFunc(ChangeSize);
@@ -70,7 +71,7 @@ void SetupRC(void) {
 }
 
 void glOnTimer(int id) {
-	//Get gl runTime
+	//Get gl runTime in ms
 	static time_t currentTime, previousTime=clock(), timeSpan, glRunTime=0;
 	currentTime=clock();
 	timeSpan=currentTime-previousTime;
@@ -89,7 +90,17 @@ void glOnTimer(int id) {
 		y[i] = 50*sin(x[i]/100 - 100 + (glRunTime / 1000.0))+100;
 	}
 	ffbRender.RenderLines(x, y, Narray);*/
-	ffbRender.PutXYT(100*sin(glRunTime / 300.0), 100*cos(glRunTime / 200.0), glRunTime);
+	int32_t Tx,Ty;
+	static int countF=0;
+	FFBMngrEffRun(timeSpan, Tx, Ty); //max Force = 10000
+	const int maxForce = 10000; //gridWidth = 100
+
+	if(Tx > maxForce) Tx=maxForce;
+	if(Tx < -maxForce) Tx=-maxForce;
+	if (Ty > maxForce) Ty = maxForce;
+	if (Ty < -maxForce) Ty = -maxForce;	
+
+	ffbRender.PutXYT(Tx / 10.0, Ty / 10.0, glRunTime);
 	ffbRender.RenderFFBIndicator();
 
 	//prepare for next action

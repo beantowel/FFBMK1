@@ -136,6 +136,7 @@
       <PrecompiledHeader />
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <StructMemberAlignment>1Byte</StructMemberAlignment>
     </ClCompile>
     <Link>
       <AdditionalDependencies>Setupapi.lib;vJoyInterface.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -286,6 +287,7 @@
   <ItemGroup>
     <ClInclude Include="..\inc\public.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="stdint.h" />
     <ClInclude Include="VisualFFB.h" />
     <ClInclude Include="FFBRender.h" />
     <ClInclude Include="vjoyinterface.h" />

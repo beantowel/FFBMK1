@@ -1,0 +1,2878 @@
+Vendor: Shaul Eizikovich
+Product :vJoy - Virtual Joystick
+Version Number:2.1.6
+vJoy device 1 is free
+Acquired device number 1 - OK
+
+ ============= FFB Packet size Size 10 =============
+
+ > Device ID: 1
+ > Packet Type: PID Device Contro
+ >> PID Device Control: Device Reset
+
+FFB Size 10
+Cmd:000B000F ID:1C Size:02  -  1C 04
+
+ ====================================================
+
+ ============= FFB Packet size Size 10 =============
+
+ > Device ID: 1
+ > Packet Type: PID Device Contro
+ >> PID Device Control: Stop All Effects
+
+FFB Size 10
+Cmd:000B000F ID:1C Size:02  -  1C 03
+
+ ====================================================
+
+ ============= FFB Packet size Size 10 =============
+
+ > Device ID: 1
+ > Packet Type: Device Gain Report
+ >> Global Device Gain: 100
+
+FFB Size 10
+Cmd:000B000F ID:1D Size:02  -  1D FF
+
+ ====================================================
+
+ ============= FFB Packet size Size 12 =============
+
+ > Device ID: 1
+ > Packet Type: Create New Effect Report
+ >> Effect Type: Constant Force
+
+FFB Size 12
+Cmd:000B0191 ID:11 Size:04  -  11 01 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 12 =============
+
+ > Device ID: 1
+ > Packet Type: Constant Force Report
+ > Effect Block Index: 1
+
+FFB Size 12
+Cmd:000B000F ID:15 Size:04  -  15 01 10 27
+
+ ====================================================
+
+ ============= FFB Packet size Size 22 =============
+
+ > Device ID: 1
+ > Packet Type: Envelope Report
+ > Effect Block Index: 1
+ >> Attack Level: 0
+ >> Fade Level: 0
+ >> Attack Time: 0
+ >> Fade Time: 100
+
+FFB Size 22
+Cmd:000B000F ID:12 Size:14  -  12 01 00 00 00 00 00 00 00 00 64 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Constant Force
+ >> Direction: 2 deg (02)
+ >> Duration: 100 MilliSec
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 100%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 01 64 00 FF FF 00 00 FF FF 04 02 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 12 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Operation Report
+ > Effect Block Index: 1
+ >> Effect Operation: Effect Start
+ >> Loop 1 times
+
+FFB Size 12
+Cmd:000B000F ID:1A Size:04  -  1A 01 01 01
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Constant Force
+ >> Direction: 2 deg (02)
+ >> Duration: 100 MilliSec
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 100%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 01 64 00 FF FF 00 00 FF FF 04 02 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 12 =============
+
+ > Device ID: 1
+ > Packet Type: Create New Effect Report
+ >> Effect Type: Triangle
+
+FFB Size 12
+Cmd:000B0191 ID:11 Size:04  -  11 05 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 20 =============
+
+ > Device ID: 1
+ > Packet Type: Periodic Report
+ > Effect Block Index: 1
+ >> Magnitude: 10000
+ >> Offset: 0
+ >> Phase: 0
+ >> Period: 122
+
+FFB Size 20
+Cmd:000B000F ID:14 Size:12  -  14 01 10 27 00 00 00 00 7A 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 321 deg (e4)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 4%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 0B FF 04 E4 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 12 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Operation Report
+ > Effect Block Index: 1
+ >> Effect Operation: Effect Start
+ >> Loop 1 times
+
+FFB Size 12
+Cmd:000B000F ID:1A Size:04  -  1A 01 01 01
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 354 deg (fb)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 4%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 0B FF 04 FB 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 12 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Operation Report
+ > Effect Block Index: 1
+ >> Effect Operation: Effect Stop
+ >> Loop 0 times
+
+FFB Size 12
+Cmd:000B000F ID:1A Size:04  -  1A 01 03 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 354 deg (fb)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 9%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 19 FF 04 FB 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 300 deg (d5)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 9%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 19 FF 04 D5 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 12 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Operation Report
+ > Effect Block Index: 1
+ >> Effect Operation: Effect Start
+ >> Loop 1 times
+
+FFB Size 12
+Cmd:000B000F ID:1A Size:04  -  1A 01 01 01
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 300 deg (d5)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 0%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 00 FF 04 D5 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 175 deg (7c)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 0%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 00 FF 04 7C 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 12 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Operation Report
+ > Effect Block Index: 1
+ >> Effect Operation: Effect Stop
+ >> Loop 0 times
+
+FFB Size 12
+Cmd:000B000F ID:1A Size:04  -  1A 01 03 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 175 deg (7c)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 3%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 0A FF 04 7C 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 12 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Operation Report
+ > Effect Block Index: 1
+ >> Effect Operation: Effect Start
+ >> Loop 1 times
+
+FFB Size 12
+Cmd:000B000F ID:1A Size:04  -  1A 01 01 01
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 93 deg (42)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 3%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 0A FF 04 42 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 12 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Operation Report
+ > Effect Block Index: 1
+ >> Effect Operation: Effect Stop
+ >> Loop 0 times
+
+FFB Size 12
+Cmd:000B000F ID:1A Size:04  -  1A 01 03 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 93 deg (42)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 12%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 20 FF 04 42 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 141 deg (64)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 12%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 20 FF 04 64 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 12 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Operation Report
+ > Effect Block Index: 1
+ >> Effect Operation: Effect Start
+ >> Loop 1 times
+
+FFB Size 12
+Cmd:000B000F ID:1A Size:04  -  1A 01 01 01
+
+ ====================================================
+
+ ============= FFB Packet size Size 12 =============
+
+ > Device ID: 1
+ > Packet Type: Create New Effect Report
+ >> Effect Type: Sine
+
+FFB Size 12
+Cmd:000B0191 ID:11 Size:04  -  11 04 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 20 =============
+
+ > Device ID: 1
+ > Packet Type: Periodic Report
+ > Effect Block Index: 1
+ >> Magnitude: 2053
+ >> Offset: 0
+ >> Phase: 0
+ >> Period: 65
+
+FFB Size 20
+Cmd:000B000F ID:14 Size:12  -  14 01 05 08 00 00 00 00 41 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Sine
+ >> Direction: 0 deg (00)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 100%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 04 FF FF FF FF 00 00 FF FF 04 00 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 12 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Operation Report
+ > Effect Block Index: 1
+ >> Effect Operation: Effect Stop
+ >> Loop 0 times
+
+FFB Size 12
+Cmd:000B000F ID:1A Size:04  -  1A 01 03 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 10 =============
+
+ > Device ID: 1
+ > Packet Type: PID Block Free Report
+ > Effect Block Index: 1
+
+FFB Size 10
+Cmd:000B000F ID:1B Size:02  -  1B 01
+
+ ====================================================
+
+ ============= FFB Packet size Size 12 =============
+
+ > Device ID: 1
+ > Packet Type: Create New Effect Report
+ >> Effect Type: Sine
+
+FFB Size 12
+Cmd:000B0191 ID:11 Size:04  -  11 04 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 20 =============
+
+ > Device ID: 1
+ > Packet Type: Periodic Report
+ > Effect Block Index: 1
+ >> Magnitude: 2053
+ >> Offset: 0
+ >> Phase: 0
+ >> Period: 65
+
+FFB Size 20
+Cmd:000B000F ID:14 Size:12  -  14 01 05 08 00 00 00 00 41 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Sine
+ >> Direction: 0 deg (00)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 100%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 04 FF FF FF FF 00 00 FF FF 04 00 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 12 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Operation Report
+ > Effect Block Index: 1
+ >> Effect Operation: Effect Start
+ >> Loop 1 times
+
+FFB Size 12
+Cmd:000B000F ID:1A Size:04  -  1A 01 01 01
+
+ ====================================================
+
+ ============= FFB Packet size Size 12 =============
+
+ > Device ID: 1
+ > Packet Type: Create New Effect Report
+ >> Effect Type: Sine
+
+FFB Size 12
+Cmd:000B0191 ID:11 Size:04  -  11 04 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 20 =============
+
+ > Device ID: 1
+ > Packet Type: Periodic Report
+ > Effect Block Index: 1
+ >> Magnitude: 2185
+ >> Offset: 0
+ >> Phase: 0
+ >> Period: 103
+
+FFB Size 20
+Cmd:000B000F ID:14 Size:12  -  14 01 89 08 00 00 00 00 67 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Sine
+ >> Direction: 0 deg (00)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 100%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 04 FF FF FF FF 00 00 FF FF 04 00 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 12 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Operation Report
+ > Effect Block Index: 1
+ >> Effect Operation: Effect Stop
+ >> Loop 0 times
+
+FFB Size 12
+Cmd:000B000F ID:1A Size:04  -  1A 01 03 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 10 =============
+
+ > Device ID: 1
+ > Packet Type: PID Block Free Report
+ > Effect Block Index: 1
+
+FFB Size 10
+Cmd:000B000F ID:1B Size:02  -  1B 01
+
+ ====================================================
+
+ ============= FFB Packet size Size 12 =============
+
+ > Device ID: 1
+ > Packet Type: Create New Effect Report
+ >> Effect Type: Sine
+
+FFB Size 12
+Cmd:000B0191 ID:11 Size:04  -  11 04 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 20 =============
+
+ > Device ID: 1
+ > Packet Type: Periodic Report
+ > Effect Block Index: 1
+ >> Magnitude: 2185
+ >> Offset: 0
+ >> Phase: 0
+ >> Period: 103
+
+FFB Size 20
+Cmd:000B000F ID:14 Size:12  -  14 01 89 08 00 00 00 00 67 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Sine
+ >> Direction: 0 deg (00)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 100%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 04 FF FF FF FF 00 00 FF FF 04 00 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 12 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Operation Report
+ > Effect Block Index: 1
+ >> Effect Operation: Effect Start
+ >> Loop 1 times
+
+FFB Size 12
+Cmd:000B000F ID:1A Size:04  -  1A 01 01 01
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Sine
+ >> Direction: 0 deg (00)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 100%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 04 FF FF FF FF 00 00 FF FF 04 00 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 141 deg (64)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 23%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 3C FF 04 64 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 225 deg (a0)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 23%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 3C FF 04 A0 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 225 deg (a0)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 14%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 26 FF 04 A0 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 169 deg (78)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 14%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 26 FF 04 78 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 12 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Operation Report
+ > Effect Block Index: 1
+ >> Effect Operation: Effect Stop
+ >> Loop 0 times
+
+FFB Size 12
+Cmd:000B000F ID:1A Size:04  -  1A 01 03 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 12 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Operation Report
+ > Effect Block Index: 1
+ >> Effect Operation: Effect Stop
+ >> Loop 0 times
+
+FFB Size 12
+Cmd:000B000F ID:1A Size:04  -  1A 01 03 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 169 deg (78)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 10%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 1C FF 04 78 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 132 deg (5e)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 10%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 1C FF 04 5E 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 132 deg (5e)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 4%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 0B FF 04 5E 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 12 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Operation Report
+ > Effect Block Index: 1
+ >> Effect Operation: Effect Stop
+ >> Loop 0 times
+
+FFB Size 12
+Cmd:000B000F ID:1A Size:04  -  1A 01 03 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 241 deg (ab)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 4%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 0B FF 04 AB 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 241 deg (ab)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 7%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 12 FF 04 AB 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 199 deg (8d)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 7%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 12 FF 04 8D 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 12 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Operation Report
+ > Effect Block Index: 1
+ >> Effect Operation: Effect Start
+ >> Loop 1 times
+
+FFB Size 12
+Cmd:000B000F ID:1A Size:04  -  1A 01 01 01
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 199 deg (8d)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 19%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 31 FF 04 8D 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 182 deg (81)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 19%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 31 FF 04 81 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 182 deg (81)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 26%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 43 FF 04 81 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 139 deg (63)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 26%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 43 FF 04 63 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 139 deg (63)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 18%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 30 FF 04 63 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 169 deg (78)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 18%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 30 FF 04 78 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 169 deg (78)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 21%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 37 FF 04 78 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 86 deg (3d)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 21%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 37 FF 04 3D 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 86 deg (3d)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 25%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 41 FF 04 3D 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 290 deg (ce)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 25%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 41 FF 04 CE 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 290 deg (ce)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 22%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 39 FF 04 CE 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 293 deg (d0)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 22%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 39 FF 04 D0 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 293 deg (d0)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 28%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 49 FF 04 D0 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 32 deg (17)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 28%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 49 FF 04 17 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 32 deg (17)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 55%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 8E FF 04 17 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 317 deg (e1)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 55%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 8E FF 04 E1 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 317 deg (e1)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 19%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 32 FF 04 E1 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 156 deg (6f)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 19%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 32 FF 04 6F 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 156 deg (6f)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 2%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 07 FF 04 6F 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 272 deg (c1)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 2%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 07 FF 04 C1 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 12 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Operation Report
+ > Effect Block Index: 1
+ >> Effect Operation: Effect Stop
+ >> Loop 0 times
+
+FFB Size 12
+Cmd:000B000F ID:1A Size:04  -  1A 01 03 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Constant Force
+ >> Direction: 341 deg (f2)
+ >> Duration: 100 MilliSec
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 100%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 01 64 00 FF FF 00 00 FF FF 04 F2 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Constant Force
+ >> Direction: 341 deg (f2)
+ >> Duration: 100 MilliSec
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 100%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 01 64 00 FF FF 00 00 FF FF 04 F2 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 12 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Operation Report
+ > Effect Block Index: 1
+ >> Effect Operation: Effect Start
+ >> Loop 1 times
+
+FFB Size 12
+Cmd:000B000F ID:1A Size:04  -  1A 01 01 01
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 272 deg (c1)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 14%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 24 FF 04 C1 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 12 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Operation Report
+ > Effect Block Index: 1
+ >> Effect Operation: Effect Start
+ >> Loop 1 times
+
+FFB Size 12
+Cmd:000B000F ID:1A Size:04  -  1A 01 01 01
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 138 deg (62)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 14%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 24 FF 04 62 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 138 deg (62)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 24%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 3E FF 04 62 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 358 deg (fe)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 24%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 3E FF 04 FE 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 358 deg (fe)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 16%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 2A FF 04 FE 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 48 deg (22)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 16%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 2A FF 04 22 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 48 deg (22)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 20%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 35 FF 04 22 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 276 deg (c4)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 20%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 35 FF 04 C4 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 276 deg (c4)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 16%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 2B FF 04 C4 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 76 deg (36)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 16%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 2B FF 04 36 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 76 deg (36)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 20%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 33 FF 04 36 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 55 deg (27)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 20%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 33 FF 04 27 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 55 deg (27)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 25%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 41 FF 04 27 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 16 deg (0c)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 25%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 41 FF 04 0C 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 16 deg (0c)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 21%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 36 FF 04 0C 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 245 deg (ae)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 21%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 36 FF 04 AE 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 245 deg (ae)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 24%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 3E FF 04 AE 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 330 deg (ea)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 24%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 3E FF 04 EA 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 330 deg (ea)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 19%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 31 FF 04 EA 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 225 deg (a0)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 19%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 31 FF 04 A0 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 225 deg (a0)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 28%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 49 FF 04 A0 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 121 deg (56)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 28%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 49 FF 04 56 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 121 deg (56)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 23%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 3B FF 04 56 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 314 deg (df)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 23%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 3B FF 04 DF 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 314 deg (df)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 27%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 46 FF 04 DF 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 252 deg (b3)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 27%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 46 FF 04 B3 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Constant Force
+ >> Direction: 338 deg (f0)
+ >> Duration: 100 MilliSec
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 100%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 01 64 00 FF FF 00 00 FF FF 04 F0 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Constant Force
+ >> Direction: 338 deg (f0)
+ >> Duration: 100 MilliSec
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 100%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 01 64 00 FF FF 00 00 FF FF 04 F0 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 12 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Operation Report
+ > Effect Block Index: 1
+ >> Effect Operation: Effect Start
+ >> Loop 1 times
+
+FFB Size 12
+Cmd:000B000F ID:1A Size:04  -  1A 01 01 01
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 252 deg (b3)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 14%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 25 FF 04 B3 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 134 deg (5f)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 14%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 25 FF 04 5F 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 134 deg (5f)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 23%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 3C FF 04 5F 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 135 deg (60)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 23%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 3C FF 04 60 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 135 deg (60)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 27%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 46 FF 04 60 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 180 deg (80)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 27%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 46 FF 04 80 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 180 deg (80)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 24%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 3F FF 04 80 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 138 deg (62)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 24%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 3F FF 04 62 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 138 deg (62)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 20%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 33 FF 04 62 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 231 deg (a4)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 20%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 33 FF 04 A4 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 231 deg (a4)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 14%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 25 FF 04 A4 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 344 deg (f4)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 14%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 25 FF 04 F4 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 344 deg (f4)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 1%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 04 FF 04 F4 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 12 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Operation Report
+ > Effect Block Index: 1
+ >> Effect Operation: Effect Stop
+ >> Loop 0 times
+
+FFB Size 12
+Cmd:000B000F ID:1A Size:04  -  1A 01 03 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 163 deg (74)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 1%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 04 FF 04 74 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Constant Force
+ >> Direction: 9 deg (07)
+ >> Duration: 100 MilliSec
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 100%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 01 64 00 FF FF 00 00 FF FF 04 07 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Constant Force
+ >> Direction: 9 deg (07)
+ >> Duration: 100 MilliSec
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 100%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 01 64 00 FF FF 00 00 FF FF 04 07 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 12 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Operation Report
+ > Effect Block Index: 1
+ >> Effect Operation: Effect Start
+ >> Loop 1 times
+
+FFB Size 12
+Cmd:000B000F ID:1A Size:04  -  1A 01 01 01
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 163 deg (74)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 9%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 17 FF 04 74 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 12 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Operation Report
+ > Effect Block Index: 1
+ >> Effect Operation: Effect Start
+ >> Loop 1 times
+
+FFB Size 12
+Cmd:000B000F ID:1A Size:04  -  1A 01 01 01
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 207 deg (93)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 9%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 17 FF 04 93 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 207 deg (93)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 13%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 22 FF 04 93 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 275 deg (c3)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 13%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 22 FF 04 C3 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 275 deg (c3)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 16%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 2B FF 04 C3 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 227 deg (a1)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 16%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 2B FF 04 A1 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Constant Force
+ >> Direction: 1 deg (01)
+ >> Duration: 100 MilliSec
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 100%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 01 64 00 FF FF 00 00 FF FF 04 01 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 12 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Operation Report
+ > Effect Block Index: 1
+ >> Effect Operation: Effect Start
+ >> Loop 1 times
+
+FFB Size 12
+Cmd:000B000F ID:1A Size:04  -  1A 01 01 01
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Constant Force
+ >> Direction: 1 deg (01)
+ >> Duration: 100 MilliSec
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 100%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 01 64 00 FF FF 00 00 FF FF 04 01 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 227 deg (a1)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 8%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 16 FF 04 A1 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 350 deg (f8)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 8%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 16 FF 04 F8 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 350 deg (f8)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 3%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 0A FF 04 F8 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 290 deg (ce)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 3%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 0A FF 04 CE 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 12 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Operation Report
+ > Effect Block Index: 1
+ >> Effect Operation: Effect Stop
+ >> Loop 0 times
+
+FFB Size 12
+Cmd:000B000F ID:1A Size:04  -  1A 01 03 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 290 deg (ce)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 3%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 09 FF 04 CE 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 125 deg (59)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 3%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 09 FF 04 59 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 12 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Operation Report
+ > Effect Block Index: 1
+ >> Effect Operation: Effect Start
+ >> Loop 1 times
+
+FFB Size 12
+Cmd:000B000F ID:1A Size:04  -  1A 01 01 01
+
+ ====================================================
+
+ ============= FFB Packet size Size 12 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Operation Report
+ > Effect Block Index: 1
+ >> Effect Operation: Effect Stop
+ >> Loop 0 times
+
+FFB Size 12
+Cmd:000B000F ID:1A Size:04  -  1A 01 03 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 12 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Operation Report
+ > Effect Block Index: 1
+ >> Effect Operation: Effect Start
+ >> Loop 1 times
+
+FFB Size 12
+Cmd:000B000F ID:1A Size:04  -  1A 01 01 01
+
+ ====================================================
+
+ ============= FFB Packet size Size 12 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Operation Report
+ > Effect Block Index: 1
+ >> Effect Operation: Effect Start
+ >> Loop 1 times
+
+FFB Size 12
+Cmd:000B000F ID:1A Size:04  -  1A 01 01 01
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 125 deg (59)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 12%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 21 FF 04 59 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 12 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Operation Report
+ > Effect Block Index: 1
+ >> Effect Operation: Effect Start
+ >> Loop 1 times
+
+FFB Size 12
+Cmd:000B000F ID:1A Size:04  -  1A 01 01 01
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 286 deg (cb)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 12%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 21 FF 04 CB 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 286 deg (cb)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 16%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 29 FF 04 CB 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 120 deg (55)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 16%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 29 FF 04 55 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 120 deg (55)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 12%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 21 FF 04 55 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 103 deg (49)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 12%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 21 FF 04 49 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 12 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Operation Report
+ > Effect Block Index: 1
+ >> Effect Operation: Effect Stop
+ >> Loop 0 times
+
+FFB Size 12
+Cmd:000B000F ID:1A Size:04  -  1A 01 03 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 12 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Operation Report
+ > Effect Block Index: 1
+ >> Effect Operation: Effect Stop
+ >> Loop 0 times
+
+FFB Size 12
+Cmd:000B000F ID:1A Size:04  -  1A 01 03 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 103 deg (49)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 4%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 0C FF 04 49 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 12 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Operation Report
+ > Effect Block Index: 1
+ >> Effect Operation: Effect Stop
+ >> Loop 0 times
+
+FFB Size 12
+Cmd:000B000F ID:1A Size:04  -  1A 01 03 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 55 deg (27)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 4%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 0C FF 04 27 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 55 deg (27)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 5%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 0D FF 04 27 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 12 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Operation Report
+ > Effect Block Index: 1
+ >> Effect Operation: Effect Start
+ >> Loop 1 times
+
+FFB Size 12
+Cmd:000B000F ID:1A Size:04  -  1A 01 01 01
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 227 deg (a1)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 5%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 0D FF 04 A1 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 227 deg (a1)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 9%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 17 FF 04 A1 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 324 deg (e6)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 9%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 17 FF 04 E6 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 324 deg (e6)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 13%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 22 FF 04 E6 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 285 deg (ca)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 13%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 22 FF 04 CA 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 12 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Operation Report
+ > Effect Block Index: 1
+ >> Effect Operation: Effect Start
+ >> Loop 1 times
+
+FFB Size 12
+Cmd:000B000F ID:1A Size:04  -  1A 01 01 01
+
+ ====================================================
+
+ ============= FFB Packet size Size 12 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Operation Report
+ > Effect Block Index: 1
+ >> Effect Operation: Effect Start
+ >> Loop 1 times
+
+FFB Size 12
+Cmd:000B000F ID:1A Size:04  -  1A 01 01 01
+
+ ====================================================
+
+ ============= FFB Packet size Size 12 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Operation Report
+ > Effect Block Index: 1
+ >> Effect Operation: Effect Stop
+ >> Loop 0 times
+
+FFB Size 12
+Cmd:000B000F ID:1A Size:04  -  1A 01 03 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 12 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Operation Report
+ > Effect Block Index: 1
+ >> Effect Operation: Effect Stop
+ >> Loop 0 times
+
+FFB Size 12
+Cmd:000B000F ID:1A Size:04  -  1A 01 03 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 285 deg (ca)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 23%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 3C FF 04 CA 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 49 deg (23)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 23%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 3C FF 04 23 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 12 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Operation Report
+ > Effect Block Index: 1
+ >> Effect Operation: Effect Start
+ >> Loop 1 times
+
+FFB Size 12
+Cmd:000B000F ID:1A Size:04  -  1A 01 01 01
+
+ ====================================================
+
+ ============= FFB Packet size Size 12 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Operation Report
+ > Effect Block Index: 1
+ >> Effect Operation: Effect Start
+ >> Loop 1 times
+
+FFB Size 12
+Cmd:000B000F ID:1A Size:04  -  1A 01 01 01
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 49 deg (23)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 26%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 44 FF 04 23 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Triangle
+ >> Direction: 295 deg (d1)
+ >> Duration: Infinit
+ >> Trigger Repeat: Infinit
+ >> Sample Period: 0
+ >> Gain: 26%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 05 FF FF FF FF 00 00 44 FF 04 D1 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > E

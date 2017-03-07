@@ -1,0 +1,177 @@
+Vendor: Shaul Eizikovich
+Product :vJoy - Virtual Joystick
+Version Number:2.1.6
+vJoy device 1 is free
+Acquired device number 1 - OK
+
+ ============= FFB Packet size Size 10 =============
+
+ > Device ID: 1
+ > Packet Type: PID Device Contro
+ >> PID Device Control: Device Reset
+
+FFB Size 10
+Cmd:000B000F ID:1C Size:02  -  1C 04
+
+ ====================================================
+
+ ============= FFB Packet size Size 10 =============
+
+ > Device ID: 1
+ > Packet Type: PID Device Contro
+ >> PID Device Control: Stop All Effects
+
+FFB Size 10
+Cmd:000B000F ID:1C Size:02  -  1C 03
+
+ ====================================================
+
+ ============= FFB Packet size Size 10 =============
+
+ > Device ID: 1
+ > Packet Type: Device Gain Report
+ >> Global Device Gain: 100
+
+FFB Size 10
+Cmd:000B000F ID:1D Size:02  -  1D FF
+
+ ====================================================
+
+ ============= FFB Packet size Size 12 =============
+
+ > Device ID: 1
+ > Packet Type: Create New Effect Report
+ >> Effect Type: Constant Force
+
+FFB Size 12
+Cmd:000B0191 ID:11 Size:04  -  11 01 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 12 =============
+
+ > Device ID: 1
+ > Packet Type: Constant Force Report
+ > Effect Block Index: 1
+
+FFB Size 12
+Cmd:000B000F ID:15 Size:04  -  15 01 31 19
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Constant Force
+ >> Direction: 59 deg (2a)
+ >> Duration: Infinit
+ >> Trigger Repeat: 0
+ >> Sample Period: 0
+ >> Gain: 100%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 01 FF FF 00 00 00 00 FF FF 04 2A 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 12 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Operation Report
+ > Effect Block Index: 1
+ >> Effect Operation: Effect Start
+ >> Loop 1 times
+
+FFB Size 12
+Cmd:000B000F ID:1A Size:04  -  1A 01 01 01
+
+ ====================================================
+
+ ============= FFB Packet size Size 12 =============
+
+ > Device ID: 1
+ > Packet Type: Constant Force Report
+ > Effect Block Index: 1
+
+FFB Size 12
+Cmd:000B000F ID:15 Size:04  -  15 01 BE 1B
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Constant Force
+ >> Direction: 327 deg (e8)
+ >> Duration: Infinit
+ >> Trigger Repeat: 0
+ >> Sample Period: 0
+ >> Gain: 100%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 01 FF FF 00 00 00 00 FF FF 04 E8 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 12 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Operation Report
+ > Effect Block Index: 1
+ >> Effect Operation: Effect Start
+ >> Loop 1 times
+
+FFB Size 12
+Cmd:000B000F ID:1A Size:04  -  1A 01 01 01
+
+ ====================================================
+
+ ============= FFB Packet size Size 12 =============
+
+ > Device ID: 1
+ > Packet Type: Constant Force Report
+ > Effect Block Index: 1
+
+FFB Size 12
+Cmd:000B000F ID:15 Size:04  -  15 01 C3 14
+
+ ====================================================
+
+ ============= FFB Packet size Size 26 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Report
+ > Effect Block Index: 1
+ >> Effect Report: Constant Force
+ >> Direction: 265 deg (bc)
+ >> Duration: Infinit
+ >> Trigger Repeat: 0
+ >> Sample Period: 0
+ >> Gain: 100%
+
+FFB Size 26
+Cmd:000B000F ID:11 Size:18  -  11 01 01 FF FF 00 00 00 00 FF FF 04 BC 00 00 00 00 00
+
+ ====================================================
+
+ ============= FFB Packet size Size 12 =============
+
+ > Device ID: 1
+ > Packet Type: Effect Operation Report
+ > Effect Block Index: 1
+ >> Effect Operation: Effect Start
+ >> Loop 1 times
+
+FFB Size 12
+Cmd:000B000F ID:1A Size:04  -  1A 01 01 01
+
+ ====================================================
+
+ ============= FFB Packet size Size 12 =============
+
+ > Device ID: 1
+ > Packe

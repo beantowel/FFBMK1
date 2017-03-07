@@ -18,7 +18,8 @@ using namespace std;
 
 // Default device ID (Used when ID not specified)
 #define DEV_ID		1
-
+#define _tprintf printf
+//#define FFB_PARSED_DATA
 // Prototypes
 void  Ffb_PrintRawData(PVOID data);
 void  CALLBACK FfbFunction1(PVOID cb, PVOID data);
@@ -42,6 +43,8 @@ const char* filename = "vJoy log out.txt";
 JOYSTICK_POSITION_V2 iReport; // The structure that holds the full position data
 
 extern int Visual_main();
+extern void FFBMngrInit();
+extern void FFBMngrDataServ(uint8_t *data, uint32_t cmd, uint8_t size);
 
 int
 __cdecl
@@ -143,6 +146,7 @@ _tmain(int argc, _TCHAR* argv[])
 	// Register Generic callback function
 	// At this point you instruct the Receptor which callback function to call with every FFB packet it receives
 	// It is the role of the designer to register the right FFB callback function
+	FFBMngrInit();
 	FfbRegisterGenCB(FfbFunction1, NULL);
 	Visual_main(); // Viualize the Force Feed Back Effects by opengl;BeanTowel
 
@@ -162,15 +166,16 @@ _tmain(int argc, _TCHAR* argv[])
 		iReport.bDevice = id;
 
 		// Set position data of 3 first axes
-		if (Z>35000) Z=0;
-		Z += 200;
-		iReport.wAxisZ = 32768/2;
-		iReport.wAxisX = 32768/2;
+		//if (Z>35000) Z=0;
+		//Z += 200; // stream flash button
+		iReport.wAxisX = 12768/2;
 		iReport.wAxisY = 32768/2;
+		iReport.wAxisZRot = 32768/2;
+		iReport.wAxisVZ = 32768 / 2;
 
-		// Set position data of first 8 buttons
-		Btns = 1<<(Z/4000);
-		iReport.lButtons = 0;
+		//// Set position data of first 8 buttons
+		//Btns = 1<<(Z/4000);
+		//iReport.lButtons = 0;
 
 		// Send position data to vJoy device
 		pPositionMessage = (PVOID)(&iReport);
@@ -221,6 +226,9 @@ void  Ffb_PrintRawData(PVOID data)
 // The fanction is called in the thread of the FFB source application for every FFN data packet
 void CALLBACK FfbFunction1(PVOID data, PVOID userdata)
 {
+#ifdef FFB_PARSED_DATA
+
+
 	// Packet Header
 	_tprintf("\n ============= FFB Packet size Size %d =============\n", static_cast<int>(((FFB_DATA *)data)->size));
 	
@@ -228,6 +236,7 @@ void CALLBACK FfbFunction1(PVOID data, PVOID userdata)
 #pragma region Packet Device ID, and Type Block Index
 	int DeviceID, BlockIndex;
 	FFBPType	Type;
+	int typebuffer = 0;
 	TCHAR	TypeStr[100];
 
 	if (ERROR_SUCCESS == Ffb_h_DeviceID((FFB_DATA *)data, &DeviceID))
@@ -290,7 +299,8 @@ void CALLBACK FfbFunction1(PVOID data, PVOID userdata)
 	};
 #pragma endregion
 #pragma region PID Device Control
-	FFB_CTRL	Control;
+	FFB_CTRL Control;
+	int controlbuf = 0;
 	TCHAR	CtrlStr[100];
 	if (ERROR_SUCCESS == Ffb_h_DevCtrl((FFB_DATA *)data, &Control) && DevCtrl2Str(Control, CtrlStr))
 		_tprintf("\n >> PID Device Control: %s", CtrlStr);
@@ -376,9 +386,12 @@ void CALLBACK FfbFunction1(PVOID data, PVOID userdata)
 #pragma endregion
 
 	_tprintf("\n");
+#endif // FFB_PARSED_DATA
 	Ffb_PrintRawData(data);
-	_tprintf("\n ====================================================\n");
 
+	//Use FFB Manger Output Data Service
+	FFBMngrDataServ(((FFB_DATA *)data)->data, ((FFB_DATA *)data)->cmd,((FFB_DATA *)data)->size);
+	_tprintf("\n ====================================================\n");
 }
 
 

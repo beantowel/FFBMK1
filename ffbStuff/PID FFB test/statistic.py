@@ -1,5 +1,5 @@
 import re
-filename='feedr2.txt'
+filename='origin.txt'
 foutname=filename[:-4]+"_count.txt"
 file=open(filename)
 fileout=open(foutname,'w')
@@ -27,8 +27,9 @@ for i in all_the_text: #range(0,len(all_the_text)):
             sets[j].append(k)
 
     exMatcher=re.findall("ID:\w+",key)
+    exMatcher2=re.findall("Cmd:\w+",key)
     if len(sets[0])>0 and len(exMatcher) > 0:
-        sets[0][-1]=sets[0][-1]+' --> '+exMatcher[0]
+        sets[0][-1]=sets[0][-1]+' --> '+exMatcher[0]+' --> '+exMatcher2[0]
 for i in sets:
     i=sorted(list(set(i)))
     for j in i:

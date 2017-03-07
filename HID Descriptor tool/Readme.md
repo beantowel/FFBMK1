@@ -8,6 +8,6 @@ Human Interface Device & Physical Interface Device usage definitions.
 * HID\_PID\_DescriptorGenTool.py:  
 parses the .rptDsc into bytes(report descriptor).
 * HID\_PID\_DataStructureGen.py:  
-parses the .rptDsc into c data structure definitions.
+parses the .rptDsc into c data structure definitions.  
 ##How to Use
 Before writing report descriptor in _HID\_Descriptor\_Input.rptDsc_, you are recommended to copy \rptDsc to the path refered above so that syntax highlight can work. To parse the descriptor into bytes run _DescriptorGenTool_, to parse into c data structure run _DataStructureGen_. 

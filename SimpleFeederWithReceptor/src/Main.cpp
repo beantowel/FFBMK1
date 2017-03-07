@@ -198,13 +198,7 @@ Exit:
 void  Ffb_PrintRawData(PVOID data)
 {
 	FFB_DATA * FfbData = (FFB_DATA *)data;
-	/*
-	typedef struct _FFB_DATA {
-	ULONG	size;
-	ULONG	cmd; //what do these two items uesd for?and where do they come from?;BeanTowel comments
-	UCHAR	*data; //what the fuck???
-	} FFB_DATA, * PFFB_DATA;
-	*/
+
 	int size = FfbData->size;
 	_tprintf("\nFFB Size %d\n", size);
 

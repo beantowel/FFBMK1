@@ -43,7 +43,7 @@ enum VjdStat  /* Declares an enumeration data type */
 #define INTERFACE_DEF_LOG_FILE	"vJoyInterface.log"
 
 /* Compatibility definitions */
-#define FFB_EFF_CONST 	FFB_EFF_REPORT // fuck you naming rule
+#define FFB_EFF_CONST 	FFB_EFF_REPORT 
 #define PFFB_EFF_CONST 	PFFB_EFF_REPORT
 #define Ffb_h_Eff_Const Ffb_h_Eff_Report
 
@@ -170,8 +170,8 @@ enum FFB_EFFECTS {
 
 typedef struct _FFB_DATA {
 	ULONG	size;
-	ULONG	cmd; //what do these two items uesd for?and where do they come from?;BeanTowel comments
-	UCHAR	*data; //what the fuck???
+	ULONG	cmd; //what do these two items uesd for?
+	UCHAR	*data;
 } FFB_DATA, * PFFB_DATA;
 
 typedef struct _FFB_EFF_CONSTANT { 

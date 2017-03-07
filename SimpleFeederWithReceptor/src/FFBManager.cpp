@@ -78,7 +78,7 @@ void FFBMngrOpre(uint8_t *data) {
 	//data[0]==packetID
     FFB_EFF_OP *effOp = (FFB_EFF_OP *) &data[1];
     uint8_t effBlkIdx = effOp->EffectBlockIndex;
-	uint8_t operation = data[2] ; //God Damn Shaul Ezikivich, wrong structure
+	uint8_t operation = data[2];
     uint8_t loop = data[3];
 	DebugPrint("Eff[%d] Operation: 0x%X\nLoop=%d\n", effBlkIdx, operation, loop);
     if(operation == EFF_STOP) {

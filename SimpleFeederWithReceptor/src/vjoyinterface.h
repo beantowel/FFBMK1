@@ -208,17 +208,11 @@ typedef struct _FFB_EFF_OP {
 	BYTE		LoopCount;
 } FFB_EFF_OP, *PFFB_EFF_OP;
 
-// typedef struct _FFB_EFF_PERIOD {
-// 	BYTE		EffectBlockIndex;
-// 	DWORD		Magnitude;			// Range: 0 - 10000
-// 	LONG 		Offset;				// Range: ?0000 - 10000
-// 	DWORD 		Phase;				// Range: 0 - 35999
-// 	DWORD 		Period;				// Range: 0 - 32767
-// } FFB_EFF_PERIOD, *PFFB_EFF_PERIOD;
+
 typedef struct _FFB_EFF_PERIOD {
 	BYTE		EffectBlockIndex;
 	WORD		Magnitude;			// Range: 0 - 10000
-	int16_t 	Offset;				// Range: ?0000 - 10000
+	WORD		Offset;				// Range: ?0000 - 10000
 	WORD 		Phase;				// Range: 0 - 35999
 	WORD 		Period;				// Range: 0 - 32767
 } FFB_EFF_PERIOD, *PFFB_EFF_PERIOD;

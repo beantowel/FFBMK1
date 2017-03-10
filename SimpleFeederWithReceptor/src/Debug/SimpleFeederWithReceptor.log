@@ -1,13 +1,3 @@
-﻿  FFBManager.cpp
-f:\git projects\ffbmk1\simplefeederwithreceptor\src\ffbmanager.cpp(204): warning C4244: “+=”: 从“double”转换到“std::int32_t”，可能丢失数据
-f:\git projects\ffbmk1\simplefeederwithreceptor\src\ffbmanager.cpp(211): warning C4244: “初始化”: 从“LONG”转换到“std::uint16_t”，可能丢失数据
-f:\git projects\ffbmk1\simplefeederwithreceptor\src\ffbmanager.cpp(212): warning C4244: “初始化”: 从“LONG”转换到“std::uint16_t”，可能丢失数据
-f:\git projects\ffbmk1\simplefeederwithreceptor\src\ffbmanager.cpp(232): warning C4244: “=”: 从“double”转换到“std::int32_t”，可能丢失数据
-f:\git projects\ffbmk1\simplefeederwithreceptor\src\ffbmanager.cpp(244): warning C4244: “+=”: 从“double”转换到“std::int32_t”，可能丢失数据
-f:\git projects\ffbmk1\simplefeederwithreceptor\src\ffbmanager.cpp(245): warning C4244: “=”: 从“double”转换到“std::int32_t”，可能丢失数据
-f:\git projects\ffbmk1\simplefeederwithreceptor\src\ffbmanager.cpp(265): warning C4244: “=”: 从“double”转换到“std::int32_t”，可能丢失数据
-f:\git projects\ffbmk1\simplefeederwithreceptor\src\ffbmanager.cpp(277): warning C4244: “=”: 从“double”转换到“std::int32_t”，可能丢失数据
-f:\git projects\ffbmk1\simplefeederwithreceptor\src\ffbmanager.cpp(334): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 1 拥有了类型“double”
-f:\git projects\ffbmk1\simplefeederwithreceptor\src\ffbmanager.cpp(334): warning C4477: “printf”: 格式字符串“%d”需要类型“int”的参数，但可变参数 2 拥有了类型“double”
+﻿  ViusalFFB.cpp
   SimpleFeederWithReceptor.vcxproj -> F:\git projects\FFBMK1\SimpleFeederWithReceptor\src\Debug\SimpleFeederWithReceptor.exe
   SimpleFeederWithReceptor.vcxproj -> F:\git projects\FFBMK1\SimpleFeederWithReceptor\src\Debug\SimpleFeederWithReceptor.pdb (Full PDB)

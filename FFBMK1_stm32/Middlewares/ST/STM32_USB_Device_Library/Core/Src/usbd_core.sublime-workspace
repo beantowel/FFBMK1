@@ -1,0 +1,938 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"uint",
+				"uint8_t"
+			],
+			[
+				"uin",
+				"uint8_t"
+			],
+			[
+				"inc",
+				"inc\t#include <…>"
+			],
+			[
+				"PT_EF",
+				"PT_EFOPREP"
+			],
+			[
+				"PT_CON",
+				"PT_CONDREP"
+			],
+			[
+				"floa",
+				"float32_t"
+			],
+			[
+				"PT_Co",
+				"PT_CONDREP"
+			],
+			[
+				"PT_CO",
+				"PT_CONDREP"
+			],
+			[
+				"start",
+				"Start"
+			],
+			[
+				"int",
+				"int32_t"
+			],
+			[
+				"FFB_EFF_CO",
+				"FFB_EFF_CONSTANT"
+			],
+			[
+				"ui",
+				"uint16_t"
+			],
+			[
+				"Pos",
+				"PosSatur"
+			],
+			[
+				"Neg",
+				"NegSatur"
+			],
+			[
+				"Dead",
+				"DeadBand"
+			],
+			[
+				"pe",
+				"Period"
+			],
+			[
+				"off",
+				"offset"
+			],
+			[
+				"pr",
+				"pRpt"
+			],
+			[
+				"ffb_eff",
+				"FFB_EFF_REPORT"
+			],
+			[
+				"Fad",
+				"FadeLevel"
+			],
+			[
+				"atta",
+				"AttackLevel"
+			],
+			[
+				"dire",
+				"Direction"
+			],
+			[
+				"du",
+				"Duration"
+			],
+			[
+				"eff",
+				"effRunTime"
+			],
+			[
+				"ET_C",
+				"ET_CONST"
+			],
+			[
+				"FFB_EFF",
+				"FFB_EFF_REPORT"
+			],
+			[
+				"effRun",
+				"effRunTime"
+			],
+			[
+				"effrun",
+				"effRunTime"
+			],
+			[
+				"effRu",
+				"effRunTime"
+			],
+			[
+				"CTRL_DE",
+				"CTRL_DEVCONT"
+			],
+			[
+				"CTrl_D",
+				"CTRL_DEVPAUSE"
+			],
+			[
+				"EFF_ST",
+				"EFF_START"
+			],
+			[
+				"effe",
+				"EffectBlockIndex"
+			],
+			[
+				"Eff_",
+				"FFB_EFF_REPORT"
+			],
+			[
+				"HID_ID_CON",
+				"HID_ID_CONDREP"
+			],
+			[
+				"ENVR",
+				"HID_ID_ENVREP"
+			],
+			[
+				"Efftyp",
+				"EffTypeArray"
+			],
+			[
+				"efftype",
+				"effType"
+			],
+			[
+				"para",
+				"paraBlkType"
+			],
+			[
+				"a",
+				"a"
+			],
+			[
+				"Log",
+				"Logical_Maximum"
+			],
+			[
+				"Lo",
+				"Logical_Minimum"
+			],
+			[
+				"IOF",
+				"IOF_Array"
+			],
+			[
+				"log",
+				"Logical_Minimum"
+			],
+			[
+				"lo",
+				"Logical_Maximum"
+			],
+			[
+				"usage",
+				"Usage"
+			],
+			[
+				"Effect_",
+				"PID_Effect_Block_Index"
+			],
+			[
+				"d",
+				"d"
+			],
+			[
+				"coll",
+				"Collection"
+			],
+			[
+				"s",
+				"support"
+			],
+			[
+				"file",
+				"fileout"
+			],
+			[
+				"fi",
+				"fileout_open"
+			],
+			[
+				"p",
+				"printBytes"
+			],
+			[
+				"prin",
+				"printBytes"
+			],
+			[
+				"Short",
+				"ShortItem"
+			],
+			[
+				"Sho",
+				"ShortItem"
+			],
+			[
+				"copy",
+				"copyline"
+			],
+			[
+				"mathc",
+				"match2"
+			],
+			[
+				"math",
+				"match2"
+			],
+			[
+				"try",
+				"try\tTry/Except/Else"
+			],
+			[
+				"Unit",
+				"Unit_Exponent_Constants"
+			],
+			[
+				"cosntants",
+				"Usage_Page_Constants"
+			],
+			[
+				"consta",
+				"IOF_Constants"
+			],
+			[
+				"constan",
+				"Clc_Constants"
+			],
+			[
+				"co",
+				"Byte_Count"
+			],
+			[
+				"cons",
+				"Usage_Constants"
+			],
+			[
+				"G",
+				"Global_Items"
+			],
+			[
+				"cmd",
+				"cmdText"
+			],
+			[
+				"op",
+				"operationFunc"
+			],
+			[
+				"o",
+				"operation"
+			],
+			[
+				"fil",
+				"filenamePrefix"
+			],
+			[
+				"BAS",
+				"BASEW"
+			],
+			[
+				"BA",
+				"BASEW"
+			],
+			[
+				"B",
+				"BASEW"
+			],
+			[
+				"st",
+				"startpoint"
+			],
+			[
+				"sho",
+				"Short40"
+			],
+			[
+				"os",
+				"ostream"
+			],
+			[
+				"iter",
+				"iter"
+			],
+			[
+				"it",
+				"iterator"
+			],
+			[
+				"i",
+				"inc\t#include <…>"
+			],
+			[
+				"ss",
+				"ss"
+			],
+			[
+				"in",
+				"inc\t#include <…>"
+			],
+			[
+				"Set",
+				"Set"
+			],
+			[
+				"P",
+				"printf"
+			],
+			[
+				"r",
+				"r"
+			],
+			[
+				"di",
+				"diskn"
+			],
+			[
+				"net",
+				"netMask"
+			],
+			[
+				"c",
+				"c"
+			],
+			[
+				"t",
+				"t"
+			],
+			[
+				"m",
+				"maxn"
+			],
+			[
+				"rema",
+				"remainA"
+			],
+			[
+				"divi",
+				"divisor"
+			],
+			[
+				"div",
+				"divided"
+			],
+			[
+				"n",
+				"n"
+			],
+			[
+				"C",
+				"C"
+			],
+			[
+				"j",
+				"j"
+			],
+			[
+				"pri",
+				"printf\tprintf …"
+			],
+			[
+				"sw",
+				"swap"
+			],
+			[
+				"Byte",
+				"Byte3"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "pal",
+		"selected_items":
+		[
+			[
+				"pal",
+				"Package Control: List Packages"
+			],
+			[
+				"packau",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"packagein",
+				"Package Control: Install Package"
+			],
+			[
+				"packa",
+				"Package Control: List Packages"
+			],
+			[
+				"ali",
+				"AlignTab"
+			],
+			[
+				"packa l",
+				"Package Control: List Packages"
+			],
+			[
+				"align",
+				"AlignTab"
+			],
+			[
+				"coolforma",
+				"CoolFormat: Formatter Settings"
+			],
+			[
+				"packali",
+				"Package Control: List Packages"
+			],
+			[
+				"pains",
+				"Package Control: Install Package"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"packal",
+				"Package Control: List Packages"
+			],
+			[
+				"pin",
+				"Package Control: Install Package"
+			],
+			[
+				"pa",
+				"Package Control: List Packages"
+			],
+			[
+				"package remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"l",
+				"Package Control: List Packages"
+			],
+			[
+				"package ",
+				"Package Control: Remove Package"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			],
+			[
+				"cool",
+				"CoolFormat: Quick Format"
+			],
+			[
+				"prettify",
+				"HTMLPrettify: Set Keyboard Shortcuts"
+			],
+			[
+				"intall",
+				"Package Control: Install Package"
+			],
+			[
+				"coolformat",
+				"CoolFormat: Formatter Settings"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"package in",
+				"Package Control: Install Package"
+			],
+			[
+				"view",
+				"View: Toggle Side Bar"
+			],
+			[
+				"PC",
+				"Install Package Control"
+			]
+		],
+		"width": 480.0
+	},
+	"console":
+	{
+		"height": 365.0,
+		"history":
+		[
+			"wget",
+			"wget 107.170.192.246:8001/llvm3.6/windows/clang-format.exe",
+			"wget http://107.170.192.246:8001/llvm3.6/windows/clang-format.exe",
+			"print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest();",
+			"print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"dh = hashlib.sha256(by).hexdigest();",
+			"by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read();",
+			"urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) );",
+			"pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path();",
+			"h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0';",
+			"import urllib.request,os,hashlib;",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/F/MCU/STM32_Projects/FFBMK1.1/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c",
+		"/F/MCU/STM32_Projects/FFBMK1.1/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c",
+		"/F/MCU/STM32_Projects/FFBMK1.1/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c",
+		"/F/MCU/STM32_Projects/FFBMK1.1/Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_conf_template.c",
+		"/F/其他/PythonSource/1",
+		"/F/北京航空航天大学Buaaer/课程/大三下/可靠性信息分析技术/rn.py",
+		"/F/git projects/FFBMK1/.gitignore",
+		"/F/git projects/FFBMK1/.gitignore.",
+		"/F/git projects/FFBMK1/a.gitignore",
+		"/F/git projects/FFBMK1/ffbStuff/PID FFB test/feedr1_count.txt",
+		"/F/git projects/FFBMK1/ffbStuff/PID FFB test/feedr3_count.txt",
+		"/F/git projects/FFBMK1/SimpleFeederWithReceptor/src/test/test2.cpp",
+		"/F/git projects/FFBMK1/SimpleFeederWithReceptor/src/Debug/RunTimeOutput",
+		"/F/git projects/FFBMK1/ffbStuff/PID FFB test/origin_count.txt",
+		"/F/git projects/FFBMK1/SimpleFeederWithReceptor/src/Debug/OriginOutput",
+		"/F/git projects/FFBMK1/ffbStuff/PID FFB test/statistic.py",
+		"/F/git projects/FFBMK1/ffbStuff/PID FFB test/feedr1.txt",
+		"/F/git projects/FFBMK1/SimpleFeederWithReceptor/src/test/runtimeOutput",
+		"/F/git projects/FFBMK1/ffbStuff/PID FFB test/feedr3.txt",
+		"/F/git projects/FFBMK1/SimpleFeederWithReceptor/src/vjoyinterface.h",
+		"/F/git projects/FFBMK1/SimpleFeederWithReceptor/src/FFBManager.cpp",
+		"/F/git projects/FFBMK1/SimpleFeederWithReceptor/src/public.h",
+		"/F/git projects/FFBMK1/SimpleFeederWithReceptor/src/arm_math.h",
+		"/F/git projects/FFBMK1/HID Descriptor tool/HID_Descriptor_Input.rptDsc",
+		"/F/git projects/FFBMK1/SimpleFeederWithReceptor/src/test/test.cpp",
+		"/F/git projects/FFBMK1/FFBMK1_stm32/Drivers/CMSIS/Include/arm_math.h",
+		"/F/git projects/FFBMK1/SimpleFeederWithReceptor/src/stdint.h",
+		"/F/git projects/FFBMK1/ffbStuff/PID FFB test/feedr2_count.txt",
+		"/F/git projects/FFBMK1/ffbStuff/PID FFB test/feedr2.txt",
+		"/F/git projects/FFBMK1/SimpleFeederWithReceptor/src/Main.cpp",
+		"/C/Users/Administrator/.ssh/id_rsa.pub",
+		"/F/UVAOj/Chapter6/p806.cpp",
+		"/F/UVAOj/Chapter6/p806.in",
+		"/F/MCU/STM32/工具tools/ffbStuff/PID FFB test/PID usages/pid defines.py",
+		"/F/visual studio projects/SimpleFeederWithReceptor/src/public.h",
+		"/F/visual studio projects/SimpleFeederWithReceptor/src/vjoyinterface.h",
+		"/F/MCU/STM32/工具tools/HID Descriptor tool by beantowel/HID_DescriptorGen.out",
+		"/F/visual studio projects/SimpleFeederWithReceptor/src/Main.cpp",
+		"/F/visual studio projects/SimpleFeederWithReceptor/src/FFBManager.cpp",
+		"/F/MCU/STM32/工具tools/HID Descriptor tool by beantowel/HID_PID_DescriptorGenTool.py",
+		"/F/git projects/FFBMK1/HID Descriptor tool by beantowel/Readme.md",
+		"/F/MCU/STM32/工具tools/ffbStuff/PID FFB 调试/feedr2.txt",
+		"/F/visual studio projects/SimpleFeederWithReceptor/src/test/test.cpp",
+		"/F/MCU/STM32/工具tools/ffbStuff/PID FFB 调试/statistic.py",
+		"/F/MCU/STM32/工具tools/ffbStuff/PID FFB 调试/feedr2_count.txt",
+		"/F/MCU/STM32/工具tools/ffbStuff/PID FFB 调试/fedit.txt",
+		"/F/MCU/STM32/工具tools/HID Descriptor tool by beantowel/HID_Descriptor_Input.rptDsc",
+		"/F/MCU/STM32/工具tools/ffbStuff/PID FFB 调试/feedr1.txt",
+		"/F/MCU/STM32/工具tools/ffbStuff/PID FFB 调试/feedr1_count.txt",
+		"/F/MCU/STM32/工具tools/ffbStuff/PID FFB 调试/fedit_count.txt",
+		"/C/Users/Administrator/AppData/Roaming/Sublime Text 3/Packages/AlignTab/AlignTab.sublime-settings",
+		"/C/Users/Administrator/AppData/Roaming/Sublime Text 3/Packages/User/AlignTab.sublime-settings",
+		"/C/Users/Administrator/AppData/Roaming/Sublime Text 3/Packages/User/Context.sublime-menu",
+		"/F/visual studio projects/SimpleFeederWithReceptor/src/stdint.h",
+		"/F/visual studio projects/SimpleFeederWithReceptor/src/FFBManager.h",
+		"/F/visual studio projects/SimpleFeederWithReceptor/src/FFBRender.cpp",
+		"/F/visual studio projects/SimpleFeederWithReceptor/src/PID_DataStructure.cpp",
+		"/F/visual studio projects/SimpleFeederWithReceptor/src/inc/public.h",
+		"/F/MCU/STM32/工具tools/HID Descriptor tool by beantowel/HID_PID_Descriptor_Definitions.py",
+		"/F/MCU/STM32/工具tools/HID Descriptor tool by beantowel/fold/HID_Descriptor_Input.out",
+		"/F/UVAOj/Chapter6/p12166.in",
+		"/F/UVAOj/Chapter6/p12166.cpp",
+		"/F/UVAOj/Chapter6/p12166.txt",
+		"/F/UVAOj/Chapter6/test.cpp",
+		"/F/MCU/STM32/工具tools/HID Descriptor tool by beantowel/HID_usages.h",
+		"/F/MCU/STM32/工具tools/HID Descriptor tool by beantowel/PID_Descriptor_tool.cpp",
+		"/F/北京航空航天大学Buaaer/三本大学自我救赎/aoapc-bac2nd-master/ch6/UVa1599.cpp",
+		"/C/Users/Administrator/AppData/Roaming/Sublime Text 3/Packages/CoolFormat/CoolFormatLib/CoolFormatConfig.cfconfig",
+		"/C/Users/Administrator/AppData/Roaming/Sublime Text 3/Packages/CoolFormat/Default.sublime-commands",
+		"/C/Users/Administrator/AppData/Roaming/Sublime Text 3/Packages/CoolFormat/README.md",
+		"/C/Users/Administrator/AppData/Roaming/Sublime Text 3/Packages/CoolFormat/Coolformat.py",
+		"/C/Users/Administrator/AppData/Roaming/Sublime Text 3/Packages/HTML-CSS-JS Prettify/.jsbeautifyrc",
+		"/F/北京航空航天大学Buaaer/三本大学自我救赎/tass-sgi-stl-2.91.57-source/algorithm",
+		"/F/北京航空航天大学Buaaer/三本大学自我救赎/tass-sgi-stl-2.91.57-source/algobase.h",
+		"/F/北京航空航天大学Buaaer/三本大学自我救赎/tass-sgi-stl-2.91.57-source/algo.h",
+		"/C/Users/Administrator/AppData/Roaming/Sublime Text 3/Packages/User/rptDsc/rptDsc.YAML-tmLanguage",
+		"/C/Users/Administrator/AppData/Roaming/Sublime Text 3/Packages/User/rptDsc/rptDsc.tmLanguage",
+		"/C/Users/Administrator/AppData/Roaming/Sublime Text 3/Packages/User/rptDsc/rptDsc.sublime-syntax",
+		"/C/Users/Administrator/AppData/Roaming/Sublime Text 3/Packages/User/rptDsc/rptDscSyntax.sublime-syntax",
+		"/F/MCU/STM32/工具tools/HID Descriptor tool by beantowel/HID_Descriptor_Input.in",
+		"/C/Users/Administrator/AppData/Roaming/Sublime Text 3/Packages/User/rptDsc/rptDscSyntax.YAML-tmLanguage",
+		"/C/Users/Administrator/AppData/Roaming/Sublime Text 3/Packages/User/rptDsc/rptDscSyntax.YAML-tmLanguage.yaml",
+		"/C/Users/Administrator/AppData/Roaming/Sublime Text 3/Packages/User/rptDscSyntax.yaml",
+		"/F/MCU/STM32/工具tools/HID Descriptor tool by beantowel/PID_usages.h",
+		"/F/visual studio projects/SimpleFeederWithReceptor/src/inc/vjoyinterface.h",
+		"/F/MCU/STM32/工具tools/HID Descriptor tool by beantowel/HID_PID_Descriptor_tool.py",
+		"/F/MCU/STM32/工具tools/HID Descriptor tool by beantowel/HID_PID_Descriptor_Defines.py",
+		"/F/MCU/STM32/工具tools/HID Descriptor tool by beantowel/HID_Descriptor_Input.out",
+		"/F/第二快速任务/s.py",
+		"/F/第二快速任务/search.py",
+		"/F/北京航空航天大学Buaaer/活动/数学建模/16国赛/MK3picker.py",
+		"/F/UVAOj/Chapter5/p12333.out",
+		"/F/UVAOj/Chapter5/p12333.in",
+		"/F/UVAOj/Chapter5/p12333.cpp",
+		"/F/UVAOj/Chapter5/p12333-1.cpp",
+		"/F/UVAOj/Chapter5/p1593.in",
+		"/F/UVAOj/Chapter5/p12333-0.cpp",
+		"/F/UVAOj/Chapter5/p12100.cpp",
+		"/F/UVAOj/Chapter5/p1595.cpp",
+		"/F/UVAOj/Chapter5/p10391.cpp",
+		"/F/UVAOj/Chapter5/p10763-1.cpp",
+		"/F/UVAOj/Chapter5/p1593.cpp",
+		"/F/UVAOj/Chapter5/p10935.cpp",
+		"/F/UVAOj/Chapter5/p1594.pdf",
+		"/F/UVAOj/Chapter5/p1594.cpp",
+		"/F/UVAOj/Chapter5/p1593.pdf",
+		"/F/UVAOj/Chapter5/fold/test1.cpp",
+		"/F/UVAOj/Chapter5/fold/test.cpp",
+		"/F/UVAOj/Chapter4/p815.cpp",
+		"/F/UVAOj/Chapter4/p509.cpp",
+		"/F/UVAOj/Chapter4/p1590.cpp",
+		"/F/UVAOj/Chapter4/p1590.pdf",
+		"/F/UVAOj/Chapter4/fold/test.c",
+		"/F/其他/websites/no-ads/9377广告弹窗又泛滥了，恶心_百度联盟吧_百度贴吧.html",
+		"/F/其他/websites/ads/2691115784.html",
+		"/C/Users/Administrator/AppData/Roaming/Sublime Text 3/Packages/HTML-CSS-JS Prettify/Default (Windows).sublime-keymap",
+		"/C/Users/Administrator/AppData/Roaming/Sublime Text 3/Packages/HTML-CSS-JS Prettify/HTMLPrettify.sublime-settings",
+		"/F/UVAOj/Chapter4/fold/test.cpp",
+		"/F/UVAOj/Chapter3/p1588.cpp",
+		"/C/Users/Administrator/AppData/Roaming/Sublime Text 3/Packages/CoolFormat/Default.sublime-keymap",
+		"/C/Users/Administrator/AppData/Roaming/Sublime Text 3/Installed Packages/Clang Format/README.md",
+		"/F/UVAOj/Chapter3/p1587.cpp",
+		"/F/UVAOj/Chapter3/p10340.cpp",
+		"/F/UVAOj/Chapter3/p202.cpp",
+		"/F/UVAOj/Chapter3/ap11809.cpp",
+		"/F/UVAOj/Chapter3/p11809.cpp",
+		"/F/UVAOj/Chapter3/rand11809.py",
+		"/F/UVAOj/Chapter3/p1368.cpp"
+	],
+	"find":
+	{
+		"height": 28.0
+	},
+	"find_in_files":
+	{
+		"height": 96.0,
+		"where_history":
+		[
+			"F:\\git projects\\FFBMK1\\ffbStuff\\PID FFB test"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			".txt",
+			"magnitude",
+			"Constant Force",
+			"origin",
+			"ID:12",
+			"ID:14",
+			"Accepting Parameter",
+			"direction",
+			"magnitude",
+			":%",
+			"direction",
+			"CTRL",
+			"enum",
+			"cont",
+			"EFF",
+			"enum",
+			"Effect Operation Report",
+			"1",
+			"0x1",
+			"0x01",
+			"ID_",
+			"0x10",
+			"PT_RAMPREP",
+			"idx",
+			"gain",
+			"ramp",
+			"FFBP",
+			"&Tx",
+			"Tx",
+			"FFB_EFF_CONST",
+			"const",
+			"FFBP",
+			"type",
+			"enum",
+			"level",
+			"rGain",
+			"runtime",
+			"duration",
+			"level",
+			"PI",
+			"cos",
+			"float",
+			"0x7f",
+			"0xff",
+			"0xFF",
+			"rlevel",
+			"level",
+			" >",
+			">",
+			"<",
+			"pRpt",
+			"magn",
+			"magnitud",
+			"magnitude",
+			"level",
+			"rlevel",
+			"uint32_t    ",
+			"Periodic",
+			"59",
+			"Periodic",
+			"period",
+			"periode",
+			"periodec",
+			"eRpt",
+			"effRpt",
+			"x",
+			"level",
+			"direction",
+			"rpt",
+			" rpt",
+			"effRpt[effBlkIdx]",
+			"effBlkIdx",
+			"rpt",
+			"Duration",
+			"duration",
+			"effRunTime[effBlkIdx]",
+			"effBlkIdx",
+			"idx",
+			"level",
+			"gain",
+			"linerMulti",
+			"effRunTime",
+			"envelope",
+			"effRpt[idx].",
+			"Rpt",
+			"i",
+			"FFBEType",
+			"EFF_R",
+			"effRpt",
+			"64",
+			"gain",
+			"Device Contro",
+			"ctrl",
+			"FFB_CTRL",
+			"Stat",
+			"FFB_CTRL",
+			"control",
+			"ctrl",
+			"stat",
+			"ReportIDArray",
+			"FRE",
+			"BLKFRREP",
+			"free",
+			"enum",
+			"Operation",
+			"EffectOp",
+			"New",
+			"FFB_EFF_REPORT",
+			"EffectBlockIndex",
+			"FFB_EFF_REPORT",
+			"loop",
+			"loop3",
+			",",
+			":.*','",
+			"magni",
+			"constant force report",
+			"index",
+			"constant",
+			"create new",
+			"\"",
+			"'",
+			"effType",
+			"effBlkIdx",
+			"effReport",
+			"FFBManager",
+			"bb",
+			"BB",
+			"AA"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 28.0
+	},
+	"input":
+	{
+		"height": 36.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "usbd_core.sublime-project",
+	"replace":
+	{
+		"height": 52.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 302.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

@@ -48,9 +48,12 @@
 
 #my rubbish
 *.ink
-*.ffe
 /ffbStuff/PID FFB test/*.txt
 /HID Descriptor tool/__pycache__
+
+#ffbStuff Debug Wizards
+!/ffbStuff/*.exe
+!/ffbStuff/PID FFB test/*.exe
 
 modules.order
 Module.symvers

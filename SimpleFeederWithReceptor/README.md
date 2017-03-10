@@ -1,0 +1,2 @@
+#SimpleFeederWithReceptor
+a virtual stick demo with FFB receptor and parser, visualize the feed back force in X-Y,X-t,Y-t Plots. Using vjoyinterface API to receive data, Opengl | glut to draw the animation.

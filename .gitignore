@@ -48,8 +48,13 @@
 
 #my rubbish
 *.ink
+*.Ink
+*.enc
 /ffbStuff/PID FFB test/*.txt
 /HID Descriptor tool/__pycache__
+/HID Descriptor tool/test
+/SimpleFeederWithReceptor/src/test
+/SimpleFeederWithReceptor/src/Debug/SimpleFe.C34FAEEE.tlog
 
 #ffbStuff Debug Wizards
 !/ffbStuff/*.exe

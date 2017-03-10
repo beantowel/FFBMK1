@@ -47,8 +47,7 @@
 *.cmd
 
 #my rubbish
-*.ink
-*.Ink
+*.lnk
 *.enc
 /ffbStuff/PID FFB test/*.txt
 /HID Descriptor tool/__pycache__

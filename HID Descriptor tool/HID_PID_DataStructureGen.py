@@ -11,7 +11,10 @@ def StatMachine(mainItem,value):
         except:
             print('error',lcalStat)
         structName.append(sN)
-        Outputs.append('struct _'+sN+'{') #struct begins
+        if len(structName)==1:
+            Outputs.append('typedef struct _'+sN+'{') #struct begins
+        else:
+            Outputs.append('struct {') #inner report struct
     if mainItem=='End_Collection':
         sN=structName.pop()
         Outputs.append('} '+sN+';') #struct ends
@@ -31,7 +34,7 @@ def StatMachine(mainItem,value):
             enumtype='uint'+str(enumtype)+'_t' #ARM style typedef            
             enumName.append(['enum '+enumT+' : '+enumtype,copy.copy(enumV)])
             for i in range(0,int(glStat['Report_Count'])):
-                Outputs.append(enumT+' '+enumT.lower()+'_'+str(i)+';')
+                Outputs.append('enum '+enumT+' '+enumT.lower()+'_'+str(i)+';')
         if value=='IOF_Variable':
             cnt=glStat['Report_Count']
             usage=[]
@@ -49,17 +52,28 @@ def StatMachine(mainItem,value):
         #     gg
         # if value=='IOF_IOF_Defalut_Items':
         #     gg
+        Outputs.append('//Logical_Maximum:'+glStat['Logical_Maximum'])
+        if int(glStat['Logical_Minimum'])!=0:
+            Outputs.append('//Logical_Minimum:'+glStat['Logical_Minimum'])
+        if glStat['Unit']!='Unit_None':
+            Outputs.append('//Unit:'+glStat['Unit'])
+        if glStat['Unit_Exponent']!='0':
+            Outputs.append('//Unit_Exponent:'+glStat['Unit_Exponent'])
 
 fileIn     = "HID_Descriptor_Input.rptDsc"
 fileOut    = open("HID_DataStructure.out",'w')
 lines      = open(fileIn).readlines()
-glStat     = {} #global Status
+glStat     = {
+    'Unit':'Unit_None',
+    'Unit_Exponent':'0',
+} #global Status
 lcalStat   = {} #local Status
 mainStat   = {} #main Status
 status     = [glStat,lcalStat,mainStat]
 Outputs    = []
 structName = []
 enumName   = []
+rptID      = []
 
 strStart=False
 strEnd=False
@@ -84,7 +98,8 @@ for line in lines:
         value=re.findall('\(.*\)',key)
         for m in item:
             glStat[m]=value[0][1:-1]
-            if m in ['Report_ID','Unit','Unit_Exponent']:
+            if m in ['Report_ID']:
+                rptID.append(['ID_'+structName[-1],value[0][1:-1]])
                 Outputs.append('//'+m+':'+value[0][1:-1])
             break
 
@@ -114,6 +129,11 @@ for enum in enumName:
     for usage in enum[1]:
         fileOut.write(usage+'\n')
     fileOut.write('};\n\n')
+
+fileOut.write('enum Report_ID_Enum:uint8_t{\n')
+for rpt in rptID:
+    fileOut.write(rpt[0]+'='+rpt[1]+',\n')
+fileOut.write('};\n')
 
 cnt=0 #seperate each struct
 for line in Outputs:

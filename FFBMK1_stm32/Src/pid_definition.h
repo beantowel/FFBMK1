@@ -1,39 +1,40 @@
-enum PID_Effect_Type_Enum : uint8_t {
-    PID_ET_Spring = 1,
-    PID_ET_Triangle = 2,
-    PID_ET_Sine = 3,
-    PID_ET_Constant_Force = 4,
+enum PID_Effect_Type_Enum {
+    PID_ET_Constant_Force = 1,
+    PID_ET_Sine = 2,
+    PID_ET_Triangle = 3,
+    PID_ET_Spring = 4,
+    PID_ET_Ramp = 5,
 };
 
-enum PID_Block_Load_Status_Enum : uint8_t {
-    PID_Block_Load_Error = 1,
+enum PID_Block_Load_Status_Enum {
+    PID_Block_Load_Success = 1,
     PID_Block_Load_Full = 2,
-    PID_Block_Load_Success = 3,
+    PID_Block_Load_Error = 3,
 };
 
-enum PID_Effect_Operation_Enum : uint8_t {
-    PID_Op_Effect_Stop = 1,
+enum PID_Effect_Operation_Enum {
+    PID_Op_Effect_Start = 1,
     PID_Op_Effect_Start_Solo = 2,
-    PID_Op_Effect_Start = 3,
+    PID_Op_Effect_Stop = 3,
 };
 
-enum PID_PID_State_Report_Enum : uint8_t {
-    PID_Actuator_Power = 1,
-    PID_Safety_Switch = 2,
-    PID_Actuators_Enabled = 3,
-    PID_Effect_Playing = 4,
+enum PID_PID_State_Report_Enum {
+    PID_Effect_Playing = 1,
+    PID_Actuators_Enabled = 2,
+    PID_Safety_Switch = 3,
+    PID_Actuator_Power = 4,
 };
 
-enum PID_PID_Device_Control_Enum : uint8_t {
-    PID_DC_Device_Continue = 1,
-    PID_DC_Device_Pause = 2,
-    PID_DC_Device_Reset = 3,
-    PID_DC_Stop_All_Effects = 4,
-    PID_DC_Disable_Actuators = 5,
-    PID_DC_Enable_Actuators = 6,
+enum PID_PID_Device_Control_Enum {
+    PID_DC_Enable_Actuators = 1,
+    PID_DC_Disable_Actuators = 2,
+    PID_DC_Stop_All_Effects = 3,
+    PID_DC_Device_Reset = 4,
+    PID_DC_Device_Pause = 5,
+    PID_DC_Device_Continue = 6,
 };
 
-enum Report_ID_Enum : uint8_t {
+enum Report_ID_Enum {
     ID_PID_Create_New_Effect_Report = 1,
     ID_PID_PID_Block_Load_Report = 2,
     ID_PID_Set_Effect_Report = 3,
@@ -46,13 +47,14 @@ enum Report_ID_Enum : uint8_t {
     ID_PID_PID_State_Report = 10,
     ID_PID_PID_Device_Control_Report = 11,
     ID_PID_Device_Gain_Report = 12,
+    ID_PID_PID_Block_Free_Report = 13,
 };
 
 typedef struct _PID_Create_New_Effect_Report {
     //Report_ID:1
     struct {
         enum PID_Effect_Type_Enum pid_effect_type_enum_0;
-        //Logical_Maximum:4
+        //Logical_Maximum:5
         //Logical_Minimum:1
     } PID_Effect_Type;
     uint8_t byte_count;
@@ -218,3 +220,9 @@ typedef struct _PID_Device_Gain_Report {
     uint8_t pid_device_gain;
     //Logical_Maximum:255
 } PID_Device_Gain_Report;
+
+typedef struct _PID_PID_Block_Free_Report {
+    //Report_ID:13
+    uint8_t pid_effect_block_index;
+    //Logical_Maximum:255
+} PID_PID_Block_Free_Report;

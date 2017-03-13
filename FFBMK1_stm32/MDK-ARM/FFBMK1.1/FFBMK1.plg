@@ -9,252 +9,76 @@ Project File Date:  03/11/2017
 <h2>Output:</h2>
 Build target 'FFBMK1.1'
 compiling ffbManager.c...
-..\Src\pid_definition.h(1): error:  #40: expected an identifier
-..\Src\pid_definition.h(1): error:  #65: expected a ";"
-..\Src\pid_definition.h(6): warning:  #12-D: parsing restarts here after previous syntax error
-..\Src\pid_definition.h(8): error:  #40: expected an identifier
-..\Src\pid_definition.h(8): error:  #65: expected a ";"
-..\Src\pid_definition.h(12): warning:  #12-D: parsing restarts here after previous syntax error
-..\Src\pid_definition.h(14): error:  #40: expected an identifier
-..\Src\pid_definition.h(14): error:  #65: expected a ";"
-..\Src\pid_definition.h(18): warning:  #12-D: parsing restarts here after previous syntax error
-..\Src\pid_definition.h(20): error:  #40: expected an identifier
-..\Src\pid_definition.h(20): error:  #65: expected a ";"
-..\Src\pid_definition.h(25): warning:  #12-D: parsing restarts here after previous syntax error
-..\Src\pid_definition.h(27): error:  #40: expected an identifier
-..\Src\pid_definition.h(27): error:  #65: expected a ";"
-..\Src\pid_definition.h(34): warning:  #12-D: parsing restarts here after previous syntax error
-..\Src\pid_definition.h(36): error:  #40: expected an identifier
-..\Src\pid_definition.h(36): error:  #65: expected a ";"
-..\Src\pid_definition.h(49): warning:  #12-D: parsing restarts here after previous syntax error
-..\Src\pid_definition.h(54): error:  #70: incomplete type is not allowed
-..\Src\pid_definition.h(67): error:  #70: incomplete type is not allowed
-..\Src\pid_definition.h(80): error:  #70: incomplete type is not allowed
-..\Src\pid_definition.h(190): error:  #70: incomplete type is not allowed
-..\Src\pid_definition.h(202): error:  #70: incomplete type is not allowed
-..\Src\pid_definition.h(210): error:  #70: incomplete type is not allowed
-..\Src\ffbManager.c(11): error:  #20: identifier "FFB_EFF_REPORT" is undefined
-..\Src\ffbManager.c(16): warning:  #223-D: function "DebugPrint" declared implicitly
-..\Src\ffbManager.c(20): warning:  #223-D: function "memset" declared implicitly
-..\Src\ffbManager.c(31): warning:  #223-D: function "DebugPrint" declared implicitly
-..\Src\ffbManager.c(37): warning:  #68-D: integer conversion resulted in a change of sign
-..\Src\ffbManager.c(40): warning:  #223-D: function "DebugPrint" declared implicitly
-..\Src\ffbManager.c(44): warning:  #68-D: integer conversion resulted in a change of sign
-..\Src\ffbManager.c(45): warning:  #68-D: integer conversion resulted in a change of sign
-..\Src\ffbManager.c(49): error:  #20: identifier "FFB_EFF_REPORT" is undefined
-..\Src\ffbManager.c(49): error:  #29: expected an expression
-..\Src\ffbManager.c(50): error:  #29: expected an expression
-..\Src\ffbManager.c(54): warning:  #223-D: function "DebugPrint" declared implicitly
-..\Src\ffbManager.c(57): error:  #20: identifier "FFBPType" is undefined
-..\Src\ffbManager.c(58): warning:  #223-D: function "DebugPrint" declared implicitly
-..\Src\ffbManager.c(73): error:  #20: identifier "FFB_EFF_OP" is undefined
-..\Src\ffbManager.c(73): error:  #20: identifier "effOp" is undefined
-..\Src\ffbManager.c(73): error:  #29: expected an expression
-..\Src\ffbManager.c(77): warning:  #223-D: function "DebugPrint" declared implicitly
-..\Src\ffbManager.c(78): error:  #20: identifier "EFF_STOP" is undefined
-..\Src\ffbManager.c(82): error:  #20: identifier "EFF_SOLO" is undefined
-..\Src\ffbManager.c(85): error:  #20: identifier "EFF_SOLO" is undefined
-..\Src\ffbManager.c(85): error:  #20: identifier "EFF_START" is undefined
-"FFBMK1.1\FFBMK1.1" - 30 Errors, 16 Warning(s).
-Target not created
+..\Src\ffbManager.c(34): warning:  #177-D: variable "effType" was declared but never referenced
+..\Src\ffbManager.c(49): warning:  #68-D: integer conversion resulted in a change of sign
+..\Src\ffbManager.c(50): warning:  #68-D: integer conversion resulted in a change of sign
+..\Src\ffbManager.c(131): warning:  #68-D: integer conversion resulted in a change of sign
+..\Src\ffbManager.c(131): warning:  #550-D: variable "effBlkIdx" was set but never used
+..\Src\ffbManager.c(131): warning:  #177-D: variable "effType" was declared but never referenced
+..\Src\ffbManager.c(198): warning:  #177-D: variable "eRpt" was declared but never referenced
+..\Src\ffbManager.c(209): warning:  #177-D: variable "eRpt" was declared but never referenced
+..\Src\ffbManager.c(339): warning:  #1-D: last line of file ends without a newline
+linking...
+Program Size: Code=15556 RO-data=352 RW-data=328 ZI-data=3344  
+"FFBMK1.1\FFBMK1.1" - 0 Errors, 9 Warning(s).
 Build target 'FFBMK1.1'
 compiling ffbManager.c...
-..\Src\pid_definition.h(1): error:  #40: expected an identifier
-..\Src\pid_definition.h(1): error:  #65: expected a ";"
-..\Src\pid_definition.h(6): warning:  #12-D: parsing restarts here after previous syntax error
-..\Src\pid_definition.h(8): error:  #40: expected an identifier
-..\Src\pid_definition.h(8): error:  #65: expected a ";"
-..\Src\pid_definition.h(12): warning:  #12-D: parsing restarts here after previous syntax error
-..\Src\pid_definition.h(14): error:  #40: expected an identifier
-..\Src\pid_definition.h(14): error:  #65: expected a ";"
-..\Src\pid_definition.h(18): warning:  #12-D: parsing restarts here after previous syntax error
-..\Src\pid_definition.h(20): error:  #40: expected an identifier
-..\Src\pid_definition.h(20): error:  #65: expected a ";"
-..\Src\pid_definition.h(25): warning:  #12-D: parsing restarts here after previous syntax error
-..\Src\pid_definition.h(27): error:  #40: expected an identifier
-..\Src\pid_definition.h(27): error:  #65: expected a ";"
-..\Src\pid_definition.h(34): warning:  #12-D: parsing restarts here after previous syntax error
-..\Src\pid_definition.h(36): error:  #40: expected an identifier
-..\Src\pid_definition.h(36): error:  #65: expected a ";"
-..\Src\pid_definition.h(49): warning:  #12-D: parsing restarts here after previous syntax error
-..\Src\pid_definition.h(54): error:  #70: incomplete type is not allowed
-..\Src\pid_definition.h(67): error:  #70: incomplete type is not allowed
-..\Src\pid_definition.h(80): error:  #70: incomplete type is not allowed
-..\Src\pid_definition.h(190): error:  #70: incomplete type is not allowed
-..\Src\pid_definition.h(202): error:  #70: incomplete type is not allowed
-..\Src\pid_definition.h(210): error:  #70: incomplete type is not allowed
-..\Src\ffbManager.c(11): error:  #20: identifier "FFB_EFF_REPORT" is undefined
-..\Src\ffbManager.c(16): warning:  #223-D: function "DebugPrint" declared implicitly
-..\Src\ffbManager.c(20): warning:  #223-D: function "memset" declared implicitly
-..\Src\ffbManager.c(31): warning:  #223-D: function "DebugPrint" declared implicitly
-..\Src\ffbManager.c(37): warning:  #68-D: integer conversion resulted in a change of sign
-..\Src\ffbManager.c(40): warning:  #223-D: function "DebugPrint" declared implicitly
-..\Src\ffbManager.c(44): warning:  #68-D: integer conversion resulted in a change of sign
-..\Src\ffbManager.c(45): warning:  #68-D: integer conversion resulted in a change of sign
-..\Src\ffbManager.c(49): error:  #20: identifier "FFB_EFF_REPORT" is undefined
-..\Src\ffbManager.c(49): error:  #29: expected an expression
-..\Src\ffbManager.c(50): error:  #29: expected an expression
-..\Src\ffbManager.c(54): warning:  #223-D: function "DebugPrint" declared implicitly
-..\Src\ffbManager.c(57): error:  #20: identifier "FFBPType" is undefined
-..\Src\ffbManager.c(58): warning:  #223-D: function "DebugPrint" declared implicitly
-..\Src\ffbManager.c(73): error:  #20: identifier "FFB_EFF_OP" is undefined
-..\Src\ffbManager.c(73): error:  #20: identifier "effOp" is undefined
-..\Src\ffbManager.c(73): error:  #29: expected an expression
-..\Src\ffbManager.c(77): warning:  #223-D: function "DebugPrint" declared implicitly
-..\Src\ffbManager.c(78): error:  #20: identifier "EFF_STOP" is undefined
-..\Src\ffbManager.c(82): error:  #20: identifier "EFF_SOLO" is undefined
-..\Src\ffbManager.c(85): error:  #20: identifier "EFF_SOLO" is undefined
-..\Src\ffbManager.c(85): error:  #20: identifier "EFF_START" is undefined
-"FFBMK1.1\FFBMK1.1" - 30 Errors, 16 Warning(s).
-Target not created
+..\Src\ffbManager.c(34): warning:  #177-D: variable "effType" was declared but never referenced
+..\Src\ffbManager.c(49): warning:  #68-D: integer conversion resulted in a change of sign
+..\Src\ffbManager.c(50): warning:  #68-D: integer conversion resulted in a change of sign
+..\Src\ffbManager.c(131): warning:  #68-D: integer conversion resulted in a change of sign
+..\Src\ffbManager.c(131): warning:  #550-D: variable "effBlkIdx" was set but never used
+..\Src\ffbManager.c(131): warning:  #177-D: variable "effType" was declared but never referenced
+..\Src\ffbManager.c(198): warning:  #177-D: variable "eRpt" was declared but never referenced
+..\Src\ffbManager.c(209): warning:  #177-D: variable "eRpt" was declared but never referenced
+linking...
+Program Size: Code=15556 RO-data=352 RW-data=328 ZI-data=3344  
+"FFBMK1.1\FFBMK1.1" - 0 Errors, 8 Warning(s).
 Build target 'FFBMK1.1'
 compiling ffbManager.c...
-..\Src\pid_definition.h(1): error:  #40: expected an identifier
-..\Src\pid_definition.h(1): error:  #65: expected a ";"
-..\Src\pid_definition.h(6): warning:  #12-D: parsing restarts here after previous syntax error
-..\Src\pid_definition.h(8): error:  #40: expected an identifier
-..\Src\pid_definition.h(8): error:  #65: expected a ";"
-..\Src\pid_definition.h(12): warning:  #12-D: parsing restarts here after previous syntax error
-..\Src\pid_definition.h(14): error:  #40: expected an identifier
-..\Src\pid_definition.h(14): error:  #65: expected a ";"
-..\Src\pid_definition.h(18): warning:  #12-D: parsing restarts here after previous syntax error
-..\Src\pid_definition.h(20): error:  #40: expected an identifier
-..\Src\pid_definition.h(20): error:  #65: expected a ";"
-..\Src\pid_definition.h(25): warning:  #12-D: parsing restarts here after previous syntax error
-..\Src\pid_definition.h(27): error:  #40: expected an identifier
-..\Src\pid_definition.h(27): error:  #65: expected a ";"
-..\Src\pid_definition.h(34): warning:  #12-D: parsing restarts here after previous syntax error
-..\Src\pid_definition.h(36): error:  #40: expected an identifier
-..\Src\pid_definition.h(36): error:  #65: expected a ";"
-..\Src\pid_definition.h(49): warning:  #12-D: parsing restarts here after previous syntax error
-..\Src\pid_definition.h(54): error:  #70: incomplete type is not allowed
-..\Src\pid_definition.h(67): error:  #70: incomplete type is not allowed
-..\Src\pid_definition.h(80): error:  #70: incomplete type is not allowed
-..\Src\pid_definition.h(190): error:  #70: incomplete type is not allowed
-..\Src\pid_definition.h(202): error:  #70: incomplete type is not allowed
-..\Src\pid_definition.h(210): error:  #70: incomplete type is not allowed
-..\Src\ffbManager.c(11): error:  #20: identifier "FFB_EFF_REPORT" is undefined
-..\Src\ffbManager.c(16): warning:  #223-D: function "DebugPrint" declared implicitly
-..\Src\ffbManager.c(20): warning:  #223-D: function "memset" declared implicitly
-..\Src\ffbManager.c(31): warning:  #223-D: function "DebugPrint" declared implicitly
-..\Src\ffbManager.c(37): warning:  #68-D: integer conversion resulted in a change of sign
-..\Src\ffbManager.c(40): warning:  #223-D: function "DebugPrint" declared implicitly
-..\Src\ffbManager.c(44): warning:  #68-D: integer conversion resulted in a change of sign
-..\Src\ffbManager.c(45): warning:  #68-D: integer conversion resulted in a change of sign
-..\Src\ffbManager.c(49): error:  #20: identifier "FFB_EFF_REPORT" is undefined
-..\Src\ffbManager.c(49): error:  #29: expected an expression
-..\Src\ffbManager.c(50): error:  #29: expected an expression
-..\Src\ffbManager.c(54): warning:  #223-D: function "DebugPrint" declared implicitly
-..\Src\ffbManager.c(57): error:  #20: identifier "FFBPType" is undefined
-..\Src\ffbManager.c(58): warning:  #223-D: function "DebugPrint" declared implicitly
-..\Src\ffbManager.c(73): error:  #20: identifier "FFB_EFF_OP" is undefined
-..\Src\ffbManager.c(73): error:  #20: identifier "effOp" is undefined
-..\Src\ffbManager.c(73): error:  #29: expected an expression
-..\Src\ffbManager.c(77): warning:  #223-D: function "DebugPrint" declared implicitly
-..\Src\ffbManager.c(78): error:  #20: identifier "EFF_STOP" is undefined
-..\Src\ffbManager.c(82): error:  #20: identifier "EFF_SOLO" is undefined
-..\Src\ffbManager.c(85): error:  #20: identifier "EFF_SOLO" is undefined
-..\Src\ffbManager.c(85): error:  #20: identifier "EFF_START" is undefined
-"FFBMK1.1\FFBMK1.1" - 30 Errors, 16 Warning(s).
-Target not created
-Build target 'FFBMK1.1'
-compiling usbd_pid.c...
-compiling ffbManager.c...
-..\Src\pid_definition.h(1): error:  #40: expected an identifier
-..\Src\pid_definition.h(1): error:  #65: expected a ";"
-..\Src\pid_definition.h(6): warning:  #12-D: parsing restarts here after previous syntax error
-..\Src\pid_definition.h(8): error:  #40: expected an identifier
-..\Src\pid_definition.h(8): error:  #65: expected a ";"
-..\Src\pid_definition.h(12): warning:  #12-D: parsing restarts here after previous syntax error
-..\Src\pid_definition.h(14): error:  #40: expected an identifier
-..\Src\pid_definition.h(14): error:  #65: expected a ";"
-..\Src\pid_definition.h(18): warning:  #12-D: parsing restarts here after previous syntax error
-..\Src\pid_definition.h(20): error:  #40: expected an identifier
-..\Src\pid_definition.h(20): error:  #65: expected a ";"
-..\Src\pid_definition.h(25): warning:  #12-D: parsing restarts here after previous syntax error
-..\Src\pid_definition.h(27): error:  #40: expected an identifier
-..\Src\pid_definition.h(27): error:  #65: expected a ";"
-..\Src\pid_definition.h(34): warning:  #12-D: parsing restarts here after previous syntax error
-..\Src\pid_definition.h(36): error:  #40: expected an identifier
-..\Src\pid_definition.h(36): error:  #65: expected a ";"
-..\Src\pid_definition.h(49): warning:  #12-D: parsing restarts here after previous syntax error
-..\Src\pid_definition.h(54): error:  #70: incomplete type is not allowed
-..\Src\pid_definition.h(67): error:  #70: incomplete type is not allowed
-..\Src\pid_definition.h(80): error:  #70: incomplete type is not allowed
-..\Src\pid_definition.h(190): error:  #70: incomplete type is not allowed
-..\Src\pid_definition.h(202): error:  #70: incomplete type is not allowed
-..\Src\pid_definition.h(210): error:  #70: incomplete type is not allowed
-..\Src\ffbManager.c(16): warning:  #223-D: function "DebugPrint" declared implicitly
-..\Src\ffbManager.c(20): warning:  #223-D: function "memset" declared implicitly
-..\Src\ffbManager.c(31): warning:  #223-D: function "DebugPrint" declared implicitly
-..\Src\ffbManager.c(37): warning:  #68-D: integer conversion resulted in a change of sign
-..\Src\ffbManager.c(40): warning:  #223-D: function "DebugPrint" declared implicitly
-..\Src\ffbManager.c(44): warning:  #68-D: integer conversion resulted in a change of sign
-..\Src\ffbManager.c(45): warning:  #68-D: integer conversion resulted in a change of sign
-..\Src\ffbManager.c(49): error:  #20: identifier "FFB_EFF_REPORT" is undefined
-..\Src\ffbManager.c(49): error:  #29: expected an expression
-..\Src\ffbManager.c(50): error:  #29: expected an expression
-..\Src\ffbManager.c(54): warning:  #223-D: function "DebugPrint" declared implicitly
-..\Src\ffbManager.c(55): error:  #136: struct "_PID_Set_Effect_Report" has no field "Direction"
-..\Src\ffbManager.c(55): error:  #136: struct "_PID_Set_Effect_Report" has no field "EffectType"
-..\Src\ffbManager.c(57): error:  #20: identifier "FFBPType" is undefined
-..\Src\ffbManager.c(58): warning:  #223-D: function "DebugPrint" declared implicitly
-..\Src\ffbManager.c(73): error:  #20: identifier "FFB_EFF_OP" is undefined
-..\Src\ffbManager.c(73): error:  #20: identifier "effOp" is undefined
-..\Src\ffbManager.c(73): error:  #29: expected an expression
-..\Src\ffbManager.c(77): warning:  #223-D: function "DebugPrint" declared implicitly
-..\Src\ffbManager.c(78): error:  #20: identifier "EFF_STOP" is undefined
-..\Src\ffbManager.c(82): error:  #20: identifier "EFF_SOLO" is undefined
-..\Src\ffbManager.c(85): error:  #20: identifier "EFF_SOLO" is undefined
-"FFBMK1.1\FFBMK1.1" - 30 Errors, 16 Warning(s).
-Target not created
+..\Src\ffbManager.c(131): warning:  #550-D: variable "effBlkIdx" was set but never used
+..\Src\ffbManager.c(131): warning:  #177-D: variable "effType" was declared but never referenced
+..\Src\ffbManager.c(206): warning:  #177-D: variable "eRpt" was declared but never referenced
+linking...
+Program Size: Code=15556 RO-data=352 RW-data=328 ZI-data=3344  
+"FFBMK1.1\FFBMK1.1" - 0 Errors, 3 Warning(s).
 Build target 'FFBMK1.1'
 compiling ffbManager.c...
-..\Src\pid_definition.h(1): error:  #40: expected an identifier
-..\Src\pid_definition.h(1): error:  #65: expected a ";"
-..\Src\pid_definition.h(6): warning:  #12-D: parsing restarts here after previous syntax error
-..\Src\pid_definition.h(8): error:  #40: expected an identifier
-..\Src\pid_definition.h(8): error:  #65: expected a ";"
-..\Src\pid_definition.h(12): warning:  #12-D: parsing restarts here after previous syntax error
-..\Src\pid_definition.h(14): error:  #40: expected an identifier
-..\Src\pid_definition.h(14): error:  #65: expected a ";"
-..\Src\pid_definition.h(18): warning:  #12-D: parsing restarts here after previous syntax error
-..\Src\pid_definition.h(20): error:  #40: expected an identifier
-..\Src\pid_definition.h(20): error:  #65: expected a ";"
-..\Src\pid_definition.h(25): warning:  #12-D: parsing restarts here after previous syntax error
-..\Src\pid_definition.h(27): error:  #40: expected an identifier
-..\Src\pid_definition.h(27): error:  #65: expected a ";"
-..\Src\pid_definition.h(34): warning:  #12-D: parsing restarts here after previous syntax error
-..\Src\pid_definition.h(36): error:  #40: expected an identifier
-..\Src\pid_definition.h(36): error:  #65: expected a ";"
-..\Src\pid_definition.h(49): warning:  #12-D: parsing restarts here after previous syntax error
-..\Src\pid_definition.h(54): error:  #70: incomplete type is not allowed
-..\Src\pid_definition.h(67): error:  #70: incomplete type is not allowed
-..\Src\pid_definition.h(80): error:  #70: incomplete type is not allowed
-..\Src\pid_definition.h(190): error:  #70: incomplete type is not allowed
-..\Src\pid_definition.h(202): error:  #70: incomplete type is not allowed
-..\Src\pid_definition.h(210): error:  #70: incomplete type is not allowed
-..\Src\ffbManager.c(16): warning:  #223-D: function "DebugPrint" declared implicitly
-..\Src\ffbManager.c(20): warning:  #223-D: function "memset" declared implicitly
-..\Src\ffbManager.c(31): warning:  #223-D: function "DebugPrint" declared implicitly
-..\Src\ffbManager.c(37): warning:  #68-D: integer conversion resulted in a change of sign
-..\Src\ffbManager.c(40): warning:  #223-D: function "DebugPrint" declared implicitly
-..\Src\ffbManager.c(44): warning:  #68-D: integer conversion resulted in a change of sign
-..\Src\ffbManager.c(45): warning:  #68-D: integer conversion resulted in a change of sign
-..\Src\ffbManager.c(49): error:  #20: identifier "FFB_EFF_REPORT" is undefined
-..\Src\ffbManager.c(49): error:  #29: expected an expression
-..\Src\ffbManager.c(50): error:  #29: expected an expression
-..\Src\ffbManager.c(54): warning:  #223-D: function "DebugPrint" declared implicitly
-..\Src\ffbManager.c(55): error:  #136: struct "_PID_Set_Effect_Report" has no field "Direction"
-..\Src\ffbManager.c(55): error:  #136: struct "_PID_Set_Effect_Report" has no field "EffectType"
-..\Src\ffbManager.c(57): error:  #20: identifier "FFBPType" is undefined
-..\Src\ffbManager.c(58): warning:  #223-D: function "DebugPrint" declared implicitly
-..\Src\ffbManager.c(73): error:  #20: identifier "FFB_EFF_OP" is undefined
-..\Src\ffbManager.c(73): error:  #20: identifier "effOp" is undefined
-..\Src\ffbManager.c(73): error:  #29: expected an expression
-..\Src\ffbManager.c(77): warning:  #223-D: function "DebugPrint" declared implicitly
-..\Src\ffbManager.c(78): error:  #20: identifier "EFF_STOP" is undefined
-..\Src\ffbManager.c(82): error:  #20: identifier "EFF_SOLO" is undefined
-..\Src\ffbManager.c(85): error:  #20: identifier "EFF_SOLO" is undefined
-"FFBMK1.1\FFBMK1.1" - 30 Errors, 16 Warning(s).
+..\Src\ffbManager.c(131): warning:  #550-D: variable "effBlkIdx" was set but never used
+..\Src\ffbManager.c(131): warning:  #177-D: variable "effType" was declared but never referenced
+linking...
+Program Size: Code=15556 RO-data=352 RW-data=328 ZI-data=3344  
+"FFBMK1.1\FFBMK1.1" - 0 Errors, 2 Warning(s).
+Build target 'FFBMK1.1'
+compiling main.c...
+../Src/main.c(385): warning:  #550-D: variable "pre_Run_Time" was set but never used
+compiling ffbManager.c...
+..\Src\ffbManager.h(25): warning:  #1-D: last line of file ends without a newline
+..\Src\ffbManager.c(133): warning:  #550-D: variable "effBlkIdx" was set but never used
+..\Src\ffbManager.c(133): warning:  #177-D: variable "effType" was declared but never referenced
+linking...
+Program Size: Code=15540 RO-data=352 RW-data=328 ZI-data=3344  
+"FFBMK1.1\FFBMK1.1" - 0 Errors, 4 Warning(s).
+Build target 'FFBMK1.1'
+compiling ffbManager.c...
+..\Src\ffbManager.c(133): warning:  #550-D: variable "effBlkIdx" was set but never used
+..\Src\ffbManager.c(133): warning:  #177-D: variable "effType" was declared but never referenced
+linking...
+Program Size: Code=15540 RO-data=352 RW-data=328 ZI-data=3344  
+"FFBMK1.1\FFBMK1.1" - 0 Errors, 2 Warning(s).
+Build target 'FFBMK1.1'
+compiling ffbManager.c...
+..\Src\ffbManager.c(17): warning:  #1295-D: Deprecated declaration FFBMngrInit - give arg types
+..\Src\ffbManager.c(25): warning:  #1295-D: Deprecated declaration FFBMngrBlkLd - give arg types
+..\Src\ffbManager.c(26): warning:  #1295-D: Deprecated declaration FFBMngrStat - give arg types
+..\Src\ffbManager.c(157): warning:  #550-D: variable "effBlkIdx" was set but never used
+..\Src\ffbManager.c(157): warning:  #177-D: variable "effType" was declared but never referenced
+..\Src\ffbManager.c(8): warning:  #550-D: variable "actStat" was set but never used
+..\Src\ffbManager.c(8): warning:  #550-D: variable "effGlbGain" was set but never used
+compiling usbd_hid.c...
+../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Src/usbd_hid.c(527): error:  #136: struct "<unnamed>" has no field "HIDstate"
+../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Src/usbd_hid.c(528): error:  #20: identifier "Receive_Buffer" is undefined
+../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Src/usbd_hid.c(523): warning:  #177-D: variable "hhid" was declared but never referenced
+../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Src/usbd_hid.c(518): warning:  #177-D: function "USBD_HID_DataOut" was declared but never referenced
+"FFBMK1.1\FFBMK1.1" - 2 Errors, 9 Warning(s).
 Target not created

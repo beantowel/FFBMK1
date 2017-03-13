@@ -25,6 +25,11 @@ m=re.findall("\\ba.*",s)
 print(m)
 
 list1=['1','2','3']
+print('list1:')
+for i in list1:
+    print(i)
 list1.reverse()
 if '3' in list1:
     print(list1)
+for i in list1:
+    print(i)

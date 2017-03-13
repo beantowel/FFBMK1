@@ -26,19 +26,19 @@ def StatMachine(mainItem,value):
             maxi=glStat['Logical_Maximum']
             for i in range(int(mini),int(maxi)+1):
                 usage=lcalStat['Usage'].pop()
-                usage=usage+'='+str(i)+','
+                usage=usage+'='+str(int(mini)+int(maxi)-i)+','
                 enumV.append(usage)
+            enumV.reverse() #reverse to get appropriate order
 
             enumT=structName[-1]+'_Enum'
             enumtype=glStat['Report_Size']
-            enumtype='uint'+str(enumtype)+'_t' #ARM style typedef            
+            enumtype='uint'+str(enumtype)+'_t' #ARM style typedef
             enumName.append(['enum '+enumT+' : '+enumtype,copy.copy(enumV)])
             for i in range(0,int(glStat['Report_Count'])):
                 Outputs.append('enum '+enumT+' '+enumT.lower()+'_'+str(i)+';')
         if value=='IOF_Variable':
-            cnt=glStat['Report_Count']
             usage=[]
-            for i in range(0,int(cnt)):
+            for i in range(0,int(glStat['Report_Count'])):
                 usage.append(lcalStat['Usage'].pop())
             usage.reverse() #reverse to get appropriate order
             uType=glStat['Report_Size']
@@ -113,7 +113,7 @@ for line in lines:
                 lcalStat[m]=[value[0][1:-1]]
             break
 
-    for regex in Main_Items:        
+    for regex in Main_Items:
         item=re.findall('\\b'+regex+'\\b',key)
         value=re.findall('\(.*\)',key)
         for m in item:

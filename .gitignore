@@ -54,8 +54,10 @@
 /HID Descriptor tool/test
 /SimpleFeederWithReceptor/src/test
 /SimpleFeederWithReceptor/src/Debug/SimpleFe.C34FAEEE.tlog
+/FFBMK1_stm32
 
 #ffbStuff Debug Wizards
+!/FFBMK1_stm32/Src
 !/ffbStuff/*.exe
 !/ffbStuff/PID FFB test/*.exe
 

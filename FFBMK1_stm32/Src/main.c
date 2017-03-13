@@ -47,11 +47,13 @@ TIM_HandleTypeDef htim3;
 
 /* USER CODE BEGIN PV */
 /* Private variables ---------------------------------------------------------*/
-uint32_t				ADC_Converted_Values[5],Converted_Values_len=5;
+uint32_t ADC_Converted_Values[5], Converted_Values_len=5;
 	//hdma_adc1.Init.MemDataAlignment = DMA_MDATAALIGN_HALFWORD; 2016/12/17
-int32_t					X_Position=0,Y_Position=0,X_Zero=0x800,Y_Zero=0x800,Position_Gain=5;
-uint8_t					HID_In_Report[7],HID_In_Report_len=7;
-uint8_t					HID_Button_Status;
+int32_t X_Position=0, Y_Position=0, X_Zero=0x800, Y_Zero=0x800, Position_Gain=5;
+int32_t Device_Tx, Device_Ty;
+const uint8_t HID_In_Report_len=7, HID_Out_Report_Maxlen=0x40;
+uint8_t HID_In_Report[HID_In_Report_len], HID_Button_Status;
+uint8_t HID_Out_Report[HID_Out_Report_Maxlen];
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -68,10 +70,10 @@ void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
 /* USER CODE BEGIN PFP */
 /* Private function prototypes -----------------------------------------------*/
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc); //Send HID_In Report
-void GenerateReport(void);
-void Set_Acutator_PWM(int32_t PWMvalue,uint32_t axes); //Direction Automatic Switch Enabled
+void HID_GenerateInputRpt(void);
+void HID_Set_Acutator_PWM(int32_t PWMvalue,uint32_t axes); //Direction Automatic Switch Enabled
 void EffectExecuter(void);
-void Position_Calibration(void);
+void HID_Position_Calibration(void);
 void User_Defined_Init(void);
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin);
 /* USER CODE END PFP */
@@ -327,37 +329,28 @@ static void MX_GPIO_Init(void)
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
 {
 	UNUSED(hadc);
-	GenerateReport();
+	HID_GenerateInputRpt();
 	USBD_HID_SendReport(&hUsbDeviceFS,HID_In_Report,HID_In_Report_len);	
 }
 
-void GenerateReport()
+void HID_GenerateInputRpt()
 {
 	int32_t x,y;
 	X_Position=ADC_Converted_Values[0]-X_Zero;
 	Y_Position=ADC_Converted_Values[1]-Y_Zero;
 	x=X_Position*Position_Gain;
-	y=Y_Position*Position_Gain;
-//	HID_In_Report[0]=(uint8_t) 1;
-//	HID_In_Report[1]=(uint8_t) (ADC_Converted_Values[2]>>4);
-//	HID_In_Report[2]=(uint8_t) (X_Position&0x00ff);
-//	HID_In_Report[3]=(uint8_t) (X_Position>>8);
-//	HID_In_Report[4]=(uint8_t) (Y_Position&0x00ff);
-//	HID_In_Report[5]=(uint8_t) (Y_Position>>8);
-//	HID_In_Report[6]=HID_Button_Status;
-	// Send HID_In Report
-	//USBD_HID_SendReport(&hUsbDeviceFS,HID_In_Report,HID_In_Report_len);	
-	HID_In_Report[0]=(uint8_t) (ADC_Converted_Values[2]>>4);
-	HID_In_Report[1]=(uint8_t) (x&0x00ff);
+	y=Y_Position*Position_Gain;	
+	HID_In_Report[0]=(uint8_t) (ADC_Converted_Values[2]>>4); //throttle
+	HID_In_Report[1]=(uint8_t) (x&0x00ff); //x pos
 	HID_In_Report[2]=(uint8_t) (x>>8);
-	HID_In_Report[3]=(uint8_t) (y&0x00ff);
+	HID_In_Report[3]=(uint8_t) (y&0x00ff); //y pos
 	HID_In_Report[4]=(uint8_t) (y>>8);
-	HID_In_Report[5]=HID_Button_Status;
+	HID_In_Report[5]=HID_Button_Status; //button
 	HID_In_Report[6]=1;
-	USBD_HID_SendReport(&hUsbDeviceFS,HID_In_Report,7);	
+	//USBD_HID_SendReport(&hUsbDeviceFS,HID_In_Report,7);	
 }
 
-void Set_Acutator_PWM(int32_t PWMvalue,uint32_t axes)
+void HID_Set_Acutator_PWM(int32_t PWMvalue,uint32_t axes)
 {
 	uint32_t PWMchannel,PWMchannel2,temp;
 	//axes=0:X  axes=1:Y
@@ -426,12 +419,12 @@ void EffectExecuter(void)
 //			y=-PWM_Pulse_threshold;
 //		};
 //	};
-	Set_Acutator_PWM(x,0);
-	Set_Acutator_PWM(y,1);
+	HID_Set_Acutator_PWM(x,0);
+	HID_Set_Acutator_PWM(y,1);
 	
 	pre_Run_Time=Run_Time;
 }
-void Position_Calibration(void)
+void HID_Position_Calibration(void)
 {
 	X_Zero=X_Position;
 	Y_Zero=Y_Position;
@@ -452,7 +445,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
 	UNUSED(GPIO_Pin);
 //	if (GPIO_Pin==GPIO_PIN_2){
-//		Position_Calibration();
+//		HID_Position_Calibration();
 //	}
 }
 /* USER CODE END 4 */

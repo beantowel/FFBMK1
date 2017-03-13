@@ -423,19 +423,9 @@
               <FilePath>../Src/stm32f1xx_it.c</FilePath>
             </File>
             <File>
-              <FileName>usbd_pid.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Src\usbd_pid.c</FilePath>
-            </File>
-            <File>
               <FileName>ffbManager.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Src\ffbManager.c</FilePath>
-            </File>
-            <File>
-              <FileName>pid_definition.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\Src\pid_definition.h</FilePath>
             </File>
           </Files>
         </Group>

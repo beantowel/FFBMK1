@@ -15,9 +15,6 @@ parses the .rptDsc into c language data structure definitions.
 - Before writing report descriptor in HID\_Descriptor\_Input.rptDsc, you are recommended to copy \rptDsc to the path refered above so that syntax highlight can work. To parse the descriptor into bytes run DescriptorGenTool, to parse into c language data structure run DataStructureGen.py.   
   
 ##Parser Limitations  
-For the purpose of freeing developers from the tedious and error prone works of writing the Report Descriptor or the data structure attached to it, i made this parser. However, the USB HID Report Descriptor itself was rather a flexible protocol. There is no perfect approach to an easy solution of all the problems we meet in developing.  
-  
+For the purpose of freeing developers from the tedious and error prone works of writing the Report Descriptor or the data structure attached to it, i made this parser. However, the USB HID Report Descriptor itself was rather a flexible protocol. There is no perfect approach to an easy solution of all the problems we meet in developing.    
 ###bugs been found:  
-- the parser can't deal with nibble or other type less than 1-byte.For example, a global item "Report Size(4)" may result in a type "uint4_t" which actually doesn't exist in so long all known compilers.  
-- (strictly not a bug), due to the lack of namespace, variable names in c language have to be relatively long to avoid conflicts.  
 - c doesn't support syntax like "enum XXX : _type {...}" to designate specific type to the enum.

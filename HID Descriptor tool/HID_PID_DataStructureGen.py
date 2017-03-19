@@ -15,45 +15,74 @@ def StatMachine(mainItem,value):
             Outputs.append('typedef struct _'+sN+'{') #struct begins
         else:
             Outputs.append('struct {') #inner report struct
+        return
     if mainItem=='End_Collection':
         sN=structName.pop()
         Outputs.append('} '+sN+';') #struct ends
+        return
+
+    minimum=int(glStat['Logical_Minimum'])
+    maximum=int(glStat['Logical_Maximum'])
+    rSize=int(glStat['Report_Size'])
+    rCnt=int(glStat['Report_Count'])
 
     if mainItem in ['Input','Output','Feature']:
         if value=='IOF_Array':
             enumV=[] #enum values
-            mini=glStat['Logical_Minimum']
-            maxi=glStat['Logical_Maximum']
-            for i in range(int(mini),int(maxi)+1):
+            for i in range(minimum,maximum+1):
                 usage=lcalStat['Usage'].pop()
-                usage=usage+'='+str(int(mini)+int(maxi)-i)+','
+                usage=usage+'='+str(minimum+maximum-i)+','
                 enumV.append(usage)
             enumV.reverse() #reverse to get appropriate order
 
             enumT=structName[-1]+'_Enum'
-            enumtype=glStat['Report_Size']
-            enumtype='uint'+str(enumtype)+'_t' #ARM style typedef
+            enumtype='uint'+str(rSize)+'_t' #ARM style typedef
             enumName.append(['enum '+enumT+' : '+enumtype,copy.copy(enumV)])
-            for i in range(0,int(glStat['Report_Count'])):
+            for i in range(0,rCnt):
                 Outputs.append('enum '+enumT+' '+enumT.lower()+'_'+str(i)+';')
         if value=='IOF_Variable':
             usage=[]
-            for i in range(0,int(glStat['Report_Count'])):
+            for i in range(0,rCnt):
                 usage.append(lcalStat['Usage'].pop())
             usage.reverse() #reverse to get appropriate order
-            uType=glStat['Report_Size']
-            if int(glStat['Logical_Minimum'])>=0:
-                uType='uint'+str(uType)+'_t' #ARM style typedef
+            if rSize >= 8:
+                # 1 or more bytes
+                if minimum>=0:
+                    uType='uint'+str(rSize)+'_t' #ARM style typedef
+                else:
+                    uType='int'+str(rSize)+'_t'
+                for u in usage:
+                    Outputs.append(uType+' '+u.lower()+';')
             else:
-                uType='int'+str(uType)+'_t'
-            for u in usage:
-                Outputs.append(uType+' '+u.lower()+';')
-        # if value=='IOF_Constant':
-        #     gg
+                #less than one byte
+                #assume got proper pad behind and reportSize|8
+                bitCnt = rSize * rCnt
+                byteCnt = int((bitCnt+7)/8) #round byteCnt
+                cnt = 0
+                for i in range(0,byteCnt):
+                    Outputs.append('uint8_t vars_'+str(i)+';')
+                    comment='//'
+                    # reportSize|8
+                    for j in range(0, int(8/rSize)):
+                        cnt +=1
+                        if cnt > rCnt:
+                            break
+                        u=usage[i*int(8/rSize)+j]
+                        comment += u.lower() + ','
+                        mask = (1 << rSize) - 1
+                        mask = mask << (j * rSize)
+                        bitMask.append([u,mask])
+                    Outputs.append(comment)
+                Outputs.append('//Check Pads')
+        if value=='IOF_Constant':
+            pads = rCnt * rSize
+            Outputs.append('//'+str(pads)+'pads added')
         # if value=='IOF_IOF_Defalut_Items':
         #     gg
-        Outputs.append('//Logical_Maximum:'+glStat['Logical_Maximum'])
-        if int(glStat['Logical_Minimum'])!=0:
+
+        # add some comments
+        Outputs.append('//Logical_Maximum:'+str(maximum))
+        if minimum!=0:
             Outputs.append('//Logical_Minimum:'+glStat['Logical_Minimum'])
         if glStat['Unit']!='Unit_None':
             Outputs.append('//Unit:'+glStat['Unit'])
@@ -74,6 +103,7 @@ Outputs    = []
 structName = []
 enumName   = []
 rptID      = []
+bitMask    = []
 
 strStart=False
 strEnd=False
@@ -121,7 +151,7 @@ for line in lines:
             break
 
 enumVis=[] #delete repeat definition
-for enum in enumName:
+for enum in enumName: #enumerations
     if enum[0] in enumVis:
         continue
     enumVis.append(enum[0])
@@ -130,13 +160,16 @@ for enum in enumName:
         fileOut.write(usage+'\n')
     fileOut.write('};\n\n')
 
-fileOut.write('enum Report_ID_Enum:uint8_t{\n')
+fileOut.write('enum Report_ID_Enum:uint8_t{\n') #reportID enums
 for rpt in rptID:
     fileOut.write(rpt[0]+'='+rpt[1]+',\n')
-fileOut.write('};\n')
+fileOut.write('};\n\n')
+
+for mask in bitMask: #bit masks
+    fileOut.write('const uint8_t Mask_'+mask[0]+'='+hex(mask[1])+';\n')
 
 cnt=0 #seperate each struct
-for line in Outputs:
+for line in Outputs: #structs
     if line.find('struct')>=0:
         if cnt==0:
             fileOut.write('\n')

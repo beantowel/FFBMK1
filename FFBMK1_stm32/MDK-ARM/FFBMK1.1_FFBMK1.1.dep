@@ -10,7 +10,7 @@ I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cm3.h)(0x578C5DBF)
 I (F:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmInstr.h)(0x578C5DBF)
-I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\cmsis_armcc.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\cmsis_armcc.h)(0x58CE7944)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmFunc.h)(0x578C5DBF)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include\system_stm32f1xx.h)(0x578C5DBD)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h)(0x578C5DBF)
@@ -35,17 +35,17 @@ I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1x
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pcd.h)(0x578C5DBF)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_usb.h)(0x578C5DBF)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pcd_ex.h)(0x578C5DBF)
-I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_def.h)(0x578C5DCB)
-I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ioreq.h)(0x578C5DCB)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_def.h)(0x58CE7ACA)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ioreq.h)(0x58CF4591)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ctlreq.h)(0x578C5DCB)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Inc\usbd_desc.h)(0x5853FE6D)
-F (../Src/usbd_conf.c)(0x5853FE6D)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include --C99-I F:\Keil\ARM\RV31\INC-I F:\Keil\ARM\CMSIS\Include-DUSE_HAL_DRIVER -DSTM32F103xE -o ffbmk1.1\usbd_conf.o --omf_browse ffbmk1.1\usbd_conf.crf --depend ffbmk1.1\usbd_conf.d)
+F (../Src/usbd_conf.c)(0x58CE32E7)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include --C99-I F:\Keil\ARM\RV31\INC-I F:\Keil\ARM\CMSIS\Include-DUSE_HAL_DRIVER -DSTM32F103xE -o ffbmk1.1\usbd_conf.o --omf_browse ffbmk1.1\usbd_conf.crf --depend ffbmk1.1\usbd_conf.d)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include\stm32f1xx.h)(0x578C5DBD)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include\stm32f103xe.h)(0x578C5DBD)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cm3.h)(0x578C5DBF)
 I (F:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmInstr.h)(0x578C5DBF)
-I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\cmsis_armcc.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\cmsis_armcc.h)(0x58CE7944)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmFunc.h)(0x578C5DBF)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include\system_stm32f1xx.h)(0x578C5DBD)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h)(0x578C5DBF)
@@ -71,15 +71,15 @@ I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1x
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pcd.h)(0x578C5DBF)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_usb.h)(0x578C5DBF)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pcd_ex.h)(0x578C5DBF)
-I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_def.h)(0x578C5DCB)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_def.h)(0x58CE7ACA)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Inc\usbd_conf.h)(0x5853FE6D)
 I (F:\Keil\ARM\ARMCC\include\stdlib.h)(0x51C7B744)
 I (F:\Keil\ARM\ARMCC\include\string.h)(0x51C7B744)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_core.h)(0x578C5DCB)
-I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ioreq.h)(0x578C5DCB)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ioreq.h)(0x58CF4591)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ctlreq.h)(0x578C5DCB)
-I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Class\HID\Inc\usbd_hid.h)(0x5854D0D1)
-F (../Src/main.c)(0x58C50103)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include --C99-I F:\Keil\ARM\RV31\INC-I F:\Keil\ARM\CMSIS\Include-DUSE_HAL_DRIVER -DSTM32F103xE -o ffbmk1.1\main.o --omf_browse ffbmk1.1\main.crf --depend ffbmk1.1\main.d)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Class\HID\Inc\usbd_hid.h)(0x58CE923D)
+F (../Src/main.c)(0x58CF8950)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include --C99-I F:\Keil\ARM\RV31\INC-I F:\Keil\ARM\CMSIS\Include-DUSE_HAL_DRIVER -DSTM32F103xE -o ffbmk1.1\main.o --omf_browse ffbmk1.1\main.crf --depend ffbmk1.1\main.d)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h)(0x578C5DBF)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Inc\stm32f1xx_hal_conf.h)(0x5853FE6D)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Inc\mxconstants.h)(0x5853FE6D)
@@ -90,7 +90,7 @@ I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cm3.h)(0x578C5DBF)
 I (F:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmInstr.h)(0x578C5DBF)
-I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\cmsis_armcc.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\cmsis_armcc.h)(0x58CE7944)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmFunc.h)(0x578C5DBF)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include\system_stm32f1xx.h)(0x578C5DBD)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h)(0x578C5DBF)
@@ -112,15 +112,15 @@ I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1x
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_usb.h)(0x578C5DBF)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pcd_ex.h)(0x578C5DBF)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Inc\usb_device.h)(0x5853FE6C)
-I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_def.h)(0x578C5DCB)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_def.h)(0x58CE7ACA)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Inc\usbd_conf.h)(0x5853FE6D)
 I (F:\Keil\ARM\ARMCC\include\stdlib.h)(0x51C7B744)
 I (F:\Keil\ARM\ARMCC\include\string.h)(0x51C7B744)
-I (F:\Keil\ARM\ARMCC\include\math.h)(0x51C7B744)
-I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Class\HID\Inc\usbd_hid.h)(0x5854D0D1)
-I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ioreq.h)(0x578C5DCB)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Class\HID\Inc\usbd_hid.h)(0x58CE923D)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ioreq.h)(0x58CF4591)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_core.h)(0x578C5DCB)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ctlreq.h)(0x578C5DCB)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Inc\ffb_stick.h)(0x58CF4A08)
 F (../Src/usb_device.c)(0x5853FE6C)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include --C99-I F:\Keil\ARM\RV31\INC-I F:\Keil\ARM\CMSIS\Include-DUSE_HAL_DRIVER -DSTM32F103xE -o ffbmk1.1\usb_device.o --omf_browse ffbmk1.1\usb_device.crf --depend ffbmk1.1\usb_device.d)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Inc\usb_device.h)(0x5853FE6C)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include\stm32f1xx.h)(0x578C5DBD)
@@ -128,7 +128,7 @@ I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cm3.h)(0x578C5DBF)
 I (F:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmInstr.h)(0x578C5DBF)
-I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\cmsis_armcc.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\cmsis_armcc.h)(0x58CE7944)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmFunc.h)(0x578C5DBF)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include\system_stm32f1xx.h)(0x578C5DBD)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h)(0x578C5DBF)
@@ -154,15 +154,15 @@ I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1x
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pcd.h)(0x578C5DBF)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_usb.h)(0x578C5DBF)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pcd_ex.h)(0x578C5DBF)
-I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_def.h)(0x578C5DCB)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_def.h)(0x58CE7ACA)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Inc\usbd_conf.h)(0x5853FE6D)
 I (F:\Keil\ARM\ARMCC\include\stdlib.h)(0x51C7B744)
 I (F:\Keil\ARM\ARMCC\include\string.h)(0x51C7B744)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_core.h)(0x578C5DCB)
-I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ioreq.h)(0x578C5DCB)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ioreq.h)(0x58CF4591)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ctlreq.h)(0x578C5DCB)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Inc\usbd_desc.h)(0x5853FE6D)
-I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Class\HID\Inc\usbd_hid.h)(0x5854D0D1)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Class\HID\Inc\usbd_hid.h)(0x58CE923D)
 F (../Src/stm32f1xx_hal_msp.c)(0x5856836B)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include --C99-I F:\Keil\ARM\RV31\INC-I F:\Keil\ARM\CMSIS\Include-DUSE_HAL_DRIVER -DSTM32F103xE -o ffbmk1.1\stm32f1xx_hal_msp.o --omf_browse ffbmk1.1\stm32f1xx_hal_msp.crf --depend ffbmk1.1\stm32f1xx_hal_msp.d)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h)(0x578C5DBF)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Inc\stm32f1xx_hal_conf.h)(0x5853FE6D)
@@ -174,7 +174,7 @@ I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cm3.h)(0x578C5DBF)
 I (F:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmInstr.h)(0x578C5DBF)
-I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\cmsis_armcc.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\cmsis_armcc.h)(0x58CE7944)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmFunc.h)(0x578C5DBF)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include\system_stm32f1xx.h)(0x578C5DBD)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h)(0x578C5DBF)
@@ -195,7 +195,7 @@ I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1x
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pcd.h)(0x578C5DBF)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_usb.h)(0x578C5DBF)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pcd_ex.h)(0x578C5DBF)
-F (../Src/stm32f1xx_it.c)(0x5857C723)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include --C99-I F:\Keil\ARM\RV31\INC-I F:\Keil\ARM\CMSIS\Include-DUSE_HAL_DRIVER -DSTM32F103xE -o ffbmk1.1\stm32f1xx_it.o --omf_browse ffbmk1.1\stm32f1xx_it.crf --depend ffbmk1.1\stm32f1xx_it.d)
+F (../Src/stm32f1xx_it.c)(0x58CF49F6)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include --C99-I F:\Keil\ARM\RV31\INC-I F:\Keil\ARM\CMSIS\Include-DUSE_HAL_DRIVER -DSTM32F103xE -o ffbmk1.1\stm32f1xx_it.o --omf_browse ffbmk1.1\stm32f1xx_it.crf --depend ffbmk1.1\stm32f1xx_it.d)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h)(0x578C5DBF)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Inc\stm32f1xx_hal_conf.h)(0x5853FE6D)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Inc\mxconstants.h)(0x5853FE6D)
@@ -206,7 +206,7 @@ I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cm3.h)(0x578C5DBF)
 I (F:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmInstr.h)(0x578C5DBF)
-I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\cmsis_armcc.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\cmsis_armcc.h)(0x58CE7944)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmFunc.h)(0x578C5DBF)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include\system_stm32f1xx.h)(0x578C5DBD)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h)(0x578C5DBF)
@@ -228,19 +228,139 @@ I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1x
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_usb.h)(0x578C5DBF)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pcd_ex.h)(0x578C5DBF)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Inc\stm32f1xx_it.h)(0x5853FE6D)
-F (..\Src\ffbManager.c)(0x58C50CAC)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include --C99-I F:\Keil\ARM\RV31\INC-I F:\Keil\ARM\CMSIS\Include-DUSE_HAL_DRIVER -DSTM32F103xE -o ffbmk1.1\ffbmanager.o --omf_browse ffbmk1.1\ffbmanager.crf --depend ffbmk1.1\ffbmanager.d)
-I (F:\git projects\FFBMK1\FFBMK1_stm32\Src\ffbManager.h)(0x58C503C5)
+F (..\Src\usbd_pid.c)(0x58CF49F4)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include --C99-I F:\Keil\ARM\RV31\INC-I F:\Keil\ARM\CMSIS\Include-DUSE_HAL_DRIVER -DSTM32F103xE -o ffbmk1.1\usbd_pid.o --omf_browse ffbmk1.1\usbd_pid.crf --depend ffbmk1.1\usbd_pid.d)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Inc\usbd_pid.h)(0x58CF46EA)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ioreq.h)(0x58CF4591)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_def.h)(0x58CE7ACA)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Inc\usbd_conf.h)(0x5853FE6D)
+I (F:\Keil\ARM\ARMCC\include\stdio.h)(0x51C7B744)
+I (F:\Keil\ARM\ARMCC\include\stdlib.h)(0x51C7B744)
+I (F:\Keil\ARM\ARMCC\include\string.h)(0x51C7B744)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include\stm32f1xx.h)(0x578C5DBD)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include\stm32f103xe.h)(0x578C5DBD)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cm3.h)(0x578C5DBF)
+I (F:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmInstr.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\cmsis_armcc.h)(0x58CE7944)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmFunc.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include\system_stm32f1xx.h)(0x578C5DBD)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Inc\stm32f1xx_hal_conf.h)(0x5853FE6D)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Inc\mxconstants.h)(0x5853FE6D)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_def.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc_ex.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_gpio.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_gpio_ex.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_dma.h)(0x5856833A)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_dma_ex.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_cortex.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_adc.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_adc_ex.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_flash.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_flash_ex.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pwr.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim_ex.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pcd.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_usb.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pcd_ex.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_core.h)(0x578C5DCB)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ctlreq.h)(0x578C5DCB)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Class\HID\Inc\usbd_hid.h)(0x58CE923D)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Inc\ffb_manager.h)(0x58CF475F)
+F (..\Src\ffb_manager.c)(0x58CF4758)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include --C99-I F:\Keil\ARM\RV31\INC-I F:\Keil\ARM\CMSIS\Include-DUSE_HAL_DRIVER -DSTM32F103xE -o ffbmk1.1\ffb_manager.o --omf_browse ffbmk1.1\ffb_manager.crf --depend ffbmk1.1\ffb_manager.d)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Inc\ffb_manager.h)(0x58CF475F)
+I (F:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
 I (F:\Keil\ARM\ARMCC\include\math.h)(0x51C7B744)
 I (F:\Keil\ARM\ARMCC\include\string.h)(0x51C7B744)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Inc\usbd_pid.h)(0x58CF46EA)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ioreq.h)(0x58CF4591)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_def.h)(0x58CE7ACA)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Inc\usbd_conf.h)(0x5853FE6D)
+I (F:\Keil\ARM\ARMCC\include\stdio.h)(0x51C7B744)
+I (F:\Keil\ARM\ARMCC\include\stdlib.h)(0x51C7B744)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include\stm32f1xx.h)(0x578C5DBD)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include\stm32f103xe.h)(0x578C5DBD)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cm3.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmInstr.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\cmsis_armcc.h)(0x58CE7944)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmFunc.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include\system_stm32f1xx.h)(0x578C5DBD)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Inc\stm32f1xx_hal_conf.h)(0x5853FE6D)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Inc\mxconstants.h)(0x5853FE6D)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_def.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc_ex.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_gpio.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_gpio_ex.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_dma.h)(0x5856833A)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_dma_ex.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_cortex.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_adc.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_adc_ex.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_flash.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_flash_ex.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pwr.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim_ex.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pcd.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_usb.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pcd_ex.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_core.h)(0x578C5DCB)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ctlreq.h)(0x578C5DCB)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Inc\pid_definition.h)(0x58CEB176)
+F (..\Src\ffb_stick.c)(0x58CF8491)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include --C99-I F:\Keil\ARM\RV31\INC-I F:\Keil\ARM\CMSIS\Include-DUSE_HAL_DRIVER -DSTM32F103xE -o ffbmk1.1\ffb_stick.o --omf_browse ffbmk1.1\ffb_stick.crf --depend ffbmk1.1\ffb_stick.d)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Inc\ffb_stick.h)(0x58CF4A08)
 I (F:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
-I (F:\git projects\FFBMK1\FFBMK1_stm32\Src\pid_definition.h)(0x58C3F426)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Inc\usbd_pid.h)(0x58CF46EA)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ioreq.h)(0x58CF4591)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_def.h)(0x58CE7ACA)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Inc\usbd_conf.h)(0x5853FE6D)
+I (F:\Keil\ARM\ARMCC\include\stdio.h)(0x51C7B744)
+I (F:\Keil\ARM\ARMCC\include\stdlib.h)(0x51C7B744)
+I (F:\Keil\ARM\ARMCC\include\string.h)(0x51C7B744)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include\stm32f1xx.h)(0x578C5DBD)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include\stm32f103xe.h)(0x578C5DBD)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cm3.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmInstr.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\cmsis_armcc.h)(0x58CE7944)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmFunc.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include\system_stm32f1xx.h)(0x578C5DBD)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Inc\stm32f1xx_hal_conf.h)(0x5853FE6D)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Inc\mxconstants.h)(0x5853FE6D)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_def.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_rcc_ex.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_gpio.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_gpio_ex.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_dma.h)(0x5856833A)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_dma_ex.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_cortex.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_adc.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_adc_ex.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_flash.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_flash_ex.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pwr.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_tim_ex.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pcd.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_usb.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pcd_ex.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_core.h)(0x578C5DCB)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ctlreq.h)(0x578C5DCB)
 F (../Drivers/CMSIS//Device/ST/STM32F1xx/Source/Templates/system_stm32f1xx.c)(0x578C5DBD)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include --C99-I F:\Keil\ARM\RV31\INC-I F:\Keil\ARM\CMSIS\Include-DUSE_HAL_DRIVER -DSTM32F103xE -o ffbmk1.1\system_stm32f1xx.o --omf_browse ffbmk1.1\system_stm32f1xx.crf --depend ffbmk1.1\system_stm32f1xx.d)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include\stm32f1xx.h)(0x578C5DBD)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include\stm32f103xe.h)(0x578C5DBD)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cm3.h)(0x578C5DBF)
 I (F:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmInstr.h)(0x578C5DBF)
-I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\cmsis_armcc.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\cmsis_armcc.h)(0x58CE7944)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmFunc.h)(0x578C5DBF)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include\system_stm32f1xx.h)(0x578C5DBD)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h)(0x578C5DBF)
@@ -277,7 +397,7 @@ I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cm3.h)(0x578C5DBF)
 I (F:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmInstr.h)(0x578C5DBF)
-I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\cmsis_armcc.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\cmsis_armcc.h)(0x58CE7944)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmFunc.h)(0x578C5DBF)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include\system_stm32f1xx.h)(0x578C5DBD)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h)(0x578C5DBF)
@@ -309,7 +429,7 @@ I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cm3.h)(0x578C5DBF)
 I (F:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmInstr.h)(0x578C5DBF)
-I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\cmsis_armcc.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\cmsis_armcc.h)(0x58CE7944)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmFunc.h)(0x578C5DBF)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include\system_stm32f1xx.h)(0x578C5DBD)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h)(0x578C5DBF)
@@ -341,7 +461,7 @@ I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cm3.h)(0x578C5DBF)
 I (F:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmInstr.h)(0x578C5DBF)
-I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\cmsis_armcc.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\cmsis_armcc.h)(0x58CE7944)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmFunc.h)(0x578C5DBF)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include\system_stm32f1xx.h)(0x578C5DBD)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h)(0x578C5DBF)
@@ -373,7 +493,7 @@ I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cm3.h)(0x578C5DBF)
 I (F:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmInstr.h)(0x578C5DBF)
-I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\cmsis_armcc.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\cmsis_armcc.h)(0x58CE7944)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmFunc.h)(0x578C5DBF)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include\system_stm32f1xx.h)(0x578C5DBD)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h)(0x578C5DBF)
@@ -405,7 +525,7 @@ I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cm3.h)(0x578C5DBF)
 I (F:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmInstr.h)(0x578C5DBF)
-I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\cmsis_armcc.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\cmsis_armcc.h)(0x58CE7944)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmFunc.h)(0x578C5DBF)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include\system_stm32f1xx.h)(0x578C5DBD)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h)(0x578C5DBF)
@@ -437,7 +557,7 @@ I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cm3.h)(0x578C5DBF)
 I (F:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmInstr.h)(0x578C5DBF)
-I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\cmsis_armcc.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\cmsis_armcc.h)(0x58CE7944)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmFunc.h)(0x578C5DBF)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include\system_stm32f1xx.h)(0x578C5DBD)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h)(0x578C5DBF)
@@ -469,7 +589,7 @@ I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cm3.h)(0x578C5DBF)
 I (F:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmInstr.h)(0x578C5DBF)
-I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\cmsis_armcc.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\cmsis_armcc.h)(0x58CE7944)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmFunc.h)(0x578C5DBF)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include\system_stm32f1xx.h)(0x578C5DBD)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h)(0x578C5DBF)
@@ -501,7 +621,7 @@ I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cm3.h)(0x578C5DBF)
 I (F:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmInstr.h)(0x578C5DBF)
-I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\cmsis_armcc.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\cmsis_armcc.h)(0x58CE7944)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmFunc.h)(0x578C5DBF)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include\system_stm32f1xx.h)(0x578C5DBD)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h)(0x578C5DBF)
@@ -533,7 +653,7 @@ I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cm3.h)(0x578C5DBF)
 I (F:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmInstr.h)(0x578C5DBF)
-I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\cmsis_armcc.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\cmsis_armcc.h)(0x58CE7944)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmFunc.h)(0x578C5DBF)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include\system_stm32f1xx.h)(0x578C5DBD)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h)(0x578C5DBF)
@@ -565,7 +685,7 @@ I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cm3.h)(0x578C5DBF)
 I (F:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmInstr.h)(0x578C5DBF)
-I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\cmsis_armcc.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\cmsis_armcc.h)(0x58CE7944)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmFunc.h)(0x578C5DBF)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include\system_stm32f1xx.h)(0x578C5DBD)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h)(0x578C5DBF)
@@ -597,7 +717,7 @@ I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cm3.h)(0x578C5DBF)
 I (F:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmInstr.h)(0x578C5DBF)
-I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\cmsis_armcc.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\cmsis_armcc.h)(0x58CE7944)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmFunc.h)(0x578C5DBF)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include\system_stm32f1xx.h)(0x578C5DBD)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h)(0x578C5DBF)
@@ -629,7 +749,7 @@ I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cm3.h)(0x578C5DBF)
 I (F:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmInstr.h)(0x578C5DBF)
-I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\cmsis_armcc.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\cmsis_armcc.h)(0x58CE7944)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmFunc.h)(0x578C5DBF)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include\system_stm32f1xx.h)(0x578C5DBD)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h)(0x578C5DBF)
@@ -661,7 +781,7 @@ I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cm3.h)(0x578C5DBF)
 I (F:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmInstr.h)(0x578C5DBF)
-I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\cmsis_armcc.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\cmsis_armcc.h)(0x58CE7944)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmFunc.h)(0x578C5DBF)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include\system_stm32f1xx.h)(0x578C5DBD)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h)(0x578C5DBF)
@@ -693,7 +813,7 @@ I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cm3.h)(0x578C5DBF)
 I (F:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmInstr.h)(0x578C5DBF)
-I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\cmsis_armcc.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\cmsis_armcc.h)(0x58CE7944)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmFunc.h)(0x578C5DBF)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include\system_stm32f1xx.h)(0x578C5DBD)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h)(0x578C5DBF)
@@ -725,7 +845,7 @@ I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cm3.h)(0x578C5DBF)
 I (F:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmInstr.h)(0x578C5DBF)
-I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\cmsis_armcc.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\cmsis_armcc.h)(0x58CE7944)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmFunc.h)(0x578C5DBF)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include\system_stm32f1xx.h)(0x578C5DBD)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h)(0x578C5DBF)
@@ -757,7 +877,7 @@ I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cm3.h)(0x578C5DBF)
 I (F:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmInstr.h)(0x578C5DBF)
-I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\cmsis_armcc.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\cmsis_armcc.h)(0x58CE7944)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmFunc.h)(0x578C5DBF)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include\system_stm32f1xx.h)(0x578C5DBD)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h)(0x578C5DBF)
@@ -789,7 +909,7 @@ I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cm3.h)(0x578C5DBF)
 I (F:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmInstr.h)(0x578C5DBF)
-I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\cmsis_armcc.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\cmsis_armcc.h)(0x58CE7944)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmFunc.h)(0x578C5DBF)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include\system_stm32f1xx.h)(0x578C5DBD)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\Legacy\stm32_hal_legacy.h)(0x578C5DBF)
@@ -812,7 +932,7 @@ I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1x
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pcd_ex.h)(0x578C5DBF)
 F (../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c)(0x578C5DCB)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include --C99-I F:\Keil\ARM\RV31\INC-I F:\Keil\ARM\CMSIS\Include-DUSE_HAL_DRIVER -DSTM32F103xE -o ffbmk1.1\usbd_ctlreq.o --omf_browse ffbmk1.1\usbd_ctlreq.crf --depend ffbmk1.1\usbd_ctlreq.d)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ctlreq.h)(0x578C5DCB)
-I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_def.h)(0x578C5DCB)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_def.h)(0x58CE7ACA)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Inc\usbd_conf.h)(0x5853FE6D)
 I (F:\Keil\ARM\ARMCC\include\stdio.h)(0x51C7B744)
 I (F:\Keil\ARM\ARMCC\include\stdlib.h)(0x51C7B744)
@@ -822,7 +942,7 @@ I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cm3.h)(0x578C5DBF)
 I (F:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmInstr.h)(0x578C5DBF)
-I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\cmsis_armcc.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\cmsis_armcc.h)(0x58CE7944)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmFunc.h)(0x578C5DBF)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include\system_stm32f1xx.h)(0x578C5DBD)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h)(0x578C5DBF)
@@ -847,7 +967,7 @@ I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1x
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pcd.h)(0x578C5DBF)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_usb.h)(0x578C5DBF)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pcd_ex.h)(0x578C5DBF)
-I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ioreq.h)(0x578C5DCB)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ioreq.h)(0x58CF4591)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_core.h)(0x578C5DCB)
 F (../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c)(0x578C5DCB)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include --C99-I F:\Keil\ARM\RV31\INC-I F:\Keil\ARM\CMSIS\Include-DUSE_HAL_DRIVER -DSTM32F103xE -o ffbmk1.1\usbd_core.o --omf_browse ffbmk1.1\usbd_core.crf --depend ffbmk1.1\usbd_core.d)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_core.h)(0x578C5DCB)
@@ -860,7 +980,7 @@ I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cm3.h)(0x578C5DBF)
 I (F:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmInstr.h)(0x578C5DBF)
-I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\cmsis_armcc.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\cmsis_armcc.h)(0x58CE7944)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmFunc.h)(0x578C5DBF)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include\system_stm32f1xx.h)(0x578C5DBD)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h)(0x578C5DBF)
@@ -885,12 +1005,12 @@ I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1x
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pcd.h)(0x578C5DBF)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_ll_usb.h)(0x578C5DBF)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pcd_ex.h)(0x578C5DBF)
-I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_def.h)(0x578C5DCB)
-I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ioreq.h)(0x578C5DCB)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_def.h)(0x58CE7ACA)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ioreq.h)(0x58CF4591)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ctlreq.h)(0x578C5DCB)
 F (../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c)(0x578C5DCB)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include --C99-I F:\Keil\ARM\RV31\INC-I F:\Keil\ARM\CMSIS\Include-DUSE_HAL_DRIVER -DSTM32F103xE -o ffbmk1.1\usbd_ioreq.o --omf_browse ffbmk1.1\usbd_ioreq.crf --depend ffbmk1.1\usbd_ioreq.d)
-I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ioreq.h)(0x578C5DCB)
-I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_def.h)(0x578C5DCB)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ioreq.h)(0x58CF4591)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_def.h)(0x58CE7ACA)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Inc\usbd_conf.h)(0x5853FE6D)
 I (F:\Keil\ARM\ARMCC\include\stdio.h)(0x51C7B744)
 I (F:\Keil\ARM\ARMCC\include\stdlib.h)(0x51C7B744)
@@ -900,7 +1020,7 @@ I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cm3.h)(0x578C5DBF)
 I (F:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmInstr.h)(0x578C5DBF)
-I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\cmsis_armcc.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\cmsis_armcc.h)(0x58CE7944)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmFunc.h)(0x578C5DBF)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include\system_stm32f1xx.h)(0x578C5DBD)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h)(0x578C5DBF)
@@ -927,10 +1047,10 @@ I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1x
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pcd_ex.h)(0x578C5DBF)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_core.h)(0x578C5DCB)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ctlreq.h)(0x578C5DCB)
-F (../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Src/usbd_hid.c)(0x58C5607D)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include --C99-I F:\Keil\ARM\RV31\INC-I F:\Keil\ARM\CMSIS\Include-DUSE_HAL_DRIVER -DSTM32F103xE -o ffbmk1.1\usbd_hid.o --omf_browse ffbmk1.1\usbd_hid.crf --depend ffbmk1.1\usbd_hid.d)
-I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Class\HID\Inc\usbd_hid.h)(0x5854D0D1)
-I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ioreq.h)(0x578C5DCB)
-I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_def.h)(0x578C5DCB)
+F (../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Src/usbd_hid.c)(0x58CF4ABD)(-c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include --C99-I F:\Keil\ARM\RV31\INC-I F:\Keil\ARM\CMSIS\Include-DUSE_HAL_DRIVER -DSTM32F103xE -o ffbmk1.1\usbd_hid.o --omf_browse ffbmk1.1\usbd_hid.crf --depend ffbmk1.1\usbd_hid.d)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Class\HID\Inc\usbd_hid.h)(0x58CE923D)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ioreq.h)(0x58CF4591)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_def.h)(0x58CE7ACA)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Inc\usbd_conf.h)(0x5853FE6D)
 I (F:\Keil\ARM\ARMCC\include\stdio.h)(0x51C7B744)
 I (F:\Keil\ARM\ARMCC\include\stdlib.h)(0x51C7B744)
@@ -940,7 +1060,7 @@ I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cm3.h)(0x578C5DBF)
 I (F:\Keil\ARM\ARMCC\include\stdint.h)(0x51C7B744)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmInstr.h)(0x578C5DBF)
-I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\cmsis_armcc.h)(0x578C5DBF)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\cmsis_armcc.h)(0x58CE7944)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Include\core_cmFunc.h)(0x578C5DBF)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\CMSIS\Device\ST\STM32F1xx\Include\system_stm32f1xx.h)(0x578C5DBD)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal.h)(0x578C5DBF)
@@ -967,5 +1087,6 @@ I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1x
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pcd_ex.h)(0x578C5DBF)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_core.h)(0x578C5DCB)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ctlreq.h)(0x578C5DCB)
+I (F:\git projects\FFBMK1\FFBMK1_stm32\Inc\usbd_pid.h)(0x58CF46EA)
 I (F:\git projects\FFBMK1\FFBMK1_stm32\Inc\usbd_desc.h)(0x5853FE6D)
 F (startup_stm32f103xe.s)(0x5853FE6E)(--cpu Cortex-M3 -g --apcs=interwork --pd "__MICROLIB SETA 1"-I F:\Keil\ARM\RV31\INC-I F:\Keil\ARM\CMSIS\Include--list startup_stm32f103xe.lst --xref -o ffbmk1.1\startup_stm32f103xe.o --depend ffbmk1.1\startup_stm32f103xe.d)

@@ -423,9 +423,19 @@
               <FilePath>../Src/stm32f1xx_it.c</FilePath>
             </File>
             <File>
-              <FileName>ffbManager.c</FileName>
+              <FileName>usbd_pid.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Src\ffbManager.c</FilePath>
+              <FilePath>..\Src\usbd_pid.c</FilePath>
+            </File>
+            <File>
+              <FileName>ffb_manager.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\ffb_manager.c</FilePath>
+            </File>
+            <File>
+              <FileName>ffb_stick.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\ffb_stick.c</FilePath>
             </File>
           </Files>
         </Group>

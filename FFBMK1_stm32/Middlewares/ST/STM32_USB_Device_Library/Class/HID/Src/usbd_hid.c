@@ -48,6 +48,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "usbd_hid.h"
+#include "usbd_pid.h"
 #include "usbd_desc.h"
 #include "usbd_ctlreq.h"
 
@@ -110,6 +111,8 @@ static uint8_t  *USBD_HID_GetDeviceQualifierDesc (uint16_t *length);
 static uint8_t  USBD_HID_DataIn (USBD_HandleTypeDef *pdev, uint8_t epnum);
 
 static uint8_t  USBD_HID_DataOut (USBD_HandleTypeDef *pdev, uint8_t epnum);
+
+static uint8_t USBD_HID_EP0_RxReady (USBD_HandleTypeDef *pdev);
 /**
   * @}
   */
@@ -124,15 +127,15 @@ USBD_ClassTypeDef  USBD_HID =
   USBD_HID_DeInit,
   USBD_HID_Setup,
   NULL, /*EP0_TxSent*/
-  NULL, /*EP0_RxReady*/
+  USBD_HID_EP0_RxReady, /*EP0_RxReady*/
   USBD_HID_DataIn, /*DataIn*/
-  NULL, /*DataOut*/
+  USBD_HID_DataOut, /*DataOut*/
   NULL, /*SOF */
-  NULL,
-  NULL,
-  USBD_HID_GetCfgDesc,
-  USBD_HID_GetCfgDesc,
-  USBD_HID_GetCfgDesc,
+  NULL, /*IsoINIncomplete*/
+  NULL, /*IsoOUTIncomplete*/
+  USBD_HID_GetCfgDesc, /*HSConfigDescriptor*/
+  USBD_HID_GetCfgDesc, /*FSConfigDescriptor*/
+  USBD_HID_GetCfgDesc, /*OtherSpeedConfigDescriptor*/
   USBD_HID_GetDeviceQualifierDesc,
 };
 
@@ -251,8 +254,8 @@ __ALIGN_BEGIN static uint8_t HID_FFBStick_ReportDesc[PID_FFBMK1_DESC_SIZE]  __AL
 	0x81,0x02,                //        Input(IOF_Variable),
 	0xc0,                     //    End_Collection(),
 	0x05,0x09,                //    Usage_Page(Button_ID), //Buttons
-	0x09,0x00,                //    Usage_Minimum(Button1_ID),
-	0x29,0x04,                //    Usage_Maximum(Button4_ID),
+	0x19,0x01,                //    Usage_Minimum(Button1_ID),
+	0x09,0x00,                //    Usage_Maximum(Button4_ID),
 	0x25,0x01,                //    Logical_Maximum(1),
 	0x15,0x00,                //    Logical_Minimum(0),
 	0x95,0x04,                //    Report_Count(4),
@@ -519,7 +522,7 @@ __ALIGN_BEGIN static uint8_t HID_FFBStick_ReportDesc[PID_FFBMK1_DESC_SIZE]  __AL
 	0x09,0x78,                //        Usage(PID_Effect_Operation),
 	0xa1,0x02,                //        Collection(Clc_Logical),
 	0x09,0x79,                //            Usage(PID_Op_Effect_Start),
-	0x09,0x79,                //            Usage(PID_Op_Effect_Start_Solo),
+	0x09,0x7a,                //            Usage(PID_Op_Effect_Start_Solo),
 	0x09,0x7b,                //            Usage(PID_Op_Effect_Stop),
 	0x15,0x01,                //            Logical_Minimum(1),
 	0x25,0x03,                //            Logical_Maximum(3),
@@ -541,7 +544,10 @@ __ALIGN_BEGIN static uint8_t HID_FFBStick_ReportDesc[PID_FFBMK1_DESC_SIZE]  __AL
 	0x09,0xa0,                //        Usage(PID_Actuators_Enabled),
 	0x09,0xa4,                //        Usage(PID_Safety_Switch),
 	0x09,0xa6,                //        Usage(PID_Actuator_Power),
-	0x81,0x01,                //        Input(IOF_Array),
+	0x75,0x01,                //        Report_Size(1),
+	0x95,0x04,                //        Report_Count(4),
+	0x81,0x02,                //        Input(IOF_Variable),
+	0x81,0x01,                //        Input(IOF_Constant), //4-bit pad
 	0xc0,                     //    End_Collection(),
 	0x09,0x95,                //    Usage(PID_PID_Device_Control_Report),
 	0xa1,0x02,                //    Collection(Clc_Logical),
@@ -576,7 +582,7 @@ __ALIGN_BEGIN static uint8_t HID_FFBStick_ReportDesc[PID_FFBMK1_DESC_SIZE]  __AL
 	0x91,0x02,                //        Output(IOF_Variable),
 	0xc0,                     //    End_Collection(),
 	0xc0,                     //End_Collection(),
-	//Total:702 Bytes
+	//Total:708 Bytes
 };
 
 /**
@@ -619,6 +625,7 @@ static uint8_t  USBD_HID_Init (USBD_HandleTypeDef *pdev,
   {
     ((USBD_HID_HandleTypeDef *)pdev->pClassData)->state = HID_IDLE;
   }
+	USBD_PID_Init(pdev);
   return ret;
 }
 
@@ -689,9 +696,10 @@ static uint8_t  USBD_HID_Setup (USBD_HandleTypeDef *pdev,
                         1);
       break;
 
-    default:
-      USBD_CtlError (pdev, req);
-      return USBD_FAIL;
+    case HID_REQ_SET_REPORT: //beantowel
+		case HID_REQ_GET_REPORT:
+			USBD_PID_ItfReq(pdev, req);
+			break;
     }
     break;
 
@@ -825,23 +833,21 @@ static uint8_t  USBD_HID_DataIn (USBD_HandleTypeDef *pdev,
   * @param  epnum: endpoint index
   * @retval status
   */
-uint8_t  USBD_HID_DataOut (USBD_HandleTypeDef *pdev,
+static uint8_t  USBD_HID_DataOut (USBD_HandleTypeDef *pdev,
                               uint8_t epnum)
 {
-  /* Ensure that the FIFO is empty before a new transfer, this condition could
-  be caused by  a new transfer before the end of the previous transfer */
-  USBD_HID_HandleTypeDef     *hhid = (USBD_HID_HandleTypeDef*)pdev->pClassData;
-  uint16_t len;
-  len=USBD_GetRxCount(pdev,HID_EPOUT_ADDR);
-
- ((USBD_HID_HandleTypeDef *)pdev->pClassData)->state = HID_IDLE;
-	USBD_LL_PrepareReceive(pdev, HID_EPOUT_ADDR , HID_Out_Report, len);
-
-  //USBD_HID_SendReport(pdev, HID_Out_Report, len);
-  HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_2); //echo PD02 as a signal
+//  /* Ensure that the FIFO is empty before a new transfer, this condition could
+//  be caused by  a new transfer before the end of the previous transfer */	
+	USBD_PID_DataOut(pdev, epnum);	
+	((USBD_HID_HandleTypeDef *)pdev->pClassData)->state = HID_IDLE;
   return USBD_OK;
 }
 
+static uint8_t USBD_HID_EP0_RxReady (USBD_HandleTypeDef *pdev)
+{
+	USBD_PID_EP0_RxReady(pdev);
+	return USBD_OK;
+}
 
 /**
 * @brief  DeviceQualifierDescriptor

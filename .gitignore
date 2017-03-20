@@ -49,15 +49,18 @@
 #my rubbish
 *.lnk
 *.enc
+*.crf
+*.dep
 /ffbStuff/PID FFB test/*.txt
 /HID Descriptor tool/__pycache__
 /HID Descriptor tool/test
 /SimpleFeederWithReceptor/src/test
 /SimpleFeederWithReceptor/src/Debug/SimpleFe.C34FAEEE.tlog
-/FFBMK1_stm32
+/FFBMK1_stm32/MDK-ARM
 
 #ffbStuff Debug Wizards
 !/FFBMK1_stm32/Src
+!/FFBMK1_stm32/Inc
 !/ffbStuff/*.exe
 !/ffbStuff/PID FFB test/*.exe
 

@@ -1,47 +1,68 @@
-/**
-  ******************************************************************************
-  * @file    usbd_pid.c
-  * @author  beantowel
-  * @version V1.0
-  * @date    114-November-2016
-  * @brief   This file provides the PID(Physical Interface Device) core functions.
-  */ 
-
-/* Includes ------------------------------------------------------------------*/
+/*
+  specific functions for pid device,
+  to replenish MXCube customed usbd_hid
+*/
 #include "usbd_pid.h"
 #include "usbd_hid.h"
-#include "usbd_desc.h"
-#include "usbd_ctlreq.h"
-#include "stm32f103xe.h"
+#include "ffb_manager.h"
 
-uint8_t Receive_Buffer[128];
-uint8_t USBD_PID_DataOut(USBD_HandleTypeDef *pdev, uint8_t epnum);
+extern USBD_HandleTypeDef hUsbDeviceFS;
+const uint8_t HID_Out_Report_Maxlen = 0x20;
+uint8_t HID_Out_Report[HID_Out_Report_Maxlen];
 
 
-/**
-  * @brief  USBD_PID_DataOut
-  *         handle data OUT Stage
-  * @param  pdev: device instance
-  * @param  epnum: endpoint index
-  * @retval status
-  */
-uint8_t  USBD_PID_DataOut (USBD_HandleTypeDef *pdev, 
-                              uint8_t epnum)
-{  
-  /* Ensure that the FIFO is empty before a new transfer, this condition could 
-  be caused by  a new transfer before the end of the previous transfer */
-	//USBD_HID_HandleTypeDef     *hhid = (USBD_HID_HandleTypeDef*)pdev->pClassData;
-//	uint16_t len;
-//	len=USBD_GetRxCount(pdev,HID_EPOUT_ADDR);
-//	
-//  ((USBD_HID_HandleTypeDef *)pdev->pClassData)->pidstate = PID_IDLE;
-//	 USBD_LL_PrepareReceive(pdev, HID_EPOUT_ADDR , Receive_Buffer,len);
-//	
-//	USBD_HID_SendReport(pdev,Receive_Buffer,len);
-//	HAL_GPIO_TogglePin(GPIOD,GPIO_PIN_2);
-//	HAL_Delay(100);
+uint8_t USBD_PID_Init (USBD_HandleTypeDef *pdev)
+{
+	/*add FFBmngrInit to HID_Init*/
+	FFBMngrInit();
+	return USBD_OK;
+}
+uint8_t USBD_PID_DataOut (USBD_HandleTypeDef *pdev,uint8_t epnum)
+{
+	/*data out Stage hook*/
+	if(epnum == HID_EPOUT_ADDR){
+		uint16_t len = USBD_GetRxCount(&hUsbDeviceFS, epnum);
+		FFBMngrDataOutServ(HID_Out_Report, len);
+	}
+	else{
+		USBD_ErrLog("Out on unexpected Endpoint");
+	}
+	return USBD_OK;
+}
+uint8_t USBD_PID_Send (uint8_t *data, uint16_t len)
+{
+	/*Interface for ffb_manager*/
+	USBD_HID_SendReport(&hUsbDeviceFS, data, len);
+	return USBD_OK;
+}
+uint8_t USBD_PID_EP0_RxReady (USBD_HandleTypeDef *pdev)
+{
+	/*control pipe receive ready*/
+	return USBD_OK;
+}
+uint8_t USBD_PID_ItfReq(USBD_HandleTypeDef *pdev, USBD_SetupReqTypedef *req)
+{
+	/*Class Request Handler:Get_Report && Set_Report*/
+	switch(req->bRequest)
+	{
+		case HID_REQ_GET_REPORT:
+			FFBMngrDataInServ(HIBYTE(req->wValue));
+			break;
+		case HID_REQ_SET_REPORT:
+			USBD_LL_PrepareReceive(pdev, HID_EPOUT_ADDR, HID_Out_Report, req->wLength);
+			break;
+	}
   return USBD_OK;
 }
+
+
+
+
+
+
+
+
+
 
 
 

@@ -3,7 +3,7 @@ Usage_Page(Generic_Desktop_ID),
 Logical_Minimum(0),
 Usage(Joystick_ID),
 Collection(Clc_Application),
-	//Report_ID(0), //FFBMK1 JoyStick Inputs interrupt in pipe->default 0
+	Report_ID(1), //FFBMK1 JoyStick Inputs interrupt in pipe->default 0
 	Usage_Page(Simulation_ID),
 	Usage(Throttle_ID), //Throttle
 	Logical_Minimum(-127),
@@ -37,7 +37,7 @@ Collection(Clc_Application),
 	Usage_Page(Physical_Interface), //FFBMK1 JoyStick Outpus
 	Usage(PID_Create_New_Effect_Report),
 	Collection(Clc_Logical),
-		Report_ID(1),
+		//Report_ID(1),
 		Usage(PID_Effect_Type),
 		Collection(Clc_Logical),
 			Usage(PID_ET_Constant_Force),

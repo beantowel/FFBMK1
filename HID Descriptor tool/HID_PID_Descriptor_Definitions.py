@@ -24,7 +24,7 @@ Local_Items={
 }
 IOF_Constants={
     "IOF_Defalut_Items" : 0x0,
-    "IOF_Constant"      : 0x1,
+    "IOF_Constant"      : 0x3,
     "IOF_Variable"      : 0x2,
     "IOF_Array"         : 0x1,
 }
@@ -180,6 +180,12 @@ PID_Usage_Constants={
     "PID_RAM_Pool_Available"               : 0xAC,
 }
 HID_Items=[Main_Items,Global_Items,Local_Items]
-HID_Constants=[Usage_Constants,Unit_Exponent_Constants,\
-Usage_Page_Constants,Clc_Constants,IOF_Constants,\
-PID_Usage_Constants]
+HID_Constants=[
+    Usage_Constants,
+    Usage_Page_Constants,
+    Unit_Constants,
+    Unit_Exponent_Constants,
+    Clc_Constants,
+    IOF_Constants,
+    PID_Usage_Constants,
+]

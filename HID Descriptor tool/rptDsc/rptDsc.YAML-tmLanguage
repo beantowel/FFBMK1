@@ -1,4 +1,4 @@
-# [PackageDev] target_format: plist, ext: tmLanguage
+ # [PackageDev] target_format: plist, ext: tmLanguage
 ---
 name: rptDsc
 scopeName: source.rptDsc
@@ -12,13 +12,13 @@ patterns:
 
 - comment: MainItem
   name: keyword.rptDsc.MainItem
-  match: (Input|Output|Feature|Collection|End_Collection)
+  match: (?i)^\s*(Input|Output|Feature|Collection|End_Collection)
 
 - comment: GlobalItem
   name: constant.other.rptDsc.GlobalItem
-  match: (Usage_Page|((Logical_|Physical_)\w*)|Unit|Unit_Exponent|(Report_\w*))
+  match: (?i)^\s*(Usage_Page|((Logical_|Physical_)\w*)|Unit_Exponent|(Report_\w*)|Unit)
 
 - comment: LocalItem
   name: string.rptDsc.LocalItem
-  match: (Usage_Minimum|Usage_Maximum|Usage)
+  match: (?i)^\s*(Usage_Minimum|Usage_Maximum|Usage)
 ...

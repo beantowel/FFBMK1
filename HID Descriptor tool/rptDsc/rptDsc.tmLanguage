@@ -22,7 +22,7 @@
 			<key>comment</key>
 			<string>MainItem</string>
 			<key>match</key>
-			<string>(Input|Output|Feature|Collection|End_Collection)</string>
+			<string>(?i)^\s*(Input|Output|Feature|Collection|End_Collection)</string>
 			<key>name</key>
 			<string>keyword.rptDsc.MainItem</string>
 		</dict>
@@ -30,7 +30,7 @@
 			<key>comment</key>
 			<string>GlobalItem</string>
 			<key>match</key>
-			<string>(Usage_Page|((Logical_|Physical_)\w*)|Unit|Unit_Exponent|(Report_\w*))</string>
+			<string>(?i)^\s*(Usage_Page|((Logical_|Physical_)\w*)|Unit_Exponent|(Report_\w*)|Unit)</string>
 			<key>name</key>
 			<string>constant.other.rptDsc.GlobalItem</string>
 		</dict>
@@ -38,7 +38,7 @@
 			<key>comment</key>
 			<string>LocalItem</string>
 			<key>match</key>
-			<string>(Usage_Minimum|Usage_Maximum|Usage)</string>
+			<string>(?i)^\s*(Usage_Minimum|Usage_Maximum|Usage)</string>
 			<key>name</key>
 			<string>string.rptDsc.LocalItem</string>
 		</dict>

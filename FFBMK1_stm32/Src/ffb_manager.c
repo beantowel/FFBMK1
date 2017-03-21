@@ -16,7 +16,7 @@ static uint8_t effVis[maxEffN]; // 0:free 1:occupied
 static uint8_t effStat[maxEffN]; // 0:off 1:looping count
 static uint32_t effRunTime[maxEffN]; // Effect Run Time
 static uint8_t effRunning, effGlbGain;
-uint8_t actStat;
+uint8_t actStat = 1;
 static enum PID_Block_Load_Status_Enum pidLdStat; //effect running flag, actuator enable flag, effect global gain (max==0xFF)
 const uint8_t EffTypeArray[]={ //supported effect types
   PID_ET_Constant_Force,
@@ -184,7 +184,7 @@ void FFBMngrBlkLd(uint8_t idx){
     if(effVis[i]) cnt+=1;
   rpt->pid_ram_pool_available = cnt * sizeof(PID_Set_Effect_Report)\
    + cnt * 2 * maxParaBlkBytes;
-	
+
   USBD_PID_Send(data, len);
 }
 void FFBMngrStat(){
@@ -198,7 +198,7 @@ void FFBMngrStat(){
 	rpt->vars_0 += Mask_PID_Actuator_Power; //always power on
 	rpt->vars_0 += effStat[effBlkIdx] ? Mask_PID_Effect_Playing : 0;
 	rpt->vars_0 += 0; //Mask_PID_Safety_Switch always off
-	
+
 	USBD_PID_Send(data, len);
 }
 void FFBMngrDataOutServ(uint8_t *data, uint16_t size) {

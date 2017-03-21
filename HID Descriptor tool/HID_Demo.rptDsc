@@ -18,7 +18,7 @@ COLLECTION (Application), A1 01
         USAGE (Y), 09 31
         REPORT_COUNT (2), 95 02
         INPUT (Data,Var,Abs), 81 02
-    END_COLLECTION C0
+    END_COLLECTION(), C0
     :Define the hat switch
     USAGE (Hat switch), 09 39
     LOGICAL_MINIMUM (0), 15 00
@@ -75,7 +75,7 @@ COLLECTION (Application), A1 01
             LOGICAL_MAXIMUM (10), 25 0A
             REPORT_SIZE (8), 75 08
             OUTPUT (Data,Ary,Abs), 91 00
-        END_COLLECTION C0
+        END_COLLECTION(), C0
         USAGE (Duration), 09 50
         USAGE (Trigger Repeat Interval), 09 54
         LOGICAL_MINIMUM (0), 15 00
@@ -112,8 +112,8 @@ COLLECTION (Application), A1 01
                 REPORT_SIZE (1), 75 01
                 REPORT_COUNT (2), 95 02
                 OUTPUT (Data,Var,Abs), 91 02
-            END_COLLECTION C0
-        END_COLLECTION C0
+            END_COLLECTION(), C0
+        END_COLLECTION(), C0
         REPORT_COUNT (6), ; 6-bit pad 95 06
         OUTPUT (Cnst,Var,Abs), 91 03
         USAGE_PAGE (Physical Interface), 05 0F
@@ -133,8 +133,8 @@ COLLECTION (Application), A1 01
                 OUTPUT (Data,Var,Abs), 91 02
                 UNIT (None), 65 00
                 PHYSICAL_MAXIMUM (0), 45 00
-            END_COLLECTION C0
-        END_COLLECTION C0
+            END_COLLECTION(), C0
+        END_COLLECTION(), C0
         USAGE_PAGE (Physical Interface), 05 0F
         USAGE (Type Specific Block Offset), 09 58
         COLLECTION (Logical), A1 02
@@ -144,8 +144,8 @@ COLLECTION (Application), A1 01
             REPORT_SIZE (16), 75 10
             REPORT_COUNT (2), 95 02
             OUTPUT (Data,Var,Abs), 91 02
-        END_COLLECTION C0
-    END_COLLECTION C0
+        END_COLLECTION(), C0
+    END_COLLECTION(), C0
     ;Envelope Report Definition
     USAGE (Set Envelope Report), 09 5A
     COLLECTION (Logical), A1 02
@@ -176,7 +176,7 @@ COLLECTION (Application), A1 01
         PHYSICAL_MAXIMUM (0), 45 00
         UNIT (None), 65 00
         UNIT_EXPONENT (0), 55 00
-    END_COLLECTION C0
+    END_COLLECTION(), C0
     ;Condition Report Definition
     USAGE (Set Condition Report), 09 5F
     COLLECTION (Logical), A1 02
@@ -202,7 +202,7 @@ COLLECTION (Application), A1 01
         REPORT_SIZE (8), 75 08
         REPORT_COUNT (6), 95 06
         OUTPUT (Data,Var,Abs), 91 02
-    END_COLLECTION C0
+    END_COLLECTION(), C0
     ;Periodic Report Definition
     USAGE (Set Periodic Report), 09 6E
     COLLECTION (Logical), A1 02
@@ -234,7 +234,7 @@ COLLECTION (Application), A1 01
         PHYSICAL_MAXIMUM (0), 45 00
         UNIT (None), 65 00
         UNIT_EXPONENT (0), 55 00
-    END_COLLECTION C0
+    END_COLLECTION(), C0
     ;Constant Force Report Definition
     USAGE (Set Constant Force Report), 09 73
     COLLECTION (Logical), A1 02
@@ -254,7 +254,7 @@ COLLECTION (Application), A1 01
         LOGICAL_MAXIMUM (255), 26 FF 00
         REPORT_SIZE (8), 75 08
         OUTPUT (Data,Var,Abs), 91 02
-    END_COLLECTION C0
+    END_COLLECTION(), C0
     ;Ramp Force Report Definition
     USAGE (Set Ramp Force Report), 09 74
     COLLECTION (Logical), A1 02
@@ -274,7 +274,7 @@ COLLECTION (Application), A1 01
         REPORT_SIZE (8), 75 08
         REPORT_COUNT (2), 95 02
         OUTPUT (Data,Var,Abs), 91 02
-    END_COLLECTION C0
+    END_COLLECTION(), C0
     ;Custom Force Data Report Definition
     ; Downloads are always into RAM space so the ROM usage is not declared.
     USAGE (Custom Force Data Report), 09 68
@@ -294,7 +294,7 @@ COLLECTION (Application), A1 01
         REPORT_SIZE (8), 75 08
         REPORT_COUNT (256), 96 00 01
         OUTPUT (Data,Var,Abs,Buf), 92 02 01
-    END_COLLECTION C0
+    END_COLLECTION(), C0
     Device Class Definition for Physical Interface Devices (PID), Version 1.0
     30
     ;Download Force Sample Definition
@@ -311,8 +311,8 @@ COLLECTION (Application), A1 01
             REPORT_SIZE (8), 75 08
             REPORT_COUNT (2), 95 02
             OUTPUT (Data,Var,Abs), 91 02
-        END_COLLECTION C0
-    END_COLLECTION C0
+        END_COLLECTION(), C0
+    END_COLLECTION(), C0
     USAGE_PAGE (Physical Interface), 05 0F
     ;Define the Custom Force parameter block
     ; Custom Effects are always RAM based
@@ -330,7 +330,7 @@ COLLECTION (Application), A1 01
         REPORT_COUNT (3), 95 03
         REPORT_SIZE (16), 75 10
         OUTPUT (Data,Var,Abs), 91 02
-    END_COLLECTION C0
+    END_COLLECTION(), C0
     ;Effect Operation Report Definition
     USAGE (Effect Operation Report), 09 77
     COLLECTION (Logical), A1 02
@@ -355,12 +355,12 @@ COLLECTION (Application), A1 01
             31
             REPORT_SIZE (8), 75 08
             OUTPUT (Data,Ary,Abs), 91 00
-        END_COLLECTION C0
+        END_COLLECTION(), C0
         USAGE (Loop Count), 09 7C
         LOGICAL_MINIMUM (0), 15 00
         LOGICAL_MAXIMUM (255), 26 FF 00
         OUTPUT (Data,Var,Abs), 91 02
-    END_COLLECTION C0
+    END_COLLECTION(), C0
     ;PID Pool Report Definition
     USAGE (PID Pool Report), 09 7F
     COLLECTION (Logical), A1 02
@@ -385,7 +385,7 @@ COLLECTION (Application), A1 01
             REPORT_SIZE (8), 75 08
             REPORT_COUNT (7), 95 07
             FEATURE (Data,Var,Abs), B1 02
-        END_COLLECTION C0
+        END_COLLECTION(), C0
         LOGICAL_MAXIMUM (1), 25 01
         REPORT_SIZE (7), 75 07
         REPORT_COUNT (1), 95 01
@@ -393,7 +393,7 @@ COLLECTION (Application), A1 01
         USAGE (Isoch Custom Force Enable), 09 67
         REPORT_SIZE (1), 75 01
         FEATURE (Data,Var,Abs), B1 02
-    END_COLLECTION C0
+    END_COLLECTION(), C0
     ;PID State Report Definition
     USAGE (PID State Report), 09 92
     COLLECTION (Logical), A1 02
@@ -417,7 +417,7 @@ COLLECTION (Application), A1 01
         REPORT_COUNT (4), 95 04
         INPUT (Data,Var,Abs), 81 02
         INPUT (Cnst,Var,Abs), ; 4-bit pad 81 03
-    END_COLLECTION C0
+    END_COLLECTION(), C0
     ;PID Device Control Report Definition
     USAGE (PID Device Control Report), 09 95
     COLLECTION (Logical), A1 02
@@ -435,8 +435,8 @@ COLLECTION (Application), A1 01
             REPORT_SIZE (1), 75 01
             REPORT_COUNT (4), 95 08
             OUTPUT(Data,Ary,Abs), 91 02
-        END_COLLECTION C0
-    END_COLLECTION C0
+        END_COLLECTION(), C0
+    END_COLLECTION(), C0
     ;PID Pool Move Report Definition
     USAGE (PID Pool Move Report), 09 85
     COLLECTION (Logical), A1 02
@@ -448,7 +448,7 @@ COLLECTION (Application), A1 01
         REPORT_SIZE (16), 75 10
         REPORT_COUNT (3), 95 03
         OUTPUT (Data,Var,Abs,Buf), 92 02 01
-    END_COLLECTION C0
+    END_COLLECTION(), C0
     ;Device Gain Report Definition
     USAGE (Device Gain Report), 09 7D
     COLLECTION (Logical), A1 02
@@ -458,5 +458,5 @@ COLLECTION (Application), A1 01
         REPORT_SIZE (8), 75 08
         REPORT_COUNT (1), 95 01
         FEATURE (Data,Var,Abs), B1 02
-    END_COLLECTION C0
-END_COLLECTION C0
+    END_COLLECTION(), C0
+END_COLLECTION(), C0

@@ -159,6 +159,7 @@ Collection(Clc_Application),
 			End_Collection(),
 		End_Collection(),
 	End_Collection(),
+	Usage_Page(Physical_Interface),
 	Usage(PID_Set_Envelope_Report), //envelope
 	Collection(Clc_Logical),
 		Report_ID(4),

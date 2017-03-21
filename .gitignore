@@ -51,18 +51,19 @@
 *.enc
 *.crf
 *.dep
-/ffbStuff/PID FFB test/*.txt
-/HID Descriptor tool/__pycache__
-/HID Descriptor tool/test
-/SimpleFeederWithReceptor/src/test
-/SimpleFeederWithReceptor/src/Debug/SimpleFe.C34FAEEE.tlog
-/FFBMK1_stm32/MDK-ARM
+**/fold
+**/test
+**/debug
+**/Debug
+HID Descriptor tool/__pycache__/
+FFBMK1_stm32/MDK-ARM/
+ffbStuff/PID FFB test/*.txt
 
 #ffbStuff Debug Wizards
-!/FFBMK1_stm32/Src
-!/FFBMK1_stm32/Inc
-!/ffbStuff/*.exe
-!/ffbStuff/PID FFB test/*.exe
+!FFBMK1_stm32/Src/
+!FFBMK1_stm32/Inc/
+!ffbStuff/*.exe
+!ffbStuff/PID FFB test/*.exe
 
 modules.order
 Module.symvers

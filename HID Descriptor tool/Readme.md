@@ -1,3 +1,4 @@
+# !!This project is created as a new repository now, this folder will no londer be maintained
 # HID-PID Descriptor tool
 an extendable hid descriptor tool,parses the report descriptor written by natural language.  
 

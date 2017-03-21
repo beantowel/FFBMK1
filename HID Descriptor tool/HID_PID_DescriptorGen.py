@@ -95,7 +95,7 @@ for line in lines:
 					b=True
 	if not(b):
 		continue
-	print(out)
+	#print(out)
 	fileOut.write(out[0]+',')
 	for i in out[1]:
 		fileOut.write(i+',')

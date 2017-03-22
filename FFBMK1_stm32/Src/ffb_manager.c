@@ -8,6 +8,7 @@
 #include "string.h"
 #include "usbd_pid.h"
 #include "pid_definition.h"
+#include "ffb_stick.h"
 #define PI 3.1415926535898f
 
 //private variable
@@ -32,7 +33,7 @@ static uint8_t paraType[maxEffN * 2]; //parameter block type -1==not visited
 
 static uint8_t effBlkIdx = 0xff;
 static int32_t PID_Tx, PID_Ty; //temp global variable
-static float PID_mltipler;
+static float PID_mltipler, dirX, dirY; //temp mltipler, dirction
 
 //private function
 uint8_t FFBMngrMalloc(uint8_t *data);
@@ -48,7 +49,7 @@ void FFBMngrStat(void);
 uint8_t FFBFindOffset(uint8_t idx,enum Report_ID_Enum type);
 void FFBMngrEnvlp(uint8_t effBlkIdx);
 void FFBMngrPrid(uint8_t effBlkIdx, int32_t *level, float tfunc(uint32_t t,uint16_t p));
-void FFBMngrCond(uint8_t effBlkIdx, int16_t pos);
+void FFBMngrCond(uint8_t effBlkIdx, uint8_t offset, int16_t pos);
 void FFBMngrConstFoc(uint8_t idx);
 void FFBMngrRampFoc(uint8_t idx);
 float FFBtriangle(uint32_t t,uint16_t period);
@@ -111,10 +112,9 @@ void FFBMngrParaAcpt(uint8_t *data, uint8_t size, enum Report_ID_Enum type) {
   //DebugPrint("Accepting Parameter\n");
   //data[0]==packetID, assume effIdx==data[1] offset==data[2]
   uint8_t effBlkIdx = data[1];
-  uint8_t offset = paraType[effBlkIdx * 2] == 0xFF ? 0 : 1;
-  offset = paraType[effBlkIdx * 2] == type ? 0 : offset;
-
+  uint8_t offset = data[2];
   uint8_t idx = effBlkIdx * 2 + offset;
+  //if(paraType[idx] != 0xFF) DebugPrint("paraBlk Acccept Collision")
   paraType[idx] = type;
   //DebugPrint("Accept Parameter[%d] offset=%d,Type[%d*2+%d]=0x%.2X\n",\
    effBlkIdx, offset, effBlkIdx, offset, paraType[idx]);
@@ -188,7 +188,6 @@ void FFBMngrBlkLd(uint8_t idx){
   USBD_PID_Send(data, len);
 }
 void FFBMngrStat(){
-  //to be done
 	uint8_t len = sizeof(PID_PID_State_Report) + 1;
   uint8_t data[len];
   data[0] = ID_PID_PID_State_Report; //report id
@@ -288,15 +287,15 @@ void FFBMngrPrid(uint8_t effBlkIdx, int32_t *level, float tfunc(uint32_t t,uint1
   uint8_t offset = FFBFindOffset(effBlkIdx, ID_PID_Set_Periodic_Report); //find parameter offset
 
   PID_Set_Periodic_Report *pRpt =(PID_Set_Periodic_Report *) &paraBlkPool[effBlkIdx * 2 + offset];
-  pRpt->pid_period = pRpt->pid_period == 0 ? 1 : pRpt->pid_period;
-  uint32_t time = (pRpt->pid_phase + effRunTime[effBlkIdx]) % pRpt->pid_period; //assume time unit: ms
+  pRpt->pid_period = pRpt->pid_period == 0 ? 1 : pRpt->pid_period; //divided by 0
+  uint32_t time = (uint32_t) (pRpt->pid_phase / 10000.0) * pRpt->pid_period; //normalized value
+  time =(time + effRunTime[effBlkIdx]) % pRpt->pid_period; //assume time unit: ms
 
   *level =(int16_t) pRpt->pid_offset;
   *level +=(int32_t) ((int16_t) pRpt->pid_magnitude) * tfunc(time, pRpt->pid_period);
 }
-void FFBMngrCond(uint8_t effBlkIdx, int16_t pos){
-  uint8_t offset = FFBFindOffset(effBlkIdx, ID_PID_Set_Condition_Report); //find parameter offset
-
+void FFBMngrCond(uint8_t effBlkIdx, uint8_t offset, int16_t pos){
+  //uint8_t offset = FFBFindOffset(effBlkIdx, ID_PID_Set_Condition_Report); //find parameter offset
   PID_Set_Condition_Report *pRpt =(PID_Set_Condition_Report *) &paraBlkPool[effBlkIdx * 2 + offset];
   //PID_Set_Effect_Report *eRpt = &effRpt[effBlkIdx];
   uint16_t CP = pRpt->pid_cp_offset;
@@ -306,7 +305,7 @@ void FFBMngrCond(uint8_t effBlkIdx, int16_t pos){
   if(pos < CP - dead){
     PID_mltipler = pRpt->pid_negative_coefficient * (pos - (CP - dead)) / pRpt->pid_negative_saturation;
   }else if(pos > CP + dead){
-    PID_mltipler = pRpt->pid_positive_saturation * (pos - (CP + dead)) / pRpt->pid_positive_saturation;
+    PID_mltipler = pRpt->pid_positive_coefficient * (pos - (CP + dead)) / pRpt->pid_positive_saturation;
   }
 }
 void FFBMngrConstFoc(uint8_t idx) {
@@ -367,7 +366,31 @@ void FFBMngrSine(uint8_t idx) {
   //DebugPrint("Sine PID_mltipler:%f level:%d\n", PID_mltipler, level);
 }
 void FFBMngrSprng(uint8_t idx) {
-  PID_Tx = PID_Ty = 0; //to be done, need pos(&posx, &posy) as parameter to ger position
+  int32_t x, y, maxp;
+  x = stick_Get_Position(0);
+  y = stick_Get_Position(1);
+  maxp = stick_Get_Positioon_Max();
+  x = (int32_t) ((float) x * 10000 / maxp); //normalized max 10000
+  y = (int32_t) ((float) y * 10000 / maxp);
+
+  if(effRpt[idx].pid_direction_enable){
+    int32_t dis = dirX * x + dirY * y;
+    FFBMngrCond(idx, FFBFindOffset(idx, ID_PID_Set_Condition_Report), dis);
+		PID_Tx = PID_Ty = 10000 * PID_mltipler;
+		return;
+	}
+  else{
+    PID_Tx = PID_Ty = 0;
+		if (effRpt[idx].PID_Axes_Enable.Pointer_ID.vars_0 & Mask_X_ID){
+      FFBMngrCond(idx, 0, (int16_t) x);
+      PID_Tx = 10000 * PID_mltipler; //normalized max 10000
+    }
+    if (effRpt[idx].PID_Axes_Enable.Pointer_ID.vars_0 & Mask_Y_ID){
+      FFBMngrCond(idx, 1, (int16_t) y);
+      PID_Ty = 10000 * PID_mltipler;
+    }
+		return;
+  }
 }
 void FFBMngrEffRun(uint16_t deltaT, int32_t *Tx, int32_t *Ty) {
   //given deltaTime(ms),return Torque on x&y axes
@@ -392,6 +415,23 @@ void FFBMngrEffRun(uint16_t deltaT, int32_t *Tx, int32_t *Ty) {
 
       //PID_Tx = 0, PID_Ty = 0; //torque on x&y axes
             //Use Global variable PID_Tx&PID_Ty as return
+
+      dirX = dirY = 0; //normalized value max 0x7f?
+      uint8_t gain = eRpt->pid_gain;
+      const uint8_t maxGain = 0xFF;
+      if(eRpt->pid_direction_enable > 0) { //<USB PID Definition> messed there up
+        uint8_t direction = eRpt->PID_Direction.Pointer_ID.x_id; //normalized value 0x00-0xFF
+        dirX = cos((float) (-direction * 2 * PI / 0xFF + PI / 2));
+        dirY = sin((float) (-direction * 2 * PI / 0xFF + PI / 2));
+        //DebugPrint("Effect Direction:%f degree\n", direction * 360.0 / 0xFF);
+      } else {
+        dirX = eRpt->PID_Axes_Enable.Pointer_ID.vars_0 & Mask_X_ID ? \
+					eRpt->PID_Direction.Pointer_ID.x_id / 0xFF : 0;
+        dirY = eRpt->PID_Axes_Enable.Pointer_ID.vars_0 & Mask_Y_ID ? \
+					eRpt->PID_Direction.Pointer_ID.y_id / 0xFF : 0;
+        //DebugPrint("Effect Direction dirX:%d dirY:%d\n", dirX, dirY);
+      }
+
       switch(eRpt->PID_Effect_Type.pid_effect_type_enum_0) {
       case PID_ET_Constant_Force:
         FFBMngrConstFoc(i);
@@ -408,25 +448,12 @@ void FFBMngrEffRun(uint16_t deltaT, int32_t *Tx, int32_t *Ty) {
       case PID_ET_Sine:
         FFBMngrSine(i);
         break;
+			default:
+				break;
       }
 
-      float x, y; //normalized value max 0x7f?
-      uint8_t gain = eRpt->pid_gain;
-      const uint8_t maxGain = 0xFF;
-      if(eRpt->pid_direction_enable > 0) { //<USB PID Definition> massed there up
-        uint8_t direction = eRpt->PID_Direction.Pointer_ID.x_id; //normalized value 0x00-0xFF
-        x = cos((float) (-direction * 2 * PI / 0xFF + PI / 2));
-        y = sin((float) (-direction * 2 * PI / 0xFF + PI / 2));
-        //DebugPrint("Effect Direction:%f degree\n", direction * 360.0 / 0xFF);
-      } else {
-        x = eRpt->PID_Axes_Enable.Pointer_ID.vars_0 & Mask_X_ID ? \
-					eRpt->PID_Direction.Pointer_ID.x_id / 0xFF : 0;
-        y = eRpt->PID_Axes_Enable.Pointer_ID.vars_0 & Mask_Y_ID ? \
-					eRpt->PID_Direction.Pointer_ID.y_id / 0xFF : 0;
-        //DebugPrint("Effect Direction X:%d Y:%d\n", x, y);
-      }
-      *Tx +=(int32_t) (PID_Tx * x * gain / maxGain * effGlbGain / maxGain);
-      *Ty +=(int32_t) (PID_Ty * y * gain / maxGain * effGlbGain / maxGain);
+      *Tx +=(int32_t) (PID_Tx * dirX * gain / maxGain * effGlbGain / maxGain);
+      *Ty +=(int32_t) (PID_Ty * dirY * gain / maxGain * effGlbGain / maxGain);
       //DebugPrint("FFBMngr Running:Type=%d\n PID_Tx:%d PID_Ty:%d\n Gain:%d\n"\
       ,eRpt->PID_Effect_Type, PID_Tx, PID_Ty, gain);
     }

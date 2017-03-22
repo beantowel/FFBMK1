@@ -9,55 +9,55 @@
 
 enum PID_Effect_Type_Enum{
     PID_ET_Constant_Force = 1,
-    PID_ET_Sine           = 2,
-    PID_ET_Triangle       = 3,
-    PID_ET_Spring         = 4,
-    PID_ET_Ramp           = 5,
+    PID_ET_Sine = 2,
+    PID_ET_Triangle = 3,
+    PID_ET_Spring = 4,
+    PID_ET_Ramp = 5,
 };
 
 enum PID_Block_Load_Status_Enum{
     PID_Block_Load_Success = 1,
-    PID_Block_Load_Full    = 2,
-    PID_Block_Load_Error   = 3,
+    PID_Block_Load_Full = 2,
+    PID_Block_Load_Error = 3,
 };
 
 enum PID_Effect_Operation_Enum{
-    PID_Op_Effect_Start      = 1,
+    PID_Op_Effect_Start = 1,
     PID_Op_Effect_Start_Solo = 2,
-    PID_Op_Effect_Stop       = 3,
+    PID_Op_Effect_Stop = 3,
 };
 
 enum PID_PID_Device_Control_Enum{
-    PID_DC_Enable_Actuators  = 1,
+    PID_DC_Enable_Actuators = 1,
     PID_DC_Disable_Actuators = 2,
-    PID_DC_Stop_All_Effects  = 3,
-    PID_DC_Device_Reset      = 4,
-    PID_DC_Device_Pause      = 5,
-    PID_DC_Device_Continue   = 6,
+    PID_DC_Stop_All_Effects = 3,
+    PID_DC_Device_Reset = 4,
+    PID_DC_Device_Pause = 5,
+    PID_DC_Device_Continue = 6,
 };
 
 enum Report_ID_Enum{
-    ID_PID_Create_New_Effect_Report  = 1,
-    ID_PID_PID_Block_Load_Report     = 2,
-    ID_PID_Set_Effect_Report         = 3,
-    ID_PID_Set_Envelope_Report       = 4,
-    ID_PID_Set_Condition_Report      = 5,
-    ID_PID_Set_Periodic_Report       = 6,
+    ID_PID_Create_New_Effect_Report = 1,
+    ID_PID_PID_Block_Load_Report = 2,
+    ID_PID_Set_Effect_Report = 3,
+    ID_PID_Set_Envelope_Report = 4,
+    ID_PID_Set_Condition_Report = 5,
+    ID_PID_Set_Periodic_Report = 6,
     ID_PID_Set_Constant_Force_Report = 7,
-    ID_PID_Set_Ramp_Force_Report     = 8,
-    ID_PID_Effect_Operation_Report   = 9,
-    ID_PID_PID_State_Report          = 10,
+    ID_PID_Set_Ramp_Force_Report = 8,
+    ID_PID_Effect_Operation_Report = 9,
+    ID_PID_PID_State_Report = 10,
     ID_PID_PID_Device_Control_Report = 11,
-    ID_PID_Device_Gain_Report        = 12,
-    ID_PID_PID_Block_Free_Report     = 13,
+    ID_PID_Device_Gain_Report = 12,
+    ID_PID_PID_Block_Free_Report = 13,
 };
 
-const uint8_t Mask_X_ID                  = 0xf;
-const uint8_t Mask_Y_ID                  = 0xf0;
-const uint8_t Mask_PID_Effect_Playing    = 0x1;
+const uint8_t Mask_X_ID = 0xf;
+const uint8_t Mask_Y_ID = 0xf0;
+const uint8_t Mask_PID_Effect_Playing = 0x1;
 const uint8_t Mask_PID_Actuators_Enabled = 0x2;
-const uint8_t Mask_PID_Safety_Switch     = 0x4;
-const uint8_t Mask_PID_Actuator_Power    = 0x8;
+const uint8_t Mask_PID_Safety_Switch = 0x4;
+const uint8_t Mask_PID_Actuator_Power = 0x8;
 
 typedef struct _PID_Create_New_Effect_Report {
     //Report_ID:1
@@ -108,7 +108,7 @@ typedef struct _PID_Set_Effect_Report {
         struct {
             uint8_t vars_0;
             //x_id,y_id,
-            //Check Pads 
+            //Check Pads
             //Logical_Maximum:1
         } Pointer_ID;
     } PID_Axes_Enable;

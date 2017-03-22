@@ -38,6 +38,7 @@ uint8_t USBD_PID_Send (uint8_t *data, uint16_t len)
 uint8_t USBD_PID_EP0_RxReady (USBD_HandleTypeDef *pdev)
 {
 	/*control pipe receive ready*/
+	((USBD_HID_HandleTypeDef *)pdev->pClassData)->state = HID_IDLE;
 	return USBD_OK;
 }
 uint8_t USBD_PID_ItfReq(USBD_HandleTypeDef *pdev, USBD_SetupReqTypedef *req)
@@ -52,6 +53,7 @@ uint8_t USBD_PID_ItfReq(USBD_HandleTypeDef *pdev, USBD_SetupReqTypedef *req)
 			USBD_LL_PrepareReceive(pdev, HID_EPOUT_ADDR, HID_Out_Report, req->wLength);
 			break;
 	}
+	((USBD_HID_HandleTypeDef *)pdev->pClassData)->state = HID_IDLE;
   return USBD_OK;
 }
 

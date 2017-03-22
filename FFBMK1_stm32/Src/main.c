@@ -103,7 +103,6 @@ int main(void) {
     /* USER CODE BEGIN WHILE */
     HAL_ADC_Start_DMA(&hadc1, ADC_Converted_Values, Converted_Values_len);
     stick_EffectExecuter();
-    HAL_ADC_Stop_DMA(&hadc1);
     HAL_Delay(5);
     /* USER CODE END WHILE */
   };
@@ -298,6 +297,7 @@ static void MX_GPIO_Init(void) {
 /* USER CODE BEGIN 4 */
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc) {
   UNUSED(hadc);
+  HAL_ADC_Stop_DMA(&hadc1);
   HID_GenerateInputRpt(ADC_Converted_Values);
 }
 void User_Defined_Init(void) {

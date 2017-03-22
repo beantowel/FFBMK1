@@ -16,7 +16,7 @@ const int32_t Pos_Max = 341; //pos Constrian value 2048 / 180 * 30 <= 341
 const int32_t T_Max = 10000;
 
 const int16_t HID_In_Report_len = 8;
-static uint8_t HID_In_Report[HID_In_Report_len];
+uint8_t HID_In_Report[HID_In_Report_len];
 
 /* private function prototype*/
 int32_t truncVal(int32_t val, int32_t range);
@@ -37,7 +37,7 @@ void HID_GenerateInputRpt(uint32_t *adcValue) {
   Y_Position = truncVal(Y_Position, Pos_Max);
   x = X_Position * Position_Gain;
   y = Y_Position * Position_Gain;
-  HID_In_Report[0] = 14; //Report ID==14
+  HID_In_Report[0] = 1; //Report ID==1
   HID_In_Report[1] = (uint8_t) (adcValue[2] >> 4); //throttle
   HID_In_Report[2] = (uint8_t) (x & 0x00ff); //x pos: -2047~2048
   HID_In_Report[3] = (uint8_t) (x >> 8);
@@ -116,8 +116,13 @@ void stick_Position_Calibration(void) {
 	X_Zero=X_Position;
 	Y_Zero=Y_Position;
 }
-
-
+int32_t stick_Get_Position(uint8_t axis){
+	if(axis == 0) return(X_Position);
+	else return(Y_Position);
+}
+int32_t stick_Get_Positioon_Max(void){
+	return Pos_Max;
+}
 
 
 

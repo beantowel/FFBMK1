@@ -56,7 +56,6 @@
 **/debug
 **/Debug
 HID Descriptor tool/__pycache__/
-FFBMK1_stm32/MDK-ARM/
 ffbStuff/PID FFB test/*.txt
 
 #ffbStuff Debug Wizards

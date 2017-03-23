@@ -15,7 +15,7 @@ const int32_t Position_Gain = 180 / Angle_Max; //p*gain-> Value -2048~2047:Angle
 const int32_t Pos_Max = 341; //pos Constrian value 2048 / 180 * 30 <= 341
 const int32_t T_Max = 10000;
 
-const int16_t HID_In_Report_len = 8;
+const int16_t HID_In_Report_len = 7;
 uint8_t HID_In_Report[HID_In_Report_len];
 
 /* private function prototype*/
@@ -44,7 +44,6 @@ void HID_GenerateInputRpt(uint32_t *adcValue) {
   HID_In_Report[4] = (uint8_t) (y & 0x00ff); //y pos
   HID_In_Report[5] = (uint8_t) (y >> 8);
   HID_In_Report[6] = HID_Button_Status; //button
-  HID_In_Report[7] = 1;
 
   USBD_PID_Send(HID_In_Report, HID_In_Report_len); //send In Report
 }

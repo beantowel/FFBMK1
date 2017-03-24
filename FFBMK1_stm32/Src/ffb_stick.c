@@ -8,7 +8,7 @@ extern TIM_HandleTypeDef htim3;
 extern uint8_t actStat;
 /* private Variable */
 static int32_t X_Position, Y_Position; //Value -2048~2047:Angle -180~180
-static int32_t X_Zero = 0, Y_Zero = 0;
+static int32_t X_Zero = 2048, Y_Zero = 2048;
 static uint8_t HID_Button_Status = 0;
 const int32_t Angle_Max = 30;
 const int32_t Position_Gain = 180 / Angle_Max; //p*gain-> Value -2048~2047:Angle -30~30

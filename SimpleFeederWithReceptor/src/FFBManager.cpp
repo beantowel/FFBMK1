@@ -1,6 +1,7 @@
+#include "FFBManager.h"
+
 #include "stdafx.h"
-#include "stdint.h"
-//#include "arm_math.h"
+//#include "stdint.h"
 #include "Math.h"
 #include "public.h"
 #include "vjoyinterface.h"
@@ -17,6 +18,7 @@ uint8_t effRunning, actStat, effGlbGain;
 FFB_EFF_REPORT effRpt[maxEffN]; //effect report pool
 uint8_t paraBlkPool[maxEffN * 2][maxParaBlkBytes]; //parameter block pool
 uint8_t paraType[maxEffN * 2]; //parameter block type -1==not visited
+int16_t posX = 100, posY = 100;
 
 void FFBMngrInit() {
 	DebugPrint("FFBMngr Init Clear\n");
@@ -38,7 +40,7 @@ uint8_t FFBMngrMalloc(uint8_t *data) {
     //for(i = 0; i < maxTypeN; i++)
     //    if(effType == EffTypeArray[i]) break;
     //if(effType != EffTypeArray[i]) return -1; //type checking
-    for(i = 0; i < maxEffN; i++)
+    for(i = 1; i < maxEffN; i++)
         if(!effVis[i]) return i;
     return -1;
 }
@@ -66,11 +68,16 @@ void FFBMngrParaAcpt(uint8_t *data, uint8_t size, FFBPType type) {
     uint8_t effBlkIdx = data[1];
 	uint8_t offset = paraType[effBlkIdx * 2] == 0xFF ? 0 : 1;
 	offset = paraType[effBlkIdx * 2] == type ? 0 : offset;
+	if (type == PT_CONDREP) {
+		FFB_EFF_COND *pRpt = (FFB_EFF_COND *)&data[1];
+		offset = pRpt->isY ? 1 : 0;
+	}
 
     uint8_t idx = effBlkIdx * 2 + offset;
+	DebugPrint("Accept Parameter[%d] offset=%d,Type[%d*2+%d]=0x%.2X\n", \
+	effBlkIdx, offset, effBlkIdx, offset, paraType[idx]);
+
     paraType[idx] = type;
-	DebugPrint("Accept Parameter[%d] offset=%d,Type[%d*2+%d]=0x%.2X\n",\
-	 effBlkIdx, offset, effBlkIdx, offset, paraType[idx]);
     for(uint8_t i = 1; i < size; i++) //may cause out range
         paraBlkPool[idx][i-1] = data[i];
 }
@@ -86,7 +93,7 @@ void FFBMngrOpre(uint8_t *data) {
         return;
     }
     if(operation == EFF_SOLO)
-        for(uint8_t i = 0; i < maxEffN; i++)
+        for(uint8_t i = 1; i < maxEffN; i++)
             effStat[i] = 0;
     if(operation == EFF_SOLO || operation == EFF_START){
         effStat[effBlkIdx] = loop;
@@ -105,7 +112,7 @@ void FFBMngrCtrl(uint8_t *data) {
         actStat = 0;
         break;
     case CTRL_STOPALL:
-        for(uint8_t i = 0; i < maxEffN; i++)
+        for(uint8_t i = 1; i < maxEffN; i++)
             effStat[i] = 0;
         break;
     case CTRL_DEVRST:
@@ -203,13 +210,19 @@ void FFBMngrPrid(uint8_t effBlkIdx, int32_t &level, float32_t tfunc(uint32_t t,u
     level =(int16_t) pRpt->Offset;
     level +=(int32_t) ((int16_t) pRpt->Magnitude) * tfunc(time, pRpt->Period);
 }
-void FFBMngrCond(uint8_t effBlkIdx, int16_t pos, float32_t &mltipler){
-    uint8_t offset = FFBFindOffset(effBlkIdx, PT_CONDREP); //find parameter offset
+void FFBMngrCond(uint8_t effBlkIdx, int16_t pos, uint8_t isY, float32_t &mltipler){
+    uint8_t offset;
 
-    FFB_EFF_COND *pRpt =(FFB_EFF_COND *) &paraBlkPool[effBlkIdx * 2 + offset];
+    FFB_EFF_COND *pRpt = (FFB_EFF_COND *) &paraBlkPool[effBlkIdx * 2 + 0];
+	offset = (pRpt->isY && isY) ? 0 : 1;
+	pRpt = (FFB_EFF_COND *)&paraBlkPool[effBlkIdx * 2 + offset];
     FFB_EFF_REPORT *eRpt = &effRpt[effBlkIdx];
     uint16_t CP = pRpt->CenterPointOffset;
     uint16_t dead = pRpt->DeadBand;
+	//offset = isY ? 1 : 0;
+	//uint8_t *pRpt = &paraBlkPool[effBlkIdx * 2 + offset];
+	//int16_t CP = *((int16_t*) pRpt[2]);
+	//int16_t PosCo
 
     mltipler = 0;
     if(pos < CP - dead){
@@ -279,6 +292,11 @@ void FFBMngrSine(uint8_t idx, int32_t &Tx, int32_t &Ty) {
 }
 void FFBMngrSprng(uint8_t idx, int32_t &Tx, int32_t &Ty) {
     Tx = Ty = 0; //to be done, need pos(&posx, &posy) as parameter to ger position
+	float32_t mltipler = 0;
+	FFBMngrCond(idx, posX, 0, mltipler);
+	Tx = 10000 * mltipler;
+	FFBMngrCond(idx, posX, 0, mltipler);
+	Ty = 10000 * mltipler;
 }
 void FFBMngrEffRun(uint16_t deltaT, int32_t &Tx, int32_t &Ty) {
     //given deltaTime(ms),return Torque on x&y axes
@@ -339,4 +357,8 @@ void FFBMngrEffRun(uint16_t deltaT, int32_t &Tx, int32_t &Ty) {
 			,eRpt->EffectType, Tx, Ty, gain);
         }
     }
+}
+void FFBMngrSetPos(int16_t x, int16_t y) {
+	posX = x;
+	posY = y;
 }

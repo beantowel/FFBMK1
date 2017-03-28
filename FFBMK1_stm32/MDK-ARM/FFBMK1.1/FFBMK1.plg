@@ -8,107 +8,23 @@ Project File Date:  03/24/2017
 
 <h2>Output:</h2>
 Build target 'FFBMK1.1'
-compiling ffb_stick.c...
-linking...
-Program Size: Code=22186 RO-data=654 RW-data=968 ZI-data=4512  
-"FFBMK1.1\FFBMK1.1" - 0 Errors, 0 Warning(s).
-Load "FFBMK1.1\\FFBMK1.1" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'FFBMK1.1'
-compiling usbd_pid.c...
-..\Src\usbd_pid.c(54): warning:  #177-D: variable "dir" was declared but never referenced
-linking...
-Program Size: Code=22174 RO-data=650 RW-data=968 ZI-data=4512  
-"FFBMK1.1\FFBMK1.1" - 0 Errors, 1 Warning(s).
-Build target 'FFBMK1.1'
-compiling usbd_pid.c...
-linking...
-Program Size: Code=22174 RO-data=650 RW-data=968 ZI-data=4512  
-"FFBMK1.1\FFBMK1.1" - 0 Errors, 0 Warning(s).
-Build target 'FFBMK1.1'
-compiling main.c...
-compiling usbd_pid.c...
-compiling ffb_manager.c...
-linking...
-Program Size: Code=22006 RO-data=650 RW-data=960 ZI-data=4000  
-"FFBMK1.1\FFBMK1.1" - 0 Errors, 0 Warning(s).
-Load "FFBMK1.1\\FFBMK1.1" 
-Load "FFBMK1.1\\FFBMK1.1" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'FFBMK1.1'
-compiling usbd_pid.c...
-linking...
-Program Size: Code=22046 RO-data=650 RW-data=960 ZI-data=4000  
-"FFBMK1.1\FFBMK1.1" - 0 Errors, 0 Warning(s).
-Load "FFBMK1.1\\FFBMK1.1" 
-Load "FFBMK1.1\\FFBMK1.1" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'FFBMK1.1'
-compiling usbd_pid.c...
-compiling ffb_manager.c...
-linking...
-Program Size: Code=22042 RO-data=654 RW-data=960 ZI-data=4000  
-"FFBMK1.1\FFBMK1.1" - 0 Errors, 0 Warning(s).
-Build target 'FFBMK1.1'
-compiling usbd_pid.c...
-linking...
-Program Size: Code=22042 RO-data=654 RW-data=960 ZI-data=4000  
-"FFBMK1.1\FFBMK1.1" - 0 Errors, 0 Warning(s).
-Load "FFBMK1.1\\FFBMK1.1" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'FFBMK1.1'
-compiling main.c...
-compiling usbd_pid.c...
-compiling ffb_manager.c...
-linking...
-Program Size: Code=22038 RO-data=650 RW-data=960 ZI-data=4000  
-"FFBMK1.1\FFBMK1.1" - 0 Errors, 0 Warning(s).
-Build target 'FFBMK1.1'
-compiling usbd_pid.c...
-compiling ffb_manager.c...
-linking...
-Program Size: Code=22042 RO-data=654 RW-data=960 ZI-data=4000  
-"FFBMK1.1\FFBMK1.1" - 0 Errors, 0 Warning(s).
-Build target 'FFBMK1.1'
-compiling ffb_manager.c...
-linking...
-Program Size: Code=22038 RO-data=650 RW-data=960 ZI-data=4000  
-"FFBMK1.1\FFBMK1.1" - 0 Errors, 0 Warning(s).
-Load "FFBMK1.1\\FFBMK1.1" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'FFBMK1.1'
-compiling ffb_manager.c...
-compiling ffb_stick.c...
-linking...
-Program Size: Code=22042 RO-data=654 RW-data=960 ZI-data=4000  
-"FFBMK1.1\FFBMK1.1" - 0 Errors, 0 Warning(s).
-Load "FFBMK1.1\\FFBMK1.1" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'FFBMK1.1'
-compiling ffb_manager.c...
+compiling usbd_desc.c...
 linking...
 Program Size: Code=22042 RO-data=654 RW-data=960 ZI-data=4064  
 "FFBMK1.1\FFBMK1.1" - 0 Errors, 0 Warning(s).
+Load "FFBMK1.1\\FFBMK1.1" 
+Erase Done.
+Programming Done.
+Verify OK.
 Build target 'FFBMK1.1'
+compiling usbd_desc.c...
 linking...
 Program Size: Code=22042 RO-data=654 RW-data=960 ZI-data=4064  
 "FFBMK1.1\FFBMK1.1" - 0 Errors, 0 Warning(s).
-Build target 'FFBMK1.1'
-linking...
-Program Size: Code=22042 RO-data=654 RW-data=960 ZI-data=4064  
-"FFBMK1.1\FFBMK1.1" - 0 Errors, 0 Warning(s).
+Load "FFBMK1.1\\FFBMK1.1" 
+Erase Done.
+Programming Done.
+Cannot access Memory
 Load "FFBMK1.1\\FFBMK1.1" 
 Erase Done.
 Programming Done.

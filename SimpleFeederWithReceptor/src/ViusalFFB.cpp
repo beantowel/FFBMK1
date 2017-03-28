@@ -1,8 +1,9 @@
 /*
 	This File implements the glut window
 */
-#include"FFBRender.h"
 #include "VisualFFB.h"
+#include "FFBRender.h"
+#include "FFBManager.h"
 
 #include<iostream>
 #include<string>
@@ -13,7 +14,6 @@
 #include <time.h>
 char line[MaxLineLength];
 static FFBRender ffbRender;
-extern void FFBMngrEffRun(uint16_t deltaT, int32_t &Tx, int32_t &Ty);
 
 int Visual_main() {
 

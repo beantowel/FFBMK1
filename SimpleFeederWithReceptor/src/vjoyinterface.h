@@ -219,13 +219,13 @@ typedef struct _FFB_EFF_PERIOD {
 
 typedef struct _FFB_EFF_COND {
 	BYTE		EffectBlockIndex;
-	BOOL		isY;
-	LONG 		CenterPointOffset; // CP Offset:  Range -?0000 ? 10000
-	LONG 		PosCoeff; // Positive Coefficient: Range -?0000 ? 10000
-	LONG 		NegCoeff; // Negative Coefficient: Range -?0000 ? 10000
-	DWORD 		PosSatur; // Positive Saturation: Range 0 ?10000
-	DWORD 		NegSatur; // Negative Saturation: Range 0 ?10000
-	LONG 		DeadBand; // Dead Band: : Range 0 ?1000
+	BYTE		isY; //beantowel
+	int16_t 	CenterPointOffset; // CP Offset:  Range -?0000 ? 10000
+	int16_t 	PosCoeff; // Positive Coefficient: Range -?0000 ? 10000
+	int16_t 	NegCoeff; // Negative Coefficient: Range -?0000 ? 10000
+	WORD 		PosSatur; // Positive Saturation: Range 0 ?10000
+	WORD 		NegSatur; // Negative Saturation: Range 0 ?10000
+	int16_t 	DeadBand; // Dead Band: : Range 0 ?1000
 } FFB_EFF_COND, *PFFB_EFF_COND;
 
 typedef struct _FFB_EFF_ENVLP {

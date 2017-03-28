@@ -9,7 +9,8 @@
 extern USBD_HandleTypeDef hUsbDeviceFS;
 const uint8_t HID_Out_Report_Maxlen = 0x20;
 uint8_t HID_Out_Report[HID_Out_Report_Maxlen];
-
+const int16_t HID_In_Report_len = 7;
+uint8_t HID_In_Report[HID_In_Report_len];
 
 uint8_t USBD_PID_Init (USBD_HandleTypeDef *pdev)
 {
@@ -19,7 +20,8 @@ uint8_t USBD_PID_Init (USBD_HandleTypeDef *pdev)
 }
 uint8_t USBD_PID_DataOut (USBD_HandleTypeDef *pdev,uint8_t epnum)
 {
-	/*data out Stage hook*/
+	/*EP1 out pipe data out Stage hook*/
+	HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_11); //toggle PC11
 	if(epnum == HID_EPOUT_ADDR){
 		uint16_t len = USBD_GetRxCount(&hUsbDeviceFS, epnum);
 		FFBMngrDataOutServ(HID_Out_Report, len);
@@ -29,31 +31,62 @@ uint8_t USBD_PID_DataOut (USBD_HandleTypeDef *pdev,uint8_t epnum)
 	}
 	return USBD_OK;
 }
+//uint8_t USBD_PID_DataIn (USBD_HandleTypeDef *pdev,uint8_t epnum){
+//	if(epnum == HID_EPIN_ADDR){
+//		USBD_PID_Send(HID_In_Report, HID_In_Report_len); //Send Report
+//	}
+//	return USBD_OK;
+//}
+uint8_t USBD_PID_EP0_RxReady (USBD_HandleTypeDef *pdev)
+{
+	/*control pipe receive ready*/
+	HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_11); //toggle PC11
+	uint16_t len = USBD_GetRxCount(&hUsbDeviceFS, 0x00);
+	FFBMngrFeatureServ(HID_Out_Report[0], 0, HID_Out_Report); //host to device
+	return USBD_OK;
+}
+uint8_t USBD_PID_ItfReq(USBD_HandleTypeDef *pdev, USBD_SetupReqTypedef *req)
+{
+	/*Class Request Handler:Get_Report && Set_Report*/
+	HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_10);
+	uint8_t ReportType = HIBYTE(req->wValue);
+	uint8_t ReportID = LOBYTE(req->wValue);
+	uint8_t dir = req->bmRequest & 0x80;
+	switch(req->bRequest )
+	{
+		case HID_REQ_GET_REPORT:
+			switch(ReportType){
+				case 0x01: //Input
+					FFBMngrDataInServ(HIBYTE(req->wValue));
+					break;
+				case 0x03: //Feature
+					FFBMngrFeatureServ(ReportID, 1, NULL); //device to host
+			}
+			break;
+		case HID_REQ_SET_REPORT:
+			switch(ReportType){
+				case 0x02: //Output EP1 Out
+					USBD_LL_PrepareReceive(pdev, 0x01, HID_Out_Report, req->wLength);
+					break;
+				case 0x03: //Feature EP0 Out
+					USBD_CtlPrepareRx(&hUsbDeviceFS, HID_Out_Report, req->wLength);
+					break;
+			}
+			break;
+		default:
+			break;
+	}
+  return USBD_OK;
+}
 uint8_t USBD_PID_Send (uint8_t *data, uint16_t len)
 {
 	/*Interface for ffb_manager*/
 	USBD_HID_SendReport(&hUsbDeviceFS, data, len);
 	return USBD_OK;
 }
-uint8_t USBD_PID_EP0_RxReady (USBD_HandleTypeDef *pdev)
+uint8_t USBD_PID_Send_EP0 (uint8_t *data, uint16_t len)
 {
-	/*control pipe receive ready*/
-	((USBD_HID_HandleTypeDef *)pdev->pClassData)->state = HID_IDLE;
-	return USBD_OK;
-}
-uint8_t USBD_PID_ItfReq(USBD_HandleTypeDef *pdev, USBD_SetupReqTypedef *req)
-{
-	/*Class Request Handler:Get_Report && Set_Report*/
-	switch(req->bRequest)
-	{
-		case HID_REQ_GET_REPORT:
-			FFBMngrDataInServ(HIBYTE(req->wValue));
-			break;
-		case HID_REQ_SET_REPORT:
-			USBD_LL_PrepareReceive(pdev, HID_EPOUT_ADDR, HID_Out_Report, req->wLength);
-			break;
-	}
-	((USBD_HID_HandleTypeDef *)pdev->pClassData)->state = HID_IDLE;
+	USBD_CtlSendData (&hUsbDeviceFS, data, len);
   return USBD_OK;
 }
 

@@ -7,7 +7,7 @@
 #include "stdint.h"	 
 	 
 void HID_GenerateInputRpt(uint32_t *adcValue);
-void stick_Set_Acutator_PWM(int32_t PWMvalue,uint32_t axes); //Direction Automatic Switch Enabled
+void stick_Set_Acutator_PWM(int32_t PWMvalue,uint8_t axes); //Direction Automatic Switch Enabled
 void stick_EffectExecuter(void);
 void stick_Position_Calibration(void);
 int32_t stick_Get_Position(uint8_t axis);

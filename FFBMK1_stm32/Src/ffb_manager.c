@@ -110,15 +110,15 @@ void FFBMngrEffAcpt(uint8_t *data) {
 }
 void FFBMngrParaAcpt(uint8_t *data, uint8_t size, enum Report_ID_Enum type) {
   //DebugPrint("Accepting Parameter\n");
-  //data[0]==packetID, assume effIdx==data[1] offset==data[2]
+  //data[0]==packetID, assume effIdx==data[1]
   uint8_t effBlkIdx = data[1];
-  uint8_t offset = data[2];
-  uint8_t idx = effBlkIdx * 2 + offset;
-  //if(paraType[idx] != 0xFF) DebugPrint("paraBlk Acccept Collision")
+  //uint8_t offset = 0;
+  uint8_t idx = effBlkIdx * 2 + 0; //assume offset == 0
+  if(paraType[idx] != 0xFF && paraType[idx] != type) idx++; //offset == 1
+  if(type == ID_PID_Set_Condition_Report) idx = effBlkIdx * 2 + data[2];
+
   paraType[idx] = type;
-  //DebugPrint("Accept Parameter[%d] offset=%d,Type[%d*2+%d]=0x%.2X\n",\
-   effBlkIdx, offset, effBlkIdx, offset, paraType[idx]);
-  for(uint8_t i = 1; i < size; i++) //may cause out range
+  for(uint8_t i = 1; i < size; i++)
     paraBlkPool[idx][i-1] = data[i];
 }
 void FFBMngrOpre(uint8_t *data) {
@@ -185,7 +185,7 @@ void FFBMngrBlkLd(uint8_t idx){
   rpt->pid_ram_pool_available = cnt * sizeof(PID_Set_Effect_Report)\
    + cnt * 2 * maxParaBlkBytes;
 
-  USBD_PID_Send(data, len);
+  USBD_PID_Send_EP0(data, len);
 }
 void FFBMngrStat(){
 	uint8_t len = sizeof(PID_PID_State_Report) + 1;
@@ -223,12 +223,6 @@ void FFBMngrDataOutServ(uint8_t *data, uint16_t size) {
   case ID_PID_PID_Device_Control_Report:
     FFBMngrCtrl(data);
     break;
-  case ID_PID_Device_Gain_Report:
-    FFBMngrGain(data);
-    break;
-  case ID_PID_Create_New_Effect_Report:
-    effBlkIdx = FFBMngrMalloc(data);
-    break;
   case ID_PID_PID_Block_Free_Report:
     FFBMngrDelete(data[1]);
     break;
@@ -237,18 +231,38 @@ void FFBMngrDataOutServ(uint8_t *data, uint16_t size) {
 		break;
   };
 }
+void FFBMngrFeatureServ(uint8_t rptID, uint8_t dir, uint8_t *data){
+	enum Report_ID_Enum packetID = (enum Report_ID_Enum) rptID;
+	if(dir != 0){
+		//Device-to-host dir==1
+		switch(packetID){
+			case ID_PID_PID_Block_Load_Report:
+				FFBMngrBlkLd(effBlkIdx);
+				break;
+			default:
+				break;
+		}
+	}else{
+		//Host-to-Device dir==0
+		switch(packetID){
+			case ID_PID_Device_Gain_Report:
+				FFBMngrGain(data);
+			case ID_PID_Create_New_Effect_Report:
+				effBlkIdx = FFBMngrMalloc(data);
+			default:
+				break;
+		}
+	}
+}
 void FFBMngrDataInServ(uint8_t rptID){
 	enum Report_ID_Enum packetID = (enum Report_ID_Enum) rptID;
 	switch(packetID){
-  case ID_PID_PID_Block_Load_Report:
-    FFBMngrBlkLd(effBlkIdx);
-    break;
-  case ID_PID_PID_State_Report:
-    FFBMngrStat();
-    break;
-	default:
-		USBD_ErrLog("Invalid In packet type");
-		break;
+		case ID_PID_PID_State_Report:
+			FFBMngrStat();
+			break;
+		default:
+			USBD_ErrLog("Invalid In packet type");
+			break;
 	}
 }
 uint8_t FFBFindOffset(uint8_t idx,enum Report_ID_Enum type){

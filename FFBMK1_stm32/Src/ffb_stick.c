@@ -8,15 +8,19 @@ extern TIM_HandleTypeDef htim3;
 extern uint8_t actStat;
 /* private Variable */
 static int32_t X_Position, Y_Position; //Value -2048~2047:Angle -180~180
+static int32_t X_Absolute, Y_Absolute; //Value 0~4096:Angle -180~180
 static int32_t X_Zero = 2048, Y_Zero = 2048;
 static uint8_t HID_Button_Status = 0;
 const int32_t Angle_Max = 30;
 const int32_t Position_Gain = 180 / Angle_Max; //p*gain-> Value -2048~2047:Angle -30~30
 const int32_t Pos_Max = 341; //pos Constrian value 2048 / 180 * 30 <= 341
 const int32_t T_Max = 10000;
+const int32_t PWM_pulseMax = 800; // 10.281MHz/1000Period = 10.281KHz  
 
-const int16_t HID_In_Report_len = 7;
-uint8_t HID_In_Report[HID_In_Report_len];
+//const int16_t HID_In_Report_len = 7;
+//uint8_t HID_In_Report[HID_In_Report_len];
+extern const int16_t HID_In_Report_len;
+extern uint8_t HID_In_Report[];
 
 /* private function prototype*/
 int32_t truncVal(int32_t val, int32_t range);
@@ -31,8 +35,10 @@ inline int32_t truncVal(int32_t val, int32_t range){
 }
 void HID_GenerateInputRpt(uint32_t *adcValue) {
   int32_t x, y;
-  X_Position = adcValue[0] - X_Zero;
-  Y_Position = adcValue[1] - Y_Zero;
+	X_Absolute = adcValue[0];
+	Y_Absolute = adcValue[1];
+  X_Position = X_Absolute - X_Zero;
+  Y_Position = Y_Absolute - Y_Zero;
   X_Position = truncVal(X_Position, Pos_Max);
   Y_Position = truncVal(Y_Position, Pos_Max);
   x = X_Position * Position_Gain;
@@ -47,7 +53,7 @@ void HID_GenerateInputRpt(uint32_t *adcValue) {
 
   USBD_PID_Send(HID_In_Report, HID_In_Report_len); //send In Report
 }
-void stick_Set_Acutator_PWM(int32_t PWMvalue, uint32_t axes) { //Direction Automatic Switch Enabled
+void stick_Set_Acutator_PWM(int32_t PWMvalue, uint8_t axes) { //Direction Automatic Switch Enabled
 	uint32_t PWMchannel,PWMchannel2,temp;
 	//axes=0:X  axes=1:Y
 	//Assume acutator in H driver: X(1,2) Y(3,4)
@@ -79,32 +85,30 @@ void stick_Set_Acutator_PWM(int32_t PWMvalue, uint32_t axes) { //Direction Autom
 }
 void stick_EffectExecuter(void) {
 	static uint32_t Run_Time,pre_Run_Time=0;//,time_4ms=0;
-	const int32_t PWM_pulseMax=800; // 180/n degree range
-	int32_t x,y;
+	int32_t x = 1, y = 1;
 	Run_Time=HAL_GetTick(); //1ms 24-bit tick max=4.6h
 	if(Run_Time > 0xffffff - 0xffff){
 		Run_Time = 0;
 		pre_Run_Time = 0;
 	} //refresh after 4.4h
 
-	if(actStat){
+	uint8_t switcher = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_3);
+	if(switcher){
 		//acting
 		FFBMngrEffRun((uint16_t) Run_Time - pre_Run_Time, &x, &y);
-		x = (int32_t) (x / (float) T_Max) * PWM_pulseMax;
-		y = (int32_t) (y / (float) T_Max) * PWM_pulseMax;
-		x = x % PWM_pulseMax;
-		y = y % PWM_pulseMax; //make sure x,y < PWM_pulseMax
-		//PC_12 On
-		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_12, GPIO_PIN_SET);
+		x = x * PWM_pulseMax / T_Max;
+		y = y * PWM_pulseMax / T_Max;
+//		x = x % PWM_pulseMax;
+//		y = y % PWM_pulseMax; //make sure x,y < PWM_pulseMax
+		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_12, GPIO_PIN_SET); //PC_12 On
 	}else{
 		//defalut Spring P Control
 		//direction: reverse to cartesian coordinates
-		x = (int32_t) ((X_Position) / (float) Pos_Max) * PWM_pulseMax; //Simple Pars er
-		y = (int32_t) ((Y_Position) / (float) Pos_Max) * PWM_pulseMax; //Propotion
-		x = x % PWM_pulseMax;
-		y = y % PWM_pulseMax; //make sure x,y < PWM_pulseMax
-		//PC_12 Off
-		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_12, GPIO_PIN_RESET);
+		x = X_Position * PWM_pulseMax / Pos_Max;
+		y = Y_Position * PWM_pulseMax / Pos_Max;
+//		x = x % PWM_pulseMax;
+//		y = y % PWM_pulseMax; //make sure x,y < PWM_pulseMax
+		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_12, GPIO_PIN_RESET); //PC_12 Off
 	}
 	stick_Set_Acutator_PWM(x,0); //set axis 0
 	stick_Set_Acutator_PWM(y,1); //set axis 1
@@ -112,8 +116,8 @@ void stick_EffectExecuter(void) {
 	pre_Run_Time=Run_Time;
 }
 void stick_Position_Calibration(void) {
-	X_Zero=X_Position;
-	Y_Zero=Y_Position;
+	X_Zero=X_Absolute;
+	Y_Zero=Y_Absolute;
 }
 int32_t stick_Get_Position(uint8_t axis){
 	if(axis == 0) return(X_Position);
@@ -122,8 +126,6 @@ int32_t stick_Get_Position(uint8_t axis){
 int32_t stick_Get_Positioon_Max(void){
 	return Pos_Max;
 }
-
-
 
 
 

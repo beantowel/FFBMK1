@@ -96,6 +96,7 @@ int main(void) {
 
   /* USER CODE BEGIN 2 */
   User_Defined_Init();
+	HAL_GPIO_WritePin(GPIOC, GPIO_PIN_10, GPIO_PIN_RESET);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -103,7 +104,7 @@ int main(void) {
     /* USER CODE BEGIN WHILE */
     HAL_ADC_Start_DMA(&hadc1, ADC_Converted_Values, Converted_Values_len);
     stick_EffectExecuter();
-    HAL_Delay(5);
+    //HAL_Delay(5);
     /* USER CODE END WHILE */
   };
   /* USER CODE BEGIN 3 */
@@ -223,7 +224,7 @@ static void MX_TIM3_Init(void) {
   TIM_OC_InitTypeDef sConfigOC;
 
   htim3.Instance = TIM3;
-  htim3.Init.Prescaler = 720 - 1;
+  htim3.Init.Prescaler = 7 - 1;
   htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
   htim3.Init.Period = 1000 - 1;
   htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
@@ -308,13 +309,20 @@ void User_Defined_Init(void) {
   GPIO_InitStructure.Speed = GPIO_SPEED_HIGH;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStructure);
   HAL_NVIC_SetPriority(EXTI2_IRQn, 0, 0);
-  HAL_NVIC_EnableIRQ(EXTI2_IRQn); //PC_2 set as EXIT
+  HAL_NVIC_EnableIRQ(EXTI2_IRQn); //PC_2 set as EXIT calibration (falling)
 
   GPIO_InitStructure.Mode = GPIO_MODE_OUTPUT_PP;
 	GPIO_InitStructure.Pull = GPIO_NOPULL;
-	GPIO_InitStructure.Pin = GPIO_PIN_12;
+	GPIO_InitStructure.Pin = GPIO_PIN_11 | GPIO_PIN_12 | GPIO_PIN_10;
 	GPIO_InitStructure.Speed = GPIO_SPEED_HIGH;
-	HAL_GPIO_Init(GPIOC, &GPIO_InitStructure); //PC_12 set as actuator Indicator
+	HAL_GPIO_Init(GPIOC, &GPIO_InitStructure);
+	//PC_11 set as Dataout Indicator
+	//PC_12 set as mode Indicator
+	//PC_13 set as ItfReq Indicator
+	
+	GPIO_InitStructure.Mode = GPIO_MODE_INPUT;
+	GPIO_InitStructure.Pin = GPIO_PIN_3;
+	HAL_GPIO_Init(GPIOB, &GPIO_InitStructure); //PB_3 set as input MODE Switcher
 }
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
   UNUSED(GPIO_Pin);

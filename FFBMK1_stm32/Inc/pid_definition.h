@@ -7,7 +7,7 @@
 
 #include "stdint.h"
 
-enum PID_Effect_Type_Enum{
+enum PID_Effect_Type_Enum {
     PID_ET_Constant_Force = 1,
     PID_ET_Sine = 2,
     PID_ET_Triangle = 3,
@@ -15,19 +15,19 @@ enum PID_Effect_Type_Enum{
     PID_ET_Ramp = 5,
 };
 
-enum PID_Block_Load_Status_Enum{
+enum PID_Block_Load_Status_Enum {
     PID_Block_Load_Success = 1,
     PID_Block_Load_Full = 2,
     PID_Block_Load_Error = 3,
 };
 
-enum PID_Effect_Operation_Enum{
+enum PID_Effect_Operation_Enum {
     PID_Op_Effect_Start = 1,
     PID_Op_Effect_Start_Solo = 2,
     PID_Op_Effect_Stop = 3,
 };
 
-enum PID_PID_Device_Control_Enum{
+enum PID_PID_Device_Control_Enum {
     PID_DC_Enable_Actuators = 1,
     PID_DC_Disable_Actuators = 2,
     PID_DC_Stop_All_Effects = 3,
@@ -36,7 +36,7 @@ enum PID_PID_Device_Control_Enum{
     PID_DC_Device_Continue = 6,
 };
 
-enum Report_ID_Enum{
+enum Report_ID_Enum {
     ID_PID_Create_New_Effect_Report = 1,
     ID_PID_PID_Block_Load_Report = 2,
     ID_PID_Set_Effect_Report = 3,
@@ -128,8 +128,6 @@ typedef struct _PID_Set_Envelope_Report {
     //Report_ID:4
     uint8_t pid_effect_block_index;
     //Logical_Maximum:255
-    uint8_t pid_parameter_block_offset;
-    //Logical_Maximum:1
     uint16_t pid_attack_level;
     uint16_t pid_fade_level;
     //Logical_Maximum:10000
@@ -160,8 +158,6 @@ typedef struct _PID_Set_Periodic_Report {
     //Report_ID:6
     uint8_t pid_effect_block_index;
     //Logical_Maximum:255
-    uint8_t pid_parameter_block_offset;
-    //Logical_Maximum:1
     int16_t pid_magnitude;
     int16_t pid_offset;
     int16_t pid_phase;
@@ -177,8 +173,6 @@ typedef struct _PID_Set_Constant_Force_Report {
     //Report_ID:7
     uint8_t pid_effect_block_index;
     //Logical_Maximum:255
-    uint8_t pid_parameter_block_offset;
-    //Logical_Maximum:1
     uint16_t pid_magnitude;
     //Logical_Maximum:10000
 } PID_Set_Constant_Force_Report;
@@ -187,8 +181,6 @@ typedef struct _PID_Set_Ramp_Force_Report {
     //Report_ID:8
     uint8_t pid_effect_block_index;
     //Logical_Maximum:255
-    uint8_t pid_parameter_block_offset;
-    //Logical_Maximum:1
     int16_t pid_ramp_start;
     int16_t pid_ramp_end;
     //Logical_Maximum:10000

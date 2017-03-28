@@ -57,8 +57,7 @@
 
 #define USB_HID_CONFIG_DESC_SIZ       41
 #define USB_HID_DESC_SIZ              9
-#define PID_FFBMK1_DESC_SIZE    			68
-//713
+#define PID_FFBMK1_DESC_SIZE    			691
 
 #define HID_DESCRIPTOR_TYPE           0x21
 #define HID_REPORT_DESC               0x22

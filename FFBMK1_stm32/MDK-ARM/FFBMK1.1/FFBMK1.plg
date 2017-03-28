@@ -10,13 +10,8 @@ Project File Date:  03/24/2017
 Build target 'FFBMK1.1'
 compiling ffb_stick.c...
 linking...
-Program Size: Code=22038 RO-data=650 RW-data=336 ZI-data=4512  
+Program Size: Code=22186 RO-data=654 RW-data=968 ZI-data=4512  
 "FFBMK1.1\FFBMK1.1" - 0 Errors, 0 Warning(s).
-Build target 'FFBMK1.1'
-linking...
-Program Size: Code=22038 RO-data=650 RW-data=336 ZI-data=4512  
-"FFBMK1.1\FFBMK1.1" - 0 Errors, 0 Warning(s).
-Load "FFBMK1.1\\FFBMK1.1" 
 Load "FFBMK1.1\\FFBMK1.1" 
 Erase Done.
 Programming Done.

@@ -5,7 +5,6 @@
 
 /*import variable */
 extern TIM_HandleTypeDef htim3;
-extern uint8_t actStat;
 /* private Variable */
 static int32_t X_Position, Y_Position; //Value -2048~2047:Angle -180~180
 static int32_t X_Absolute, Y_Absolute; //Value 0~4096:Angle -180~180

@@ -12,13 +12,15 @@
 #define PI 3.1415926535898f
 
 //private variable
-const uint16_t maxEffN = 10, maxParaBlkBytes = 20;
+const uint16_t maxEffN = 11, maxParaBlkBytes = 20;
+
 static uint8_t effVis[maxEffN]; // 0:free 1:occupied
 static uint8_t effStat[maxEffN]; // 0:off 1:looping count
 static uint32_t effRunTime[maxEffN]; // Effect Run Time
-static uint8_t effRunning, effGlbGain;
-uint8_t actStat = 1;
-static enum PID_Block_Load_Status_Enum pidLdStat; //effect running flag, actuator enable flag, effect global gain (max==0xFF)
+static uint8_t effRunning = 0, effGlbGain = 0xff;
+static uint8_t actStat = 1; //actuator On
+static enum PID_Block_Load_Status_Enum pidLdStat = PID_Block_Load_Error; //Load_Error
+
 const uint8_t EffTypeArray[]={ //supported effect types
   PID_ET_Constant_Force,
   PID_ET_Ramp,
@@ -27,11 +29,11 @@ const uint8_t EffTypeArray[]={ //supported effect types
   PID_ET_Sine,
 };
 
-static PID_Set_Effect_Report effRpt[maxEffN]; //effect report pool
+static PID_Set_Effect_Report effRpt[maxEffN]; //effect report pool, index == 0 wasted
 static uint8_t paraBlkPool[maxEffN * 2][maxParaBlkBytes]; //parameter block pool
 static uint8_t paraType[maxEffN * 2]; //parameter block type -1==not visited
 
-static uint8_t effBlkIdx = 0xff;
+static uint8_t effBlkIdx = 0;
 static int32_t PID_Tx, PID_Ty; //temp global variable
 static float PID_mltipler, dirX, dirY; //temp mltipler, dirction
 
@@ -63,6 +65,8 @@ void FFBMngrInit(void) {
   effRunning = 0;
   actStat = 1;
   effGlbGain = 0xff;
+	effBlkIdx = 0;
+	pidLdStat = PID_Block_Load_Error;
   memset(effVis, 0, sizeof(effVis));
   memset(effStat, 0, sizeof(effStat));
   memset(effRunTime, 0, sizeof(effRunTime));
@@ -78,13 +82,14 @@ uint8_t FFBMngrMalloc(uint8_t *data) {
   //DebugPrint("Eff Malloc type=0x%.2X\n", effType);
   for(i = 0; i < sizeof(EffTypeArray); i++)
      if(effType == EffTypeArray[i]) break;
-  if(effType != EffTypeArray[i]){  //type checking}
+  if(i == sizeof(EffTypeArray)){  //type checking}
     pidLdStat = PID_Block_Load_Error;
     return 0;
   }
-  for(i = 0; i < maxEffN; i++)
+  for(i = 1; i < maxEffN; i++)
     if(!effVis[i]){
       pidLdStat = PID_Block_Load_Success;
+			effVis[i] = 1; //set use flag and initialize
       return i;
     }
   pidLdStat = PID_Block_Load_Full;
@@ -102,7 +107,6 @@ void FFBMngrEffAcpt(uint8_t *data) {
   //data[0]==packetID
   uint8_t effBlkIdx = ((PID_Set_Effect_Report *) &data[1])->pid_effect_block_index;
   effRpt[effBlkIdx] = *((PID_Set_Effect_Report *) &data[1]);
-  effVis[effBlkIdx] = 1; //set use flag and initialize
   effStat[effBlkIdx] = 0;
   effRunTime[effBlkIdx] = 0;
   //DebugPrint("Accept Effect[%d]\neffVis[i]=%d\n", effBlkIdx, effVis[effBlkIdx]);
@@ -133,7 +137,7 @@ void FFBMngrOpre(uint8_t *data) {
     return;
   }
   if(operation == PID_Op_Effect_Start_Solo)
-    for(uint8_t i = 0; i < maxEffN; i++)
+    for(uint8_t i = 1; i < maxEffN; i++)
       effStat[i] = 0;
   if(operation == PID_Op_Effect_Start_Solo || operation == PID_Op_Effect_Start){
     effStat[effBlkIdx] = loop;
@@ -152,7 +156,7 @@ void FFBMngrCtrl(uint8_t *data) {
     actStat = 0;
     break;
   case PID_DC_Stop_All_Effects:
-    for(uint8_t i = 0; i < maxEffN; i++)
+    for(uint8_t i = 1; i < maxEffN; i++)
       effStat[i] = 0;
     break;
   case PID_DC_Device_Reset:
@@ -174,14 +178,14 @@ void FFBMngrGain(uint8_t *data) {
 }
 void FFBMngrBlkLd(uint8_t idx){
   uint8_t len = sizeof(PID_PID_Block_Load_Report) + 1;
-  uint8_t data[len];
+  uint8_t data[sizeof(PID_PID_Block_Load_Report) + 1];
   data[0] = ID_PID_PID_Block_Load_Report; //report id
   PID_PID_Block_Load_Report *rpt = (PID_PID_Block_Load_Report*) (&data[1]);
   rpt->pid_effect_block_index = idx;
   rpt->PID_Block_Load_Status.pid_block_load_status_enum_0 = pidLdStat;
   uint8_t cnt = 0;
-  for(uint8_t i=0;i<maxEffN;i++)
-    if(effVis[i]) cnt+=1;
+  for(uint8_t i=1;i<maxEffN;i++)
+    if(!effVis[i]) cnt+=1;
   rpt->pid_ram_pool_available = cnt * sizeof(PID_Set_Effect_Report)\
    + cnt * 2 * maxParaBlkBytes;
 
@@ -189,7 +193,7 @@ void FFBMngrBlkLd(uint8_t idx){
 }
 void FFBMngrStat(){
 	uint8_t len = sizeof(PID_PID_State_Report) + 1;
-  uint8_t data[len];
+  uint8_t data[sizeof(PID_PID_State_Report) + 1];
   data[0] = ID_PID_PID_State_Report; //report id
   PID_PID_State_Report *rpt = (PID_PID_State_Report*) (&data[1]);
   rpt->pid_effect_block_index = effBlkIdx; //????? effblkIdx
@@ -410,7 +414,7 @@ void FFBMngrEffRun(uint16_t deltaT, int32_t *Tx, int32_t *Ty) {
   //given deltaTime(ms),return Torque on x&y axes
   *Tx = 0;
   *Ty = 0;
-  for(uint8_t i = 0; i < maxEffN; i++) {
+  for(uint8_t i = 1; i < maxEffN; i++) {
     PID_Set_Effect_Report *eRpt = &effRpt[i];
     //if (effStat[i] > 0) //DebugPrint("EffStat[%d] > 0\n", i);
     if(effVis[i] && effStat[i] > 0 && effRunning) {

@@ -318,7 +318,11 @@ void User_Defined_Init(void) {
 	HAL_GPIO_Init(GPIOC, &GPIO_InitStructure);
 	//PC_11 set as Dataout Indicator
 	//PC_12 set as mode Indicator
-	//PC_13 set as ItfReq Indicator
+	//PC_10 set as ItfReq Indicator
+	
+	GPIO_InitStructure.Pin = GPIO_PIN_4;
+	HAL_GPIO_Init(GPIOB, &GPIO_InitStructure);
+	//PB_04 set as DataIn Indicator
 	
 	GPIO_InitStructure.Mode = GPIO_MODE_INPUT;
 	GPIO_InitStructure.Pin = GPIO_PIN_3;

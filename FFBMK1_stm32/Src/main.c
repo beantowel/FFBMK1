@@ -95,7 +95,9 @@ int main(void) {
   MX_TIM3_Init();
 
   /* USER CODE BEGIN 2 */
-  User_Defined_Init();
+  User_Defined_Init(); //GPIO Init
+	HAL_Delay(20);
+	stick_Init();
 	HAL_GPIO_WritePin(GPIOC, GPIO_PIN_10, GPIO_PIN_RESET);
   /* USER CODE END 2 */
 
@@ -104,6 +106,7 @@ int main(void) {
     /* USER CODE BEGIN WHILE */
     HAL_ADC_Start_DMA(&hadc1, ADC_Converted_Values, Converted_Values_len);
     stick_EffectExecuter();
+		stick_sendStatus(); //send State Report
     //HAL_Delay(5);
     /* USER CODE END WHILE */
   };

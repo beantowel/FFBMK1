@@ -615,7 +615,7 @@ static uint8_t  USBD_HID_Init (USBD_HandleTypeDef *pdev,
   {
     ((USBD_HID_HandleTypeDef *)pdev->pClassData)->state = HID_IDLE;
   }
-	USBD_PID_Init(pdev);
+	USBD_PID_Init(pdev); //beantowel
   return ret;
 }
 

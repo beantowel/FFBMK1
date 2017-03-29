@@ -12,15 +12,7 @@
 #define PI 3.1415926535898f
 
 //private variable
-const uint16_t maxEffN = 11, maxParaBlkBytes = 20;
-
-static uint8_t effVis[maxEffN]; // 0:free 1:occupied
-static uint8_t effStat[maxEffN]; // 0:off 1:looping count
-static uint32_t effRunTime[maxEffN]; // Effect Run Time
-static uint8_t effRunning = 0, effGlbGain = 0xff;
-static uint8_t actStat = 1; //actuator On
-static enum PID_Block_Load_Status_Enum pidLdStat = PID_Block_Load_Error; //Load_Error
-
+const uint16_t maxEffN = 11, maxParaBlkBytes = 20, maxInputBytes = 10;
 const uint8_t EffTypeArray[]={ //supported effect types
   PID_ET_Constant_Force,
   PID_ET_Ramp,
@@ -29,9 +21,17 @@ const uint8_t EffTypeArray[]={ //supported effect types
   PID_ET_Sine,
 };
 
+static uint8_t effVis[maxEffN]; // 0:free 1:occupied
+static uint8_t effStat[maxEffN]; // 0:off 1:looping count
+static uint32_t effRunTime[maxEffN]; // Effect Run Time
+static uint8_t effRunning = 0, effGlbGain = 0xff;
+static uint8_t actStat = 1; //actuator On
+static enum PID_Block_Load_Status_Enum pidLdStat = PID_Block_Load_Error; //Load_Error
+
 static PID_Set_Effect_Report effRpt[maxEffN]; //effect report pool, index == 0 wasted
 static uint8_t paraBlkPool[maxEffN * 2][maxParaBlkBytes]; //parameter block pool
 static uint8_t paraType[maxEffN * 2]; //parameter block type -1==not visited
+static uint8_t inputReport[maxInputBytes];
 
 static uint8_t effBlkIdx = 0;
 static int32_t PID_Tx, PID_Ty; //temp global variable
@@ -46,7 +46,6 @@ void FFBMngrOpre(uint8_t *data);
 void FFBMngrCtrl(uint8_t *data);
 void FFBMngrGain(uint8_t *data);
 void FFBMngrBlkLd(uint8_t idx);
-void FFBMngrStat(void);
 
 uint8_t FFBFindOffset(uint8_t idx,enum Report_ID_Enum type);
 void FFBMngrEnvlp(uint8_t effBlkIdx);
@@ -178,9 +177,8 @@ void FFBMngrGain(uint8_t *data) {
 }
 void FFBMngrBlkLd(uint8_t idx){
   uint8_t len = sizeof(PID_PID_Block_Load_Report) + 1;
-  uint8_t data[sizeof(PID_PID_Block_Load_Report) + 1];
-  data[0] = ID_PID_PID_Block_Load_Report; //report id
-  PID_PID_Block_Load_Report *rpt = (PID_PID_Block_Load_Report*) (&data[1]);
+  inputReport[0] = ID_PID_PID_Block_Load_Report; //report id
+  PID_PID_Block_Load_Report *rpt = (PID_PID_Block_Load_Report*) (&inputReport[1]);
   rpt->pid_effect_block_index = idx;
   rpt->PID_Block_Load_Status.pid_block_load_status_enum_0 = pidLdStat;
   uint8_t cnt = 0;
@@ -189,20 +187,19 @@ void FFBMngrBlkLd(uint8_t idx){
   rpt->pid_ram_pool_available = cnt * sizeof(PID_Set_Effect_Report)\
    + cnt * 2 * maxParaBlkBytes;
 
-  USBD_PID_Send_EP0(data, len);
+  USBD_PID_Send_EP0(inputReport, len);
 }
-void FFBMngrStat(){
+uint8_t FFBMngrStat(){
 	uint8_t len = sizeof(PID_PID_State_Report) + 1;
-  uint8_t data[sizeof(PID_PID_State_Report) + 1];
-  data[0] = ID_PID_PID_State_Report; //report id
-  PID_PID_State_Report *rpt = (PID_PID_State_Report*) (&data[1]);
+  inputReport[0] = ID_PID_PID_State_Report; //report id
+  PID_PID_State_Report *rpt = (PID_PID_State_Report*) (&inputReport[1]);
   rpt->pid_effect_block_index = effBlkIdx; //????? effblkIdx
 	rpt->vars_0 = actStat ? Mask_PID_Actuators_Enabled : 0;
 	rpt->vars_0 += Mask_PID_Actuator_Power; //always power on
 	rpt->vars_0 += effStat[effBlkIdx] ? Mask_PID_Effect_Playing : 0;
 	rpt->vars_0 += 0; //Mask_PID_Safety_Switch always off
 
-	USBD_PID_Send(data, len);
+	return USBD_PID_Send(inputReport, len);
 }
 void FFBMngrDataOutServ(uint8_t *data, uint16_t size) {
   //Output Pipe data FFB Service routine
@@ -256,17 +253,6 @@ void FFBMngrFeatureServ(uint8_t rptID, uint8_t dir, uint8_t *data){
 			default:
 				break;
 		}
-	}
-}
-void FFBMngrDataInServ(uint8_t rptID){
-	enum Report_ID_Enum packetID = (enum Report_ID_Enum) rptID;
-	switch(packetID){
-		case ID_PID_PID_State_Report:
-			FFBMngrStat();
-			break;
-		default:
-			USBD_ErrLog("Invalid In packet type");
-			break;
 	}
 }
 uint8_t FFBFindOffset(uint8_t idx,enum Report_ID_Enum type){

@@ -42,15 +42,13 @@ void HID_GenerateInputRpt(uint32_t *adcValue) {
   Y_Position = truncVal(Y_Position, Pos_Max);
   x = X_Position * Position_Gain;
   y = Y_Position * Position_Gain;
-  HID_In_Report[0] = 1; //Report ID==1
   HID_In_Report[1] = (uint8_t) (adcValue[2] >> 4); //throttle
   HID_In_Report[2] = (uint8_t) (x & 0x00ff); //x pos: -2047~2048
   HID_In_Report[3] = (uint8_t) (x >> 8);
   HID_In_Report[4] = (uint8_t) (y & 0x00ff); //y pos
   HID_In_Report[5] = (uint8_t) (y >> 8);
   HID_In_Report[6] = HID_Button_Status; //button
-
-  USBD_PID_Send(HID_In_Report, HID_In_Report_len); //send In Report
+	stick_sendPos(); //send Pos Report
 }
 void stick_Set_Acutator_PWM(int32_t PWMvalue, uint8_t axes) { //Direction Automatic Switch Enabled
 	uint32_t PWMchannel,PWMchannel2,temp;
@@ -125,6 +123,14 @@ int32_t stick_Get_Position(uint8_t axis){
 int32_t stick_Get_Positioon_Max(void){
 	return Pos_Max;
 }
-
+void stick_Init(void){	
+  HID_In_Report[0] = 1; //Report ID==1
+}
+void stick_sendPos(void){
+  USBD_PID_Send(HID_In_Report, HID_In_Report_len); //send stickInput Report
+}
+void stick_sendStatus(void){	
+	FFBMngrStat(); //send State Report ??? doesn't work
+}
 
 

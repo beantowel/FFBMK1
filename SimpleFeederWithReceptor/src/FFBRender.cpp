@@ -1,5 +1,5 @@
 #include "FFBRender.h"
-
+#include "VisualFFB.h"
 #include<iostream>
 #include<windows.h>
 #include<math.h>
@@ -8,6 +8,7 @@
 #include<gl\GLU.h>
 #include"GL\glut.h"
 using namespace std;
+
 FFBRender::FFBRender() {
 	cout << "start rendering" << endl;
 }
@@ -44,25 +45,7 @@ void FFBRender::RenderFFBIndicator() {
 	glEnd();
 	glFlush();
 
-	glLineWidth(1.0);
-	glBegin(GL_LINE_STRIP); //Draw Oscilloscope X-T
-	for (int i = 0; i < nArray; i++) {
-		temp = float(dataT[0]-dataT[i]);
-		temp = temp / timeScale;
-		glVertex2f(dataX[i]+xZeroPosition, yZeroPosition - gridWidth - temp);
-	}
-	glEnd();
-	glFlush();
-	glBegin(GL_LINE_STRIP); //Draw Oscilloscope Y-T
-	for (int i = 0; i < nArray; i++) {
-		temp = float(dataT[0] - dataT[i]);
-		temp = temp / timeScale;
-		glVertex2f(xZeroPosition + gridWidth + temp, dataY[i]+yZeroPosition);
-	}
-	glEnd();
-	glFlush();
-
-	glLineStipple(2, 0x5555); //Draw frame and Force trajectory
+	glLineStipple(2, 0x5555); //Draw frame
 	glEnable(GL_LINE_STIPPLE);
 	glBegin(GL_LINE_LOOP);
 	glVertex2f(xZeroPosition - gridWidth, yZeroPosition - gridWidth);
@@ -70,11 +53,37 @@ void FFBRender::RenderFFBIndicator() {
 	glVertex2f(xZeroPosition + gridWidth, yZeroPosition + gridWidth);
 	glVertex2f(xZeroPosition + gridWidth, yZeroPosition - gridWidth);
 	glEnd();
-	glBegin(GL_LINE_STRIP);
+	glBegin(GL_LINE_STRIP); //Draw Force trajectory
 	for (int i = 0; i < nForceTrajectory; i++) {
 		glVertex2f(dataX[i] + xZeroPosition, dataY[i] + yZeroPosition);
 	}
 	glEnd();
 	glDisable(GL_LINE_STIPPLE);
+	glFlush();
+
+	glLineWidth(1.0);
+	glBegin(GL_LINE_STRIP); //Draw Oscilloscope X-T
+	for (int i = 0; i < nArray; i++) {
+		temp = float(dataT[0] - dataT[i]);
+		temp = temp / timeScale;
+		glVertex2f(dataX[i] + xZeroPosition, yZeroPosition - gridWidth - temp);
+	}
+	glEnd();
+	glFlush();
+	glBegin(GL_LINE_STRIP); //Draw Oscilloscope Y-T
+	for (int i = 0; i < nArray; i++) {
+		temp = float(dataT[0] - dataT[i]);
+		temp = temp / timeScale;
+		glVertex2f(xZeroPosition + gridWidth + temp, dataY[i] + yZeroPosition);
+	}
+	glEnd();
+	glFlush();
+}
+void FFBRender::RenderStickXY(float x, float y) {
+	glColor3f(0.7f, 0.0f, 0.0f);
+	glBegin(GL_LINES); //Draw Stick Vector
+	glVertex2f(xZeroPosition, yZeroPosition);
+	glVertex2f(x + xZeroPosition, y + yZeroPosition);
+	glEnd();
 	glFlush();
 }

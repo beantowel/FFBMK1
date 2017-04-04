@@ -3,6 +3,9 @@
 
 
 // Monitor Force Feedback (FFB) vJoy device
+#include "VisualFFB.h"
+#include "FFBManager.h"
+#include "deviceBridge.h"
 #include "stdafx.h"
 #include "Devioctl.h"
 #include "public.h"
@@ -42,9 +45,7 @@ const char* filename = "vJoy log out.txt";
 
 JOYSTICK_POSITION_V2 iReport; // The structure that holds the full position data
 
-extern int Visual_main();
-extern void FFBMngrInit();
-extern void FFBMngrDataServ(uint8_t *data, uint32_t cmd, uint8_t size);
+
 
 int
 __cdecl
@@ -149,8 +150,8 @@ _tmain(int argc, _TCHAR* argv[])
 	FFBMngrInit();
 	FfbRegisterGenCB(FfbFunction1, NULL);
 	Visual_main(); // Viualize the Force Feed Back Effects by opengl;BeanTowel
-
-
+	Bridge_Main(); // start Device Bridge thread to communicate with HID device
+	PInputReport rpt = DeviceGetPos(); // get input receive buffer handle
 
 	// Start endless loop
 	// The loop injects position data to the vJoy device
@@ -168,9 +169,10 @@ _tmain(int argc, _TCHAR* argv[])
 		// Set position data of 3 first axes
 		//if (Z>35000) Z=0;
 		//Z += 200; // stream flash button
-		iReport.wAxisX = 12768/2;
-		iReport.wAxisY = 32768/2;
-		iReport.wAxisZRot = 32768/2;
+		iReport.wAxisX = rpt->x;
+		iReport.wAxisY = rpt->y;
+		iReport.wThrottle = rpt->throttle;
+		iReport.wAxisZRot = 32768 / 2;
 		iReport.wAxisVZ = 32768 / 2;
 
 		//// Set position data of first 8 buttons

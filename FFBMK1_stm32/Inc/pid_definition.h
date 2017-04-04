@@ -49,7 +49,7 @@ enum Report_ID_Enum {
     ID_PID_PID_State_Report = 10,
     ID_PID_PID_Device_Control_Report = 11,
     ID_PID_Device_Gain_Report = 12,
-    ID_PID_PID_Block_Free_Report = 13,
+    ID_PID_PID_Block_Free_Report = 13, 
 };
 
 const uint8_t Mask_X_ID = 0xf;

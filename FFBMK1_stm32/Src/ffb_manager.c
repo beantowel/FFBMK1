@@ -1,14 +1,16 @@
 /*
-	Force Feed Back Manager for PID Device
-	Handles the communication between host and device
-	parse the data/controls to 2-axis normalized Torque
+  Force Feed Back Manager for PID Device
+  Handles the communication between host and device
+  parse the data/controls to 2-axis normalized Torque
 */
 #include "ffb_manager.h"
-#include "math.h"
-#include "string.h"
 #include "usbd_pid.h"
 #include "pid_definition.h"
 #include "ffb_stick.h"
+#include "device_bridge.h"
+#include "usbd_hid.h"
+#include "math.h"
+#include "string.h"
 #define PI 3.1415926535898f
 
 //private variable
@@ -64,8 +66,8 @@ void FFBMngrInit(void) {
   effRunning = 0;
   actStat = 1;
   effGlbGain = 0xff;
-	effBlkIdx = 0;
-	pidLdStat = PID_Block_Load_Error;
+  effBlkIdx = 0;
+  pidLdStat = PID_Block_Load_Error;
   memset(effVis, 0, sizeof(effVis));
   memset(effStat, 0, sizeof(effStat));
   memset(effRunTime, 0, sizeof(effRunTime));
@@ -88,7 +90,7 @@ uint8_t FFBMngrMalloc(uint8_t *data) {
   for(i = 1; i < maxEffN; i++)
     if(!effVis[i]){
       pidLdStat = PID_Block_Load_Success;
-			effVis[i] = 1; //set use flag and initialize
+      effVis[i] = 1; //set use flag and initialize
       return i;
     }
   pidLdStat = PID_Block_Load_Full;
@@ -189,71 +191,87 @@ void FFBMngrBlkLd(uint8_t idx){
 
   USBD_PID_Send_EP0(inputReport, len);
 }
-uint8_t FFBMngrStat(){
-	uint8_t len = sizeof(PID_PID_State_Report) + 1;
+uint8_t FFBMngrStat(uint8_t epAddr){
+  uint8_t len = sizeof(PID_PID_State_Report) + 1;
   inputReport[0] = ID_PID_PID_State_Report; //report id
   PID_PID_State_Report *rpt = (PID_PID_State_Report*) (&inputReport[1]);
   rpt->pid_effect_block_index = effBlkIdx; //????? effblkIdx
-	rpt->vars_0 = actStat ? Mask_PID_Actuators_Enabled : 0;
-	rpt->vars_0 += Mask_PID_Actuator_Power; //always power on
-	rpt->vars_0 += effStat[effBlkIdx] ? Mask_PID_Effect_Playing : 0;
-	rpt->vars_0 += 0; //Mask_PID_Safety_Switch always off
+  rpt->vars_0 = actStat ? Mask_PID_Actuators_Enabled : 0;
+  rpt->vars_0 += Mask_PID_Actuator_Power; //always power on
+  rpt->vars_0 += effStat[effBlkIdx] ? Mask_PID_Effect_Playing : 0;
+  rpt->vars_0 += 0; //Mask_PID_Safety_Switch always off
 
-	return USBD_PID_Send(inputReport, len);
+  if(epAddr == HID_EPIN_ADDR) return USBD_PID_Send(inputReport, len);
+  if(epAddr == 0x01) return USBD_PID_Send_EP0(inputReport, len);
+	return USBD_OK;
 }
 void FFBMngrDataOutServ(uint8_t *data, uint16_t size) {
   //Output Pipe data FFB Service routine
   //assume reportID==data[0]
   enum Report_ID_Enum packetID = (enum Report_ID_Enum) data[0];
   //static uint8_t effType = 0;
-  //DebugPrint("\nFFBPacket:0x%.2X\nCmd:0x%X\n", data[0], cmd);
+	if(DEVICE_BRIDGE_ON){
+		BridgeOutServ(data, size);
+		return;
+	}
+	
   switch(packetID) {
-  case ID_PID_Set_Effect_Report:
-    FFBMngrEffAcpt(data);
-    break;
-  case ID_PID_Set_Envelope_Report:
-  case ID_PID_Set_Condition_Report:
-  case ID_PID_Set_Periodic_Report:
-  case ID_PID_Set_Constant_Force_Report:
-  case ID_PID_Set_Ramp_Force_Report:
-    FFBMngrParaAcpt(data, size, packetID);
-    break;
-  case ID_PID_Effect_Operation_Report:
-    FFBMngrOpre(data);
-    break;
-  case ID_PID_PID_Device_Control_Report:
-    FFBMngrCtrl(data);
-    break;
-  case ID_PID_PID_Block_Free_Report:
-    FFBMngrDelete(data[1]);
-    break;
-	default:
-		USBD_ErrLog("Invalid Out packet type");
-		break;
+		case ID_PID_Set_Effect_Report:
+			FFBMngrEffAcpt(data);
+			break;
+		case ID_PID_Set_Envelope_Report:
+		case ID_PID_Set_Condition_Report:
+		case ID_PID_Set_Periodic_Report:
+		case ID_PID_Set_Constant_Force_Report:
+		case ID_PID_Set_Ramp_Force_Report:
+			FFBMngrParaAcpt(data, size, packetID);
+			break;
+		case ID_PID_Effect_Operation_Report:
+			FFBMngrOpre(data);
+			break;
+		case ID_PID_PID_Device_Control_Report:
+			FFBMngrCtrl(data);
+			break;
+		case ID_PID_PID_Block_Free_Report:
+			FFBMngrDelete(data[1]);
+			break;
+		default:
+			USBD_ErrLog("Invalid Out packet type");
+			break;
   };
 }
 void FFBMngrFeatureServ(uint8_t rptID, uint8_t dir, uint8_t *data){
-	enum Report_ID_Enum packetID = (enum Report_ID_Enum) rptID;
-	if(dir != 0){
-		//Device-to-host dir==1
-		switch(packetID){
-			case ID_PID_PID_Block_Load_Report:
-				FFBMngrBlkLd(effBlkIdx);
-				break;
-			default:
-				break;
-		}
-	}else{
-		//Host-to-Device dir==0
-		switch(packetID){
-			case ID_PID_Device_Gain_Report:
-				FFBMngrGain(data);
-			case ID_PID_Create_New_Effect_Report:
-				effBlkIdx = FFBMngrMalloc(data);
-			default:
-				break;
-		}
-	}
+  enum Report_ID_Enum packetID = (enum Report_ID_Enum) rptID;
+  if(dir != 0){
+    //Device-to-host dir==1
+    switch(packetID){
+      case ID_PID_PID_Block_Load_Report:
+        FFBMngrBlkLd(effBlkIdx);
+        break;
+      default:
+        break;
+    }
+  }else{
+    //Host-to-Device dir==0
+    switch(packetID){
+      case ID_PID_Device_Gain_Report:
+        FFBMngrGain(data);
+      case ID_PID_Create_New_Effect_Report:
+        effBlkIdx = FFBMngrMalloc(data);
+      default:
+        break;
+    }
+  }
+}
+void FFBMngrDataInServ(uint8_t rptID){
+  enum Report_ID_Enum packetID = (enum Report_ID_Enum) rptID;
+  switch(packetID){
+    case ID_PID_PID_State_Report:
+      FFBMngrStat(0x01); //epAddr == 0x01
+      break;
+    default:
+      break;
+  }
 }
 uint8_t FFBFindOffset(uint8_t idx,enum Report_ID_Enum type){
   if(paraType[idx * 2] == type)
@@ -380,12 +398,12 @@ void FFBMngrSprng(uint8_t idx) {
   if(effRpt[idx].pid_direction_enable){
     int32_t dis = dirX * x + dirY * y;
     FFBMngrCond(idx, FFBFindOffset(idx, ID_PID_Set_Condition_Report), dis);
-		PID_Tx = PID_Ty = 10000 * PID_mltipler;
-		return;
-	}
+    PID_Tx = PID_Ty = 10000 * PID_mltipler;
+    return;
+  }
   else{
     PID_Tx = PID_Ty = 0;
-		if (effRpt[idx].PID_Axes_Enable.Pointer_ID.vars_0 & Mask_X_ID){
+    if (effRpt[idx].PID_Axes_Enable.Pointer_ID.vars_0 & Mask_X_ID){
       FFBMngrCond(idx, 0, (int16_t) x);
       PID_Tx = 10000 * PID_mltipler; //normalized max 10000
     }
@@ -393,13 +411,18 @@ void FFBMngrSprng(uint8_t idx) {
       FFBMngrCond(idx, 1, (int16_t) y);
       PID_Ty = 10000 * PID_mltipler;
     }
-		return;
+    return;
   }
 }
 void FFBMngrEffRun(uint16_t deltaT, int32_t *Tx, int32_t *Ty) {
   //given deltaTime(ms),return Torque on x&y axes
   *Tx = 0;
-  *Ty = 0;
+  *Ty = 0;			
+	if(DEVICE_BRIDGE_ON){
+		BridgeGetXY(Tx, Ty);
+		return;
+	}
+	
   for(uint8_t i = 1; i < maxEffN; i++) {
     PID_Set_Effect_Report *eRpt = &effRpt[i];
     //if (effStat[i] > 0) //DebugPrint("EffStat[%d] > 0\n", i);
@@ -430,9 +453,9 @@ void FFBMngrEffRun(uint16_t deltaT, int32_t *Tx, int32_t *Ty) {
         //DebugPrint("Effect Direction:%f degree\n", direction * 360.0 / 0xFF);
       } else {
         dirX = eRpt->PID_Axes_Enable.Pointer_ID.vars_0 & Mask_X_ID ? \
-					eRpt->PID_Direction.Pointer_ID.x_id / 0xFF : 0;
+          eRpt->PID_Direction.Pointer_ID.x_id / 0xFF : 0;
         dirY = eRpt->PID_Axes_Enable.Pointer_ID.vars_0 & Mask_Y_ID ? \
-					eRpt->PID_Direction.Pointer_ID.y_id / 0xFF : 0;
+          eRpt->PID_Direction.Pointer_ID.y_id / 0xFF : 0;
         //DebugPrint("Effect Direction dirX:%d dirY:%d\n", dirX, dirY);
       }
 
@@ -452,8 +475,8 @@ void FFBMngrEffRun(uint16_t deltaT, int32_t *Tx, int32_t *Ty) {
       case PID_ET_Sine:
         FFBMngrSine(i);
         break;
-			default:
-				break;
+      default:
+        break;
       }
 
       *Tx +=(int32_t) (PID_Tx * dirX * gain / maxGain * effGlbGain / maxGain);

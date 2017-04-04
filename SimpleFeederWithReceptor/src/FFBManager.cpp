@@ -9,7 +9,7 @@
 #define PI 3.14159265358979f
 #define DebugPrint printf
 
-const uint16_t maxEffN = 10, maxTypeN = 4, maxParaBlkBytes = 20;
+const uint16_t maxEffN = 10, maxTypeN = 4, maxParaBlkBytes = 20, maxPos = 16379;
 uint8_t effVis[maxEffN]; // 0:free 1:occupied
 uint8_t effStat[maxEffN]; // 0:off 1:looping count
 uint32_t effRunTime[maxEffN]; // Effect Run Time
@@ -18,7 +18,7 @@ uint8_t effRunning, actStat, effGlbGain;
 FFB_EFF_REPORT effRpt[maxEffN]; //effect report pool
 uint8_t paraBlkPool[maxEffN * 2][maxParaBlkBytes]; //parameter block pool
 uint8_t paraType[maxEffN * 2]; //parameter block type -1==not visited
-int16_t posX = 100, posY = 100;
+int16_t posX = 10000, posY = 10000;
 
 void FFBMngrInit() {
 	DebugPrint("FFBMngr Init Clear\n");
@@ -219,17 +219,15 @@ void FFBMngrCond(uint8_t effBlkIdx, int16_t pos, uint8_t isY, float32_t &mltiple
     FFB_EFF_REPORT *eRpt = &effRpt[effBlkIdx];
     uint16_t CP = pRpt->CenterPointOffset;
     uint16_t dead = pRpt->DeadBand;
-	//offset = isY ? 1 : 0;
-	//uint8_t *pRpt = &paraBlkPool[effBlkIdx * 2 + offset];
-	//int16_t CP = *((int16_t*) pRpt[2]);
-	//int16_t PosCo
 
     mltipler = 0;
     if(pos < CP - dead){
-        mltipler = pRpt->NegCoeff * (pos - (CP - dead)) / pRpt->NegSatur;
+        mltipler = pRpt->NegSatur == 0 ? 0 : pRpt->NegCoeff * (pos - (CP - dead)) / ((float32_t) pRpt->NegSatur) / maxPos;
     }else if(pos > CP + dead){
-        mltipler = pRpt->PosCoeff * (pos - (CP + dead)) / pRpt->PosSatur;
+        mltipler = pRpt->PosSatur == 0 ? 0 : pRpt->PosCoeff * (pos - (CP + dead)) / ((float32_t) pRpt->PosSatur) / maxPos;
     }
+	DebugPrint("Condition[%d] NegSatur=%d PosSatur=%d mltip=%f", offset, pRpt->NegSatur,\
+	pRpt->PosSatur, mltipler);
 }
 void FFBMngrConstFoc(uint8_t idx, int32_t &Tx, int32_t &Ty) {
     float32_t mltipler;
@@ -359,6 +357,6 @@ void FFBMngrEffRun(uint16_t deltaT, int32_t &Tx, int32_t &Ty) {
     }
 }
 void FFBMngrSetPos(int16_t x, int16_t y) {
-	posX = x;
-	posY = y;
+	posX = x - maxPos;
+	posY = y - maxPos;
 }

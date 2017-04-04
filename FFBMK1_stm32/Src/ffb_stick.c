@@ -129,8 +129,6 @@ void stick_Init(void){
 void stick_sendPos(void){
   USBD_PID_Send(HID_In_Report, HID_In_Report_len); //send stickInput Report
 }
-void stick_sendStatus(void){	
-	FFBMngrStat(); //send State Report ??? doesn't work
-}
+
 
 

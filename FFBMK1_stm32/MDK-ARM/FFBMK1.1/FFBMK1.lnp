@@ -8,6 +8,7 @@
 "ffbmk1.1\usbd_pid.o"
 "ffbmk1.1\ffb_manager.o"
 "ffbmk1.1\ffb_stick.o"
+"ffbmk1.1\device_bridge.o"
 "ffbmk1.1\system_stm32f1xx.o"
 "ffbmk1.1\stm32f1xx_ll_usb.o"
 "ffbmk1.1\stm32f1xx_hal_gpio_ex.o"

@@ -1,6 +1,5 @@
 #pragma once
 #include<time.h>
-extern double thoroughW, thoroughH;
 
 class FFBRender {
 public:
@@ -8,6 +7,7 @@ public:
 	~FFBRender();
 	void RenderLines(float *x, float *y, int len);
 	void PutXYT(float x, float y, time_t t);
+	void RenderStickXY(float x, float y);
 	void RenderFFBIndicator();
 private:
 	const float xZeroPosition = 400, yZeroPosition = 500, \

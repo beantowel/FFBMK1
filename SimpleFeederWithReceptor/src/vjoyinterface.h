@@ -223,8 +223,8 @@ typedef struct _FFB_EFF_COND {
 	int16_t 	CenterPointOffset; // CP Offset:  Range -?0000 ? 10000
 	int16_t 	PosCoeff; // Positive Coefficient: Range -?0000 ? 10000
 	int16_t 	NegCoeff; // Negative Coefficient: Range -?0000 ? 10000
-	WORD 		PosSatur; // Positive Saturation: Range 0 ?10000
-	WORD 		NegSatur; // Negative Saturation: Range 0 ?10000
+	uint16_t 	NegSatur; // Positive Saturation: Range 0 ?10000
+	uint16_t 	PosSatur; // Negative Saturation: Range 0 ?10000
 	int16_t 	DeadBand; // Dead Band: : Range 0 ?1000
 } FFB_EFF_COND, *PFFB_EFF_COND;
 

@@ -4,6 +4,7 @@
 #include "VisualFFB.h"
 #include "FFBRender.h"
 #include "FFBManager.h"
+#include "deviceBridge.h"
 
 #include<iostream>
 #include<string>
@@ -14,15 +15,11 @@
 #include <time.h>
 char line[MaxLineLength];
 static FFBRender ffbRender;
+double thoroughW, thoroughH;
 
 int Visual_main() {
-
 	cout << "FFBvisual Window/handle Start" << endl;
-	HANDLE hThread = CreateThread(NULL, 0, Glut_Window, NULL, 0, NULL);
-	/*while (1) {
-		scanf_s("%s", &line, MaxLineLength);
-		cout << line << endl;
-	}*/
+	HANDLE hThread = CreateThread(NULL, 0, Glut_Window, NULL, 0, NULL); //start render thread
 	return 0;
 }
 
@@ -77,31 +74,22 @@ void glOnTimer(int id) {
 	timeSpan=currentTime-previousTime;
 	glRunTime+=timeSpan; 
 
-	//cout << glRunTime << ' ' << timeSpan << endl;
-	/*//render procedure
-	const int Narray = 60;
-	static float x[Narray]={0},y[Narray]={0};
-	if (x[0] == 0) {
-		for (int i = 0; i < Narray; i++) {
-			x[i] = 10 * i + 100;
-		}
-	}
-	for (int i = 0; i < Narray; i++) {
-		y[i] = 50*sin(x[i]/100 - 100 + (glRunTime / 1000.0))+100;
-	}
-	ffbRender.RenderLines(x, y, Narray);*/
 	int32_t Tx,Ty;
-	static int countF=0;
-	FFBMngrEffRun(timeSpan, Tx, Ty); //max Force = 10000
 	const int maxForce = 10000; //gridWidth = 100
+	static BYTE output[6];
 
+	FFBMngrEffRun(timeSpan, Tx, Ty); //max Force = 10000
+	PInputReport posHandle = DeviceGetPos();
 	if(Tx > maxForce) Tx=maxForce;
 	if(Tx < -maxForce) Tx=-maxForce;
-	if (Ty > maxForce) Ty = maxForce;
-	if (Ty < -maxForce) Ty = -maxForce;	
+	if(Ty > maxForce) Ty = maxForce;
+	if(Ty < -maxForce) Ty = -maxForce;	
 
-	ffbRender.PutXYT(Tx / 10.0, Ty / 10.0, glRunTime);
+	FormOutReport(output, Tx, Ty);
+	DeviceWrite(output, 6);
+	ffbRender.PutXYT(Tx / 100.0, Ty / 100.0, glRunTime); //rende force
 	ffbRender.RenderFFBIndicator();
+	ffbRender.RenderStickXY(posHandle->x * 100 / 2048.0, posHandle->y * 100 / 2048.0);
 
 	//prepare for next action
 	glutPostRedisplay(); 

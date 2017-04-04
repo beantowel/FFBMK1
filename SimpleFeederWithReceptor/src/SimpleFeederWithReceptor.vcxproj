@@ -31,6 +31,7 @@
     <RootNamespace>vJoyClient</RootNamespace>
     <Keyword>Win32Proj</Keyword>
     <ProjectName>SimpleFeederWithReceptor</ProjectName>
+    <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Rel64|Win32'" Label="Configuration">
@@ -98,7 +99,7 @@
     <LinkIncremental>true</LinkIncremental>
     <PostBuildEventUseInBuild>false</PostBuildEventUseInBuild>
     <IncludePath>F:\Windows Kits\10\Include\10.0.10150.0\ucrt;$(IncludePath)</IncludePath>
-    <LibraryPath>F:\Windows Kits\10\Lib\10.0.10150.0\ucrt\x86;$(LibraryPath)</LibraryPath>
+    <LibraryPath>F:\Windows Kits\10\Lib\10.0.14393.0\um\x86;F:\Windows Kits\10\Lib\10.0.10150.0\ucrt\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
@@ -140,7 +141,7 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies>Setupapi.lib;vJoyInterface.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>..\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>F:\Windows Kits\10\Lib\10.0.14393.0\um\x86;..\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <TargetMachine>MachineX86</TargetMachine>
@@ -278,6 +279,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="deviceBridge.cpp" />
     <ClCompile Include="FFBRender.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="PID_DataStructure.cpp" />
@@ -286,11 +288,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\inc\public.h" />
+    <ClInclude Include="deviceBridge.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="stdint.h" />
     <ClInclude Include="VisualFFB.h" />
     <ClInclude Include="FFBRender.h" />
     <ClInclude Include="vjoyinterface.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\lib\hid.lib" />
+    <Library Include="..\lib\SetupAPI.Lib" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

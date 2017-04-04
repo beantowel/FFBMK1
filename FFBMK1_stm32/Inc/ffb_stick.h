@@ -13,7 +13,6 @@ void stick_EffectExecuter(void);
 void stick_Position_Calibration(void);
 int32_t stick_Get_Position(uint8_t axis);
 int32_t stick_Get_Positioon_Max(void);
-void stick_sendStatus(void);
 void stick_sendPos(void);
 
 #ifdef __cplusplus

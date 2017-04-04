@@ -106,7 +106,6 @@ int main(void) {
     /* USER CODE BEGIN WHILE */
     HAL_ADC_Start_DMA(&hadc1, ADC_Converted_Values, Converted_Values_len);
     stick_EffectExecuter();
-		stick_sendStatus(); //send State Report
     //HAL_Delay(5);
     /* USER CODE END WHILE */
   };

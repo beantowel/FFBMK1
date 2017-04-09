@@ -7,3 +7,31 @@ F:\git projects\FFBMK1\FFBMK1_stm32\MDK-ARM\FFBMK1.1.uvproj
 Project File Date:  04/04/2017
 
 <h2>Output:</h2>
+Build target 'FFBMK1.1'
+compiling ffb_stick.c...
+linking...
+Program Size: Code=16226 RO-data=362 RW-data=964 ZI-data=4076  
+"FFBMK1.1\FFBMK1.1" - 0 Errors, 0 Warning(s).
+Build target 'FFBMK1.1'
+linking...
+Program Size: Code=16226 RO-data=362 RW-data=964 ZI-data=4076  
+"FFBMK1.1\FFBMK1.1" - 0 Errors, 0 Warning(s).
+Build target 'FFBMK1.1'
+compiling ffb_stick.c...
+compiling usbd_hid.c...
+linking...
+Program Size: Code=16226 RO-data=362 RW-data=964 ZI-data=4076  
+"FFBMK1.1\FFBMK1.1" - 0 Errors, 0 Warning(s).
+Build target 'FFBMK1.1'
+compiling ffb_stick.c...
+linking...
+Program Size: Code=16222 RO-data=362 RW-data=964 ZI-data=4076  
+"FFBMK1.1\FFBMK1.1" - 0 Errors, 0 Warning(s).
+Build target 'FFBMK1.1'
+linking...
+Program Size: Code=16222 RO-data=362 RW-data=964 ZI-data=4076  
+"FFBMK1.1\FFBMK1.1" - 0 Errors, 0 Warning(s).
+Load "FFBMK1.1\\FFBMK1.1" 
+Erase Done.
+Programming Done.
+Verify OK.

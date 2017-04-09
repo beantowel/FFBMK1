@@ -10,9 +10,9 @@ static int32_t X_Position, Y_Position; //Value -2048~2047:Angle -180~180
 static int32_t X_Absolute, Y_Absolute; //Value 0~4096:Angle -180~180
 static int32_t X_Zero = 2048, Y_Zero = 2048;
 static uint8_t HID_Button_Status = 0;
-const int32_t Angle_Max = 30;
+const int32_t Angle_Max = 60;
 const int32_t Position_Gain = 180 / Angle_Max; //p*gain-> Value -2048~2047:Angle -30~30
-const int32_t Pos_Max = 341; //pos Constrian value 2048 / 180 * 30 <= 341
+const int32_t Pos_Max = 682; //pos Constrian value 2048 / 180 * 60 <= 682
 const int32_t T_Max = 10000;
 const int32_t PWM_pulseMax = 800; // 10.281MHz/1000Period = 10.281KHz  
 
@@ -42,7 +42,7 @@ void HID_GenerateInputRpt(uint32_t *adcValue) {
   Y_Position = truncVal(Y_Position, Pos_Max);
   x = X_Position * Position_Gain;
   y = Y_Position * Position_Gain;
-  HID_In_Report[1] = (uint8_t) (adcValue[2] >> 4); //throttle
+  HID_In_Report[1] = (uint8_t) (adcValue[2] >> 5); //throttle 4096/32 = 128 max
   HID_In_Report[2] = (uint8_t) (x & 0x00ff); //x pos: -2047~2048
   HID_In_Report[3] = (uint8_t) (x >> 8);
   HID_In_Report[4] = (uint8_t) (y & 0x00ff); //y pos
@@ -113,8 +113,8 @@ void stick_EffectExecuter(void) {
 	pre_Run_Time=Run_Time;
 }
 void stick_Position_Calibration(void) {
-	X_Zero=X_Absolute;
-	Y_Zero=Y_Absolute;
+	X_Zero = X_Absolute;
+	Y_Zero = Y_Absolute;
 }
 int32_t stick_Get_Position(uint8_t axis){
 	if(axis == 0) return(X_Position);

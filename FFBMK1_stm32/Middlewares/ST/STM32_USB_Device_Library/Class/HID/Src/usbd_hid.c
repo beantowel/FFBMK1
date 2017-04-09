@@ -238,7 +238,7 @@ __ALIGN_BEGIN static uint8_t HID_FFBStick_ReportDesc[PID_FFBMK1_DESC_SIZE]  __AL
 0x85,0x01,                //    Report_ID(1), //FFBMK1 JoyStick Inputs interrupt in pipe->default 0
 0x05,0x02,                //    Usage_Page(Simulation_ID),
 0x09,0xbb,                //    Usage(Throttle_ID), //Throttle
-0x15,0x81,                //    Logical_Minimum(-127),
+0x15,0x00,                //    Logical_Minimum(0),
 0x25,0x7f,                //    Logical_Maximum(127),
 0x75,0x08,                //    Report_Size(8),
 0x95,0x01,                //    Report_Count(1),

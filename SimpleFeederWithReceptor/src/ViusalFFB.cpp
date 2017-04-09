@@ -87,9 +87,9 @@ void glOnTimer(int id) {
 
 	FormOutReport(output, Tx, Ty);
 	DeviceWrite(output, 6);
-	ffbRender.PutXYT(Tx / 100.0, Ty / 100.0, glRunTime); //rende force
+	ffbRender.PutXYT(Tx / 100.0, -Ty / 100.0, glRunTime); //rende force
 	ffbRender.RenderFFBIndicator();
-	ffbRender.RenderStickXY(posHandle->x * 100 / 2048.0, posHandle->y * 100 / 2048.0);
+	ffbRender.RenderStickXY(posHandle->x * 100 / 2048.0, -posHandle->y * 100 / 2048.0);
 
 	//prepare for next action
 	glutPostRedisplay(); 

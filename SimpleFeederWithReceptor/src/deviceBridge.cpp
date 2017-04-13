@@ -12,8 +12,8 @@ using namespace std;
 #define     USB_VID			0x0483
 #define     USB_PID			0x572B
 #define		REPORT_COUNT	64
-#define tprintf //printf
-#define t1printf printf
+#define tprintf printf
+#define t1printf //printf
 
 HANDLE       hDev;
 InputReport  inputReport;
@@ -36,7 +36,7 @@ void DeviceRead() {
 	recvDataBuf[0] = 1;
 
 	if (!ReadFile(hDev, recvDataBuf, 0x40 + 1, &bytesCnt, NULL)) { // read inputs
-		tprintf("read data error! %d\n", GetLastError());
+		t1printf("read data error! %d\n", GetLastError());
 		return;
 	}
 
@@ -44,7 +44,7 @@ void DeviceRead() {
 	inputReport.x = recvDataBuf[2] | (recvDataBuf[3] << 8);
 	inputReport.y = recvDataBuf[4] | (recvDataBuf[5] << 8);
 	inputReport.button = recvDataBuf[5];
-	tprintf("read data:\n throttle=%d, x=%d, y=%d\n",inputReport.throttle, inputReport.x, inputReport.y);
+	t1printf("read data:\n throttle=%d, x=%d, y=%d\n",inputReport.throttle, inputReport.x, inputReport.y);
 }
 void DeviceWrite(BYTE *data, DWORD len) {
 	DWORD        bytesCnt = len;
@@ -76,6 +76,7 @@ HANDLE OpenMyHIDDevice(int overlapped) {
 	HidD_GetHidGuid(&hidGuid);
 	HDEVINFO hDevInfo = SetupDiGetClassDevs(&hidGuid, NULL, NULL, (DIGCF_PRESENT | DIGCF_DEVICEINTERFACE));
 	if (hDevInfo == INVALID_HANDLE_VALUE) {
+		tprintf("Get hDevInfo error\n");
 		return INVALID_HANDLE_VALUE;
 	}
 	SP_DEVICE_INTERFACE_DATA devInfoData;
@@ -103,6 +104,7 @@ HANDLE OpenMyHIDDevice(int overlapped) {
 			NULL)) { //get interface device
 			free(pdevDetail);
 			SetupDiDestroyDeviceInfoList(hDevInfo);
+			tprintf("error SetupDiGetInterfaceDeviceDetail\n");
 			return INVALID_HANDLE_VALUE;
 		}
 		if (overlapped) { //create file
@@ -126,12 +128,14 @@ HANDLE OpenMyHIDDevice(int overlapped) {
 		free(pdevDetail);
 		if (hidHandle == INVALID_HANDLE_VALUE) { //failed to create file
 			SetupDiDestroyDeviceInfoList(hDevInfo);
+			tprintf("failed to create file\n");
 			return INVALID_HANDLE_VALUE;
 		}
 		_HIDD_ATTRIBUTES hidAttributes; //get attributes
 		if (!HidD_GetAttributes(hidHandle, &hidAttributes)) {
 			CloseHandle(hidHandle);
 			SetupDiDestroyDeviceInfoList(hDevInfo);
+			tprintf("failed to get hidAttributes\n");
 			return INVALID_HANDLE_VALUE;
 		}
 		if (USB_VID == hidAttributes.VendorID

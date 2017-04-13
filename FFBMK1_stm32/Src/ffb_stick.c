@@ -10,9 +10,9 @@ static int32_t X_Position, Y_Position; //Value -2048~2047:Angle -180~180
 static int32_t X_Absolute, Y_Absolute; //Value 0~4096:Angle -180~180
 static int32_t X_Zero = 2048, Y_Zero = 2048;
 static uint8_t HID_Button_Status = 0;
-const int32_t Angle_Max = 60;
-const int32_t Position_Gain = 180 / Angle_Max; //p*gain-> Value -2048~2047:Angle -30~30
-const int32_t Pos_Max = 682; //pos Constrian value 2048 / 180 * 60 <= 682
+const int32_t Angle_Max = 45, ACDeadBand = 10;
+const int32_t Position_Gain = 180 / Angle_Max; //p*gain-> Value -2048~2047:Angle -45~45
+const int32_t Pos_Max = 2048 / 180 * Angle_Max; //pos Constrian value 2048 / 180 * 45 <= 495
 const int32_t T_Max = 10000;
 const int32_t PWM_pulseMax = 800; // 10.281MHz/1000Period = 10.281KHz  
 
@@ -34,15 +34,15 @@ inline int32_t truncVal(int32_t val, int32_t range){
 }
 void HID_GenerateInputRpt(uint32_t *adcValue) {
   int32_t x, y;
-	X_Absolute = adcValue[0];
+	X_Absolute = adcValue[0]; //0~4096
 	Y_Absolute = adcValue[1];
-  X_Position = X_Absolute - X_Zero;
+  X_Position = X_Absolute - X_Zero; //-Pos_Max~Pos_Max expected
   Y_Position = Y_Absolute - Y_Zero;
   X_Position = truncVal(X_Position, Pos_Max);
   Y_Position = truncVal(Y_Position, Pos_Max);
   x = X_Position * Position_Gain;
   y = Y_Position * Position_Gain;
-  HID_In_Report[1] = (uint8_t) (adcValue[2] >> 5); //throttle 4096/32 = 128 max
+  HID_In_Report[1] = (uint8_t) 127; //(adcValue[2] >> 5); //throttle 4096/32 = 128 max
   HID_In_Report[2] = (uint8_t) (x & 0x00ff); //x pos: -2047~2048
   HID_In_Report[3] = (uint8_t) (x >> 8);
   HID_In_Report[4] = (uint8_t) (y & 0x00ff); //y pos
@@ -97,15 +97,19 @@ void stick_EffectExecuter(void) {
 		y = y * PWM_pulseMax / T_Max;
 //		x = x % PWM_pulseMax;
 //		y = y % PWM_pulseMax; //make sure x,y < PWM_pulseMax
-		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_12, GPIO_PIN_SET); //PC_12 On
+		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_12, GPIO_PIN_SET); //PC_12 On (PID Device)
 	}else{
 		//defalut Spring P Control
 		//direction: reverse to cartesian coordinates
-		x = X_Position * PWM_pulseMax / Pos_Max;
-		y = Y_Position * PWM_pulseMax / Pos_Max;
-//		x = x % PWM_pulseMax;
-//		y = y % PWM_pulseMax; //make sure x,y < PWM_pulseMax
-		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_12, GPIO_PIN_RESET); //PC_12 Off
+		if(X_Position>0) x=1;
+		else x=-1;
+		x = x * 500;
+		x = (X_Position <= ACDeadBand && X_Position >= -ACDeadBand) ? 0 : x;
+		if(Y_Position>0) y=1;
+		else y=-1;
+		y = y * 500;
+		y = (Y_Position <= ACDeadBand && Y_Position >= -ACDeadBand) ? 0 : y;
+		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_12, GPIO_PIN_RESET); //PC_12 Off (auto centering)
 	}
 	stick_Set_Acutator_PWM(x,0); //set axis 0
 	stick_Set_Acutator_PWM(y,1); //set axis 1

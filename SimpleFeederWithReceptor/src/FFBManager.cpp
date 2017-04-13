@@ -1,5 +1,5 @@
 #include "FFBManager.h"
-
+#include "deviceBridge.h"
 #include "stdafx.h"
 //#include "stdint.h"
 #include "Math.h"
@@ -9,7 +9,7 @@
 #define PI 3.14159265358979f
 #define DebugPrint printf
 
-const uint16_t maxEffN = 10, maxTypeN = 4, maxParaBlkBytes = 20, maxPos = 16379;
+const uint16_t maxEffN = 10, maxTypeN = 4, maxParaBlkBytes = 20, maxPos = 2048;
 uint8_t effVis[maxEffN]; // 0:free 1:occupied
 uint8_t effStat[maxEffN]; // 0:off 1:looping count
 uint32_t effRunTime[maxEffN]; // Effect Run Time
@@ -18,7 +18,6 @@ uint8_t effRunning, actStat, effGlbGain;
 FFB_EFF_REPORT effRpt[maxEffN]; //effect report pool
 uint8_t paraBlkPool[maxEffN * 2][maxParaBlkBytes]; //parameter block pool
 uint8_t paraType[maxEffN * 2]; //parameter block type -1==not visited
-int16_t posX = 10000, posY = 10000;
 
 void FFBMngrInit() {
 	DebugPrint("FFBMngr Init Clear\n");
@@ -212,9 +211,9 @@ void FFBMngrPrid(uint8_t effBlkIdx, int32_t &level, float32_t tfunc(uint32_t t,u
 }
 void FFBMngrCond(uint8_t effBlkIdx, int16_t pos, uint8_t isY, float32_t &mltipler){
     uint8_t offset;
-
+	static uint8_t dir = 0;
     FFB_EFF_COND *pRpt = (FFB_EFF_COND *) &paraBlkPool[effBlkIdx * 2 + 0];
-	offset = (pRpt->isY && isY) ? 0 : 1;
+	offset = dir; dir = (dir == 0) ? 1 : 0;
 	pRpt = (FFB_EFF_COND *)&paraBlkPool[effBlkIdx * 2 + offset];
     FFB_EFF_REPORT *eRpt = &effRpt[effBlkIdx];
     uint16_t CP = pRpt->CenterPointOffset;
@@ -222,11 +221,13 @@ void FFBMngrCond(uint8_t effBlkIdx, int16_t pos, uint8_t isY, float32_t &mltiple
 
     mltipler = 0;
     if(pos < CP - dead){
-        mltipler = pRpt->NegSatur == 0 ? 0 : pRpt->NegCoeff * (pos - (CP - dead)) / ((float32_t) pRpt->NegSatur) / maxPos;
+		if(pRpt->NegSatur == 0) pRpt->NegSatur = 10000;
+        mltipler = pRpt->NegCoeff * (pos - (CP - dead)) / ((float) maxPos) / (float) pRpt->NegSatur;
     }else if(pos > CP + dead){
-        mltipler = pRpt->PosSatur == 0 ? 0 : pRpt->PosCoeff * (pos - (CP + dead)) / ((float32_t) pRpt->PosSatur) / maxPos;
+		if(pRpt->PosSatur == 0) pRpt->PosSatur = 10000;
+        mltipler = pRpt->PosCoeff * (pos - (CP + dead)) / ((float) maxPos) / (float) pRpt->PosSatur;
     }
-	DebugPrint("Condition[%d] NegSatur=%d PosSatur=%d mltip=%f", offset, pRpt->NegSatur,\
+	DebugPrint("Condition[%d] NegSatur=%d PosSatur=%d mltip=%f\n", offset, pRpt->NegSatur,\
 	pRpt->PosSatur, mltipler);
 }
 void FFBMngrConstFoc(uint8_t idx, int32_t &Tx, int32_t &Ty) {
@@ -291,10 +292,12 @@ void FFBMngrSine(uint8_t idx, int32_t &Tx, int32_t &Ty) {
 void FFBMngrSprng(uint8_t idx, int32_t &Tx, int32_t &Ty) {
     Tx = Ty = 0; //to be done, need pos(&posx, &posy) as parameter to ger position
 	float32_t mltipler = 0;
-	FFBMngrCond(idx, posX, 0, mltipler);
+	PInputReport posHandle = DeviceGetPos();
+	FFBMngrCond(idx, posHandle->x, 0, mltipler);
 	Tx = 10000 * mltipler;
-	FFBMngrCond(idx, posX, 0, mltipler);
+	FFBMngrCond(idx, posHandle->y, 0, mltipler);
 	Ty = 10000 * mltipler;
+	DebugPrint("Spring: PosX:%d,PosY:%d,Tx:%d,Ty:%d\n", posHandle->x, posHandle->y, Tx, Ty);
 }
 void FFBMngrEffRun(uint16_t deltaT, int32_t &Tx, int32_t &Ty) {
     //given deltaTime(ms),return Torque on x&y axes
@@ -349,14 +352,14 @@ void FFBMngrEffRun(uint16_t deltaT, int32_t &Tx, int32_t &Ty) {
                 y = eRpt->DirY / 0xFF;
 				DebugPrint("Effect Direction X:%d Y:%d\n", x, y);
             }
+			if (eRpt->EffectType == ET_SPRNG) {
+				x = 1;
+				y = 1;
+			}
             Tx +=(int32_t) (FFBTx * gain *  x / maxGain);
             Ty +=(int32_t) (FFBTy * gain *  y / maxGain);
 			DebugPrint("FFBMngr Running:Type=%d\n Tx:%d Ty:%d\n Gain:%d\n"\
 			,eRpt->EffectType, Tx, Ty, gain);
         }
     }
-}
-void FFBMngrSetPos(int16_t x, int16_t y) {
-	posX = x - maxPos;
-	posY = y - maxPos;
 }

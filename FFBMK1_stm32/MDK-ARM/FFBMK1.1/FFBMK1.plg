@@ -10,7 +10,11 @@ Project File Date:  04/04/2017
 Build target 'FFBMK1.1'
 compiling ffb_stick.c...
 linking...
-Program Size: Code=16250 RO-data=362 RW-data=964 ZI-data=4076  
+Program Size: Code=16210 RO-data=362 RW-data=964 ZI-data=4076  
+"FFBMK1.1\FFBMK1.1" - 0 Errors, 0 Warning(s).
+Build target 'FFBMK1.1'
+linking...
+Program Size: Code=16210 RO-data=362 RW-data=964 ZI-data=4076  
 "FFBMK1.1\FFBMK1.1" - 0 Errors, 0 Warning(s).
 Load "FFBMK1.1\\FFBMK1.1" 
 Erase Done.
@@ -19,7 +23,11 @@ Verify OK.
 Build target 'FFBMK1.1'
 compiling ffb_stick.c...
 linking...
-Program Size: Code=16266 RO-data=362 RW-data=964 ZI-data=4076  
+Program Size: Code=16214 RO-data=362 RW-data=964 ZI-data=4076  
+"FFBMK1.1\FFBMK1.1" - 0 Errors, 0 Warning(s).
+Build target 'FFBMK1.1'
+linking...
+Program Size: Code=16214 RO-data=362 RW-data=964 ZI-data=4076  
 "FFBMK1.1\FFBMK1.1" - 0 Errors, 0 Warning(s).
 Load "FFBMK1.1\\FFBMK1.1" 
 Erase Done.
@@ -28,11 +36,7 @@ Verify OK.
 Build target 'FFBMK1.1'
 compiling ffb_stick.c...
 linking...
-Program Size: Code=16234 RO-data=362 RW-data=964 ZI-data=4076  
-"FFBMK1.1\FFBMK1.1" - 0 Errors, 0 Warning(s).
-Build target 'FFBMK1.1'
-linking...
-Program Size: Code=16234 RO-data=362 RW-data=964 ZI-data=4076  
+Program Size: Code=16302 RO-data=362 RW-data=964 ZI-data=4076  
 "FFBMK1.1\FFBMK1.1" - 0 Errors, 0 Warning(s).
 Load "FFBMK1.1\\FFBMK1.1" 
 Erase Done.
@@ -41,47 +45,12 @@ Verify OK.
 Build target 'FFBMK1.1'
 compiling ffb_stick.c...
 linking...
-Program Size: Code=16234 RO-data=362 RW-data=964 ZI-data=4076  
+Program Size: Code=16302 RO-data=362 RW-data=964 ZI-data=4076  
 "FFBMK1.1\FFBMK1.1" - 0 Errors, 0 Warning(s).
-Load "FFBMK1.1\\FFBMK1.1" 
-Erase Done.
-Programming Done.
-Verify OK.
 Build target 'FFBMK1.1'
 compiling ffb_stick.c...
 linking...
-Program Size: Code=16234 RO-data=362 RW-data=964 ZI-data=4076  
-"FFBMK1.1\FFBMK1.1" - 0 Errors, 0 Warning(s).
-Load "FFBMK1.1\\FFBMK1.1" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'FFBMK1.1'
-compiling ffb_stick.c...
-linking...
-Program Size: Code=16238 RO-data=362 RW-data=964 ZI-data=4076  
-"FFBMK1.1\FFBMK1.1" - 0 Errors, 0 Warning(s).
-Build target 'FFBMK1.1'
-linking...
-Program Size: Code=16238 RO-data=362 RW-data=964 ZI-data=4076  
-"FFBMK1.1\FFBMK1.1" - 0 Errors, 0 Warning(s).
-Load "FFBMK1.1\\FFBMK1.1" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'FFBMK1.1'
-compiling ffb_stick.c...
-linking...
-Program Size: Code=16238 RO-data=362 RW-data=964 ZI-data=4076  
-"FFBMK1.1\FFBMK1.1" - 0 Errors, 0 Warning(s).
-Load "FFBMK1.1\\FFBMK1.1" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'FFBMK1.1'
-compiling ffb_stick.c...
-linking...
-Program Size: Code=16254 RO-data=362 RW-data=964 ZI-data=4076  
+Program Size: Code=16294 RO-data=362 RW-data=964 ZI-data=4076  
 "FFBMK1.1\FFBMK1.1" - 0 Errors, 0 Warning(s).
 Load "FFBMK1.1\\FFBMK1.1" 
 Erase Done.

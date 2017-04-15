@@ -54,6 +54,9 @@ void FFBMngrDelete(uint8_t effBlkIdx) {
 void FFBMngrEffAcpt(uint8_t *data) {
 	//data[0]==packetID
     uint8_t effBlkIdx = ((FFB_EFF_REPORT *) &data[1])->EffectBlockIndex;
+	if (((FFB_EFF_REPORT *)&data[1])->EffectType == ET_SPRNG) {
+		effBlkIdx = 2; //spring exception
+	}	
     effRpt[effBlkIdx] = *((FFB_EFF_REPORT *) &data[1]);
     effVis[effBlkIdx] = 1; //set use flag and initialize
     effStat[effBlkIdx] = 0;
@@ -65,6 +68,9 @@ void FFBMngrParaAcpt(uint8_t *data, uint8_t size, FFBPType type) {
 	DebugPrint("Accepting Parameter\n");
     //data[0]==packetID, assume effIdx==data[1] offset==data[2]
     uint8_t effBlkIdx = data[1];
+	if (type == PT_CONDREP) {
+		effBlkIdx = 2; //spring exception
+	}
 	uint8_t offset = paraType[effBlkIdx * 2] == 0xFF ? 0 : 1;
 	offset = paraType[effBlkIdx * 2] == type ? 0 : offset;
 	if (type == PT_CONDREP) {
@@ -352,7 +358,7 @@ void FFBMngrEffRun(uint16_t deltaT, int32_t &Tx, int32_t &Ty) {
                 y = eRpt->DirY / 0xFF;
 				DebugPrint("Effect Direction X:%d Y:%d\n", x, y);
             }
-			if (eRpt->EffectType == ET_SPRNG) {
+			if (eRpt->EffectType == ET_SPRNG) { //spring exception
 				x = 1;
 				y = 1;
 			}

@@ -21,7 +21,7 @@ InputReport  inputReport;
 int Bridge_Main(void);
 DWORD WINAPI DeviceBridgeStart(LPVOID args);
 HANDLE OpenMyHIDDevice(int overlapped);
-void DeviceRead();
+bool DeviceRead();
 void DeviceWrite(BYTE *data, DWORD len);
 PInputReport DeviceGetPos();
 
@@ -30,14 +30,14 @@ int Bridge_Main() {
 	HANDLE hThread = CreateThread(NULL, 0, DeviceBridgeStart, NULL, 0, NULL); //start bridge thread
 	return 0;
 }
-void DeviceRead() {
+bool DeviceRead() {
 	BYTE         recvDataBuf[1024];
 	DWORD        bytesCnt;
 	recvDataBuf[0] = 1;
 
 	if (!ReadFile(hDev, recvDataBuf, 0x40 + 1, &bytesCnt, NULL)) { // read inputs
 		t1printf("read data error! %d\n", GetLastError());
-		return;
+		return false;
 	}
 
 	inputReport.throttle = recvDataBuf[1];
@@ -45,6 +45,7 @@ void DeviceRead() {
 	inputReport.y = recvDataBuf[4] | (recvDataBuf[5] << 8);
 	inputReport.button = recvDataBuf[5];
 	t1printf("read data:\n throttle=%d, x=%d, y=%d\n",inputReport.throttle, inputReport.x, inputReport.y);
+	return true;
 }
 void DeviceWrite(BYTE *data, DWORD len) {
 	DWORD        bytesCnt = len;
@@ -59,13 +60,19 @@ void DeviceWrite(BYTE *data, DWORD len) {
 }
 DWORD WINAPI DeviceBridgeStart(LPVOID args) {
 	hDev = OpenMyHIDDevice(0); //open device overlap == 0
-	if (hDev == INVALID_HANDLE_VALUE) {
+	while(hDev == INVALID_HANDLE_VALUE) {
 		tprintf("INVALID_HANDLE_VALUE\n");
-		return 0;
+		tprintf("trying to re-connect\n");
+		hDev = OpenMyHIDDevice(0);
+		Sleep(1000);
 	}
 	cout << "DeviceBridge Start Succeed!" << endl;
 	while(TRUE){
-		DeviceRead();
+		while (!DeviceRead() || hDev == INVALID_HANDLE_VALUE) {
+			tprintf("trying to re-connect\n");
+			hDev = OpenMyHIDDevice(0);
+			Sleep(1000);
+		}
 		Sleep(5); //FS Interval == 10 > 5 ms
 	}
 	return 0;

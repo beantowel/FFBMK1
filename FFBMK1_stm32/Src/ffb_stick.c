@@ -10,11 +10,11 @@ static int32_t X_Position, Y_Position; //Value -2048~2047:Angle -180~180
 static int32_t X_Absolute, Y_Absolute; //Value 0~4096:Angle -180~180
 static int32_t X_Zero = 2048, Y_Zero = 2048;
 static uint8_t HID_Button_Status = 0;
-const int32_t Angle_Max = 45, ACDeadBand = 10;
+const int32_t Angle_Max = 45, ACDeadBand = 10, ACSprngMin = 300;
 const int32_t Position_Gain = 180 / Angle_Max; //p*gain-> Value -2048~2047:Angle -45~45
 const int32_t Pos_Max = 2048 / 180 * Angle_Max; //pos Constrian value 2048 / 180 * 45 <= 495
 const int32_t T_Max = 10000;
-const int32_t PWM_pulseMax = 800; // 10.281MHz/1000Period = 10.281KHz  
+const int32_t PWM_pulseMax = 900; // 10.281MHz/1000Period = 10.281KHz  
 
 //const int16_t HID_In_Report_len = 7;
 //uint8_t HID_In_Report[HID_In_Report_len];
@@ -101,14 +101,10 @@ void stick_EffectExecuter(void) {
 	}else{
 		//defalut Spring P Control
 		//direction: reverse to cartesian coordinates
-		if(X_Position>0) x=1;
-		else x=-1;
-		x = x * 500;
-		x = (X_Position <= ACDeadBand && X_Position >= -ACDeadBand) ? 0 : x;
-		if(Y_Position>0) y=1;
-		else y=-1;
-		y = y * 500;
-		y = (Y_Position <= ACDeadBand && Y_Position >= -ACDeadBand) ? 0 : y;
+		x = X_Position * PWM_pulseMax / Pos_Max;
+		if(abs(X_Position ) > ACDeadBand && abs(x) < ACSprngMin) x = x > 0 ? ACSprngMin : -ACSprngMin; 
+		y = Y_Position * PWM_pulseMax / Pos_Max;
+		if(abs(Y_Position ) > ACDeadBand && abs(y) < ACSprngMin) y = y > 0 ? ACSprngMin : -ACSprngMin; 
 		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_12, GPIO_PIN_RESET); //PC_12 Off (auto centering)
 	}
 	stick_Set_Acutator_PWM(x,0); //set axis 0

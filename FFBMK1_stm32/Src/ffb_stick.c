@@ -1,6 +1,7 @@
 #include "ffb_stick.h"
 #include "ffb_manager.h"
 #include "usbd_pid.h"
+#include "usbd_hid.h"
 #include "stm32f1xx_hal.h"
 
 /*import variable */
@@ -15,11 +16,6 @@ const int32_t Position_Gain = 180 / Angle_Max; //p*gain-> Value -2048~2047:Angle
 const int32_t Pos_Max = 2048 / 180 * Angle_Max; //pos Constrian value 2048 / 180 * 45 <= 495
 const int32_t T_Max = 10000;
 const int32_t PWM_pulseMax = 900; // 10.281MHz/1000Period = 10.281KHz  
-
-//const int16_t HID_In_Report_len = 7;
-//uint8_t HID_In_Report[HID_In_Report_len];
-extern const int16_t HID_In_Report_len;
-extern uint8_t HID_In_Report[];
 
 /* private function prototype*/
 int32_t truncVal(int32_t val, int32_t range);
@@ -48,7 +44,7 @@ void HID_GenerateInputRpt(uint32_t *adcValue) {
   HID_In_Report[4] = (uint8_t) (y & 0x00ff); //y pos
   HID_In_Report[5] = (uint8_t) (y >> 8);
   HID_In_Report[6] = HID_Button_Status; //button
-	stick_sendPos(); //send Pos Report
+	//stick_sendPos(); //send Pos Report
 }
 void stick_Set_Acutator_PWM(int32_t PWMvalue, uint8_t axes) { //Direction Automatic Switch Enabled
 	uint32_t PWMchannel,PWMchannel2,temp;
@@ -127,7 +123,7 @@ void stick_Init(void){
   HID_In_Report[0] = 1; //Report ID==1
 }
 void stick_sendPos(void){
-  USBD_PID_Send(HID_In_Report, HID_In_Report_len); //send stickInput Report
+  USBD_PID_Send(HID_In_Report, HID_Joystick_In_Report_len); //send stickInput Report??EP0
 }
 
 

@@ -96,7 +96,7 @@ int main(void) {
 
   /* USER CODE BEGIN 2 */
   User_Defined_Init(); //GPIO Init
-	HAL_Delay(20);
+	HAL_Delay(2000);
 	stick_Init();
 	HAL_GPIO_WritePin(GPIOC, GPIO_PIN_10, GPIO_PIN_RESET);
   /* USER CODE END 2 */

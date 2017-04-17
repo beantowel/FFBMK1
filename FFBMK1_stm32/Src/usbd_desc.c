@@ -60,7 +60,7 @@
 #define USBD_LANGID_STRING     1033
 #define USBD_MANUFACTURER_STRING     "STMicroelectronics"
 #define USBD_PID_FS     0x572B
-#define USBD_PRODUCT_STRING_FS     "STM32 Human interface FFBMK1"
+#define USBD_PRODUCT_STRING_FS     "STM32 FFBMK1"
 #define USBD_SERIALNUMBER_STRING_FS     "00000000001A"
 #define USBD_CONFIGURATION_STRING_FS     "HID-PID FFBMK1"
 #define USBD_INTERFACE_STRING_FS     "PID Interface FFBMK1"
@@ -113,8 +113,8 @@ __ALIGN_BEGIN uint8_t USBD_FS_DeviceDesc[USB_LEN_DEV_DESC] __ALIGN_END =
   {
     0x12,                       /*bLength */
     USB_DESC_TYPE_DEVICE,       /*bDescriptorType*/
-    0x00,                       /* bcdUSB */  
-    0x02,
+    0x10,                       /* bcdUSB */  
+    0x01,
     0x00,                       /*bDeviceClass*/
     0x00,                       /*bDeviceSubClass*/
     0x00,                       /*bDeviceProtocol*/
@@ -123,8 +123,8 @@ __ALIGN_BEGIN uint8_t USBD_FS_DeviceDesc[USB_LEN_DEV_DESC] __ALIGN_END =
     HIBYTE(USBD_VID),           /*idVendor*/
     LOBYTE(USBD_PID_FS),           /*idVendor*/
     HIBYTE(USBD_PID_FS),           /*idVendor*/
-    0x00,                       /*bcdDevice rel. 2.00*/
-    0x02,
+    0x00,                       /*bcdDevice rel. A.00*/
+    0x0A,
     USBD_IDX_MFC_STR,           /*Index of manufacturer  string*/
     USBD_IDX_PRODUCT_STR,       /*Index of product string*/
     USBD_IDX_SERIAL_STR,        /*Index of serial number string*/

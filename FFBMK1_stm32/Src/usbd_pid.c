@@ -5,12 +5,13 @@
 #include "usbd_pid.h"
 #include "usbd_hid.h"
 #include "ffb_manager.h"
+#include "ffb_stick.h"
 
 extern USBD_HandleTypeDef hUsbDeviceFS;
-const uint8_t HID_Out_Report_Maxlen = 0x20;
-const int16_t HID_In_Report_len = 7;
+const uint16_t HID_Out_Report_Maxlen = 0x20;
+const uint16_t HID_Joystick_In_Report_len = 7, HID_In_Report_Maxlen = 0x20;
 uint8_t HID_Out_Report[HID_Out_Report_Maxlen];
-uint8_t HID_In_Report[HID_In_Report_len];
+uint8_t HID_In_Report[HID_In_Report_Maxlen];
 uint8_t reportID, reportType;
 uint16_t reportLen;
 enum _PIDStat {
@@ -36,37 +37,38 @@ uint8_t USBD_PID_ItfReq(USBD_HandleTypeDef *pdev, USBD_SetupReqTypedef *req)
   reportLen = req->wLength;
   reqStat = PID_IDLE;
   switch(req->bRequest) {
-  case HID_REQ_GET_REPORT:
-    switch(reportType) {
-    case 0x03: //Feature
-      reqStat = PID_GET_FEATURE;
+    case HID_REQ_GET_REPORT:
+      switch(reportType) {
+        case 0x03: //Feature
+          reqStat = PID_GET_FEATURE;
+          break;
+        case 0x01: //Input
+          reqStat = PID_GET_INPUT;
+          break;
+        default:
+          reqStat = PID_INVALID;
+          break;
+      }
       break;
-    case 0x01: //Input
-      reqStat = PID_GET_INPUT;
+    case HID_REQ_SET_REPORT:
+      if(req->wLength == 0) break; //don not receive 0-length out
+      switch(reportType) {
+        case 0x03: //Feature EP0 Out
+          reqStat = PID_SET_FEATURE;
+          break;
+        case 0x02: //Output
+          reqStat = PID_SET_OUTPUT;
+          break;
+        default:
+          reqStat = PID_INVALID;
+          break;
+      }
       break;
-    default:
+    default: //invalid request
       reqStat = PID_INVALID;
+      if(req->wLength > 0)
+        USBD_CtlPrepareRx(&hUsbDeviceFS, NULL, req->wLength);
       break;
-    }
-    break;
-  case HID_REQ_SET_REPORT:
-    if(req->wLength == 0) break; //don not receive 0-length out
-    switch(reportType) {
-    case 0x03: //Feature EP0 Out
-      reqStat = PID_SET_FEATURE;
-      break;
-    case 0x02: //Output
-      reqStat = PID_SET_OUTPUT;
-    default:
-      reqStat = PID_INVALID;
-      break;
-    }
-    break;
-  default: //invalid request
-    reqStat = PID_INVALID;
-    if(req->wLength > 0)
-      USBD_CtlPrepareRx(&hUsbDeviceFS, NULL, req->wLength);
-    break;
   }
   USBD_PID_ReqServ();
   return USBD_OK;
@@ -85,8 +87,10 @@ uint8_t USBD_PID_ReqServ()
       break;
     case PID_GET_FEATURE:
       FFBMngrFeatureServ(reportID, 1, NULL);
+      break;
     case PID_GET_INPUT:
-      FFBMngrDataInServ(reportID);
+			FFBMngrDataInServ(reportID);
+      break;
   }
 	reqStat = PID_IDLE; //clear status
   return USBD_OK;
@@ -118,7 +122,6 @@ uint8_t USBD_PID_EP0_RxReady (USBD_HandleTypeDef *pdev)
   /*control pipe receive ready*/
 	if(reqStat == PID_IDLE || reqStat == PID_INVALID) return USBD_OK;
   HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_11); //toggle PC11
-  if(reqStat) return USBD_OK;
   FFBMngrFeatureServ(HID_Out_Report[0], 0, HID_Out_Report); //host to device
   return USBD_OK;
 }

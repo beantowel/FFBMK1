@@ -51,13 +51,13 @@
   */
 #define HID_EPIN_ADDR                 0x81
 #define HID_EPIN_SIZE                 0x40
-#define HID_EPOUT_ADDR                0x01
+#define HID_EPOUT_ADDR                0x02
 #define HID_EPOUT_SIZE                0x40
 //FS-Device max size 0x40!!!2016.9.29
 
 #define USB_HID_CONFIG_DESC_SIZ       41
 #define USB_HID_DESC_SIZ              9
-#define PID_FFBMK1_DESC_SIZE    			691
+#define PID_FFBMK1_DESC_SIZE    			1219
 
 #define HID_DESCRIPTOR_TYPE           0x21
 #define HID_REPORT_DESC               0x22

@@ -6,7 +6,7 @@
 #endif
 
 #include <stdint.h>
-#define DEVICE_BRIDGE_ON 1
+#define DEVICE_BRIDGE_ON 0
 
 void BridgeOutServ(uint8_t *data, uint16_t len);
 void BridgeGetXY(int32_t *Tx, int32_t *Ty);

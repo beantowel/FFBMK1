@@ -9,203 +9,39 @@ Project File Date:  04/04/2017
 <h2>Output:</h2>
 Build target 'FFBMK1.1'
 compiling ffb_manager.c...
-../Inc/pid_definition.h(28): warning:  #2775-D: white space is required between the macro name "Mask_PID_Device_Paused" and its replacement text
-../Inc/pid_definition.h(29): warning:  #2775-D: white space is required between the macro name "Mask_PID_Actuators_Enabled" and its replacement text
-../Inc/pid_definition.h(30): warning:  #2775-D: white space is required between the macro name "Mask_PID_Safety_Switch" and its replacement text
-../Inc/pid_definition.h(31): warning:  #2775-D: white space is required between the macro name "Mask_PID_Actuator_Override_Switch" and its replacement text
-../Inc/pid_definition.h(32): warning:  #2775-D: white space is required between the macro name "Mask_PID_Actuator_Power" and its replacement text
-../Inc/pid_definition.h(33): warning:  #2775-D: white space is required between the macro name "Mask_PID_Effect_Playing" and its replacement text
-../Inc/pid_definition.h(34): warning:  #2775-D: white space is required between the macro name "Mask_PID_Effect_Block_Index" and its replacement text
-../Inc/pid_definition.h(35): warning:  #2775-D: white space is required between the macro name "Mask_X_ID" and its replacement text
-../Inc/pid_definition.h(36): warning:  #2775-D: white space is required between the macro name "Mask_Y_ID" and its replacement text
-../Inc/pid_definition.h(37): warning:  #2775-D: white space is required between the macro name "Mask_PID_Direction_Enable" and its replacement text
-../Inc/pid_definition.h(38): warning:  #2775-D: white space is required between the macro name "Mask_PID_Parameter_Block_Offset" and its replacement text
-../Inc/pid_definition.h(39): warning:  #2775-D: white space is required between the macro name "Mask_Instance_1" and its replacement text
-../Inc/pid_definition.h(40): warning:  #2775-D: white space is required between the macro name "Mask_Instance_2" and its replacement text
-../Inc/pid_definition.h(41): warning:  #2775-D: white space is required between the macro name "Mask_PID_Device_Managed_Pool" and its replacement text
-../Inc/pid_definition.h(42): warning:  #2775-D: white space is required between the macro name "Mask_PID_Shared_Parameter_Blocks" and its replacement text
-..\Src\ffb_manager.c(53): warning:  #231-D: declaration is not visible outside of function
-..\Src\ffb_manager.c(63): warning:  #231-D: declaration is not visible outside of function
-..\Src\ffb_manager.c(129): warning:  #231-D: declaration is not visible outside of function
-..\Src\ffb_manager.c(129): error:  #147-D: declaration is incompatible with "void FFBMngrParaAcpt(uint8_t *, uint8_t, enum Report_ID_Enum)" (declared at line 53)
-..\Src\ffb_manager.c(129): error:  #70: incomplete type is not allowed
-..\Src\ffb_manager.c(202): error:  #136: struct "_PID_PID_Block_Load_Report" has no field "pid_ram_pool_available"
-..\Src\ffb_manager.c(209): error:  #136: struct "_PID_PID_State_Report" has no field "pid_effect_block_index"
-..\Src\ffb_manager.c(210): error:  #29: expected an expression
-..\Src\ffb_manager.c(210): error:  #53: expected a ":"
-..\Src\ffb_manager.c(211): error:  #29: expected an expression
-..\Src\ffb_manager.c(212): error:  #29: expected an expression
-..\Src\ffb_manager.c(212): error:  #53: expected a ":"
-..\Src\ffb_manager.c(221): error:  #29: expected an expression
-..\Src\ffb_manager.c(226): error:  #70: incomplete type is not allowed
-..\Src\ffb_manager.c(226): error:  #70: incomplete type is not allowed
-..\Src\ffb_manager.c(246): error:  #20: identifier "ID_PID_PID_Device_Control_Report" is undefined
-..\Src\ffb_manager.c(261): error:  #70: incomplete type is not allowed
-..\Src\ffb_manager.c(261): error:  #70: incomplete type is not allowed
-..\Src\ffb_manager.c(291): error:  #70: incomplete type is not allowed
-..\Src\ffb_manager.c(291): error:  #70: incomplete type is not allowed
-..\Src\ffb_manager.c(302): warning:  #231-D: declaration is not visible outside of function
-..\Src\ffb_manager.c(302): error:  #147-D: declaration is incompatible with "uint8_t FFBFindOffset(uint8_t, enum Report_ID_Enum)" (declared at line 63)
-..\Src\ffb_manager.c(302): error:  #70: incomplete type is not allowed
-..\Src\ffb_manager.c(348): error:  #136: struct "_PID_Set_Condition_Report" has no field "pid_dead_band"
-..\Src\ffb_manager.c(352): error:  #136: struct "_PID_Set_Condition_Report" has no field "pid_negative_coefficient"
-..\Src\ffb_manager.c(352): error:  #136: struct "_PID_Set_Condition_Report" has no field "pid_negative_saturation"
-..\Src\ffb_manager.c(354): error:  #136: struct "_PID_Set_Condition_Report" has no field "pid_positive_saturation"
-..\Src\ffb_manager.c(362): error:  #70: incomplete type is not allowed
-..\Src\ffb_manager.c(422): error:  #136: struct "_PID_Set_Effect_Report" has no field "pid_direction_enable"
-..\Src\ffb_manager.c(430): error:  #136: struct "<unnamed>" has no field "Pointer_ID"
-..\Src\ffb_manager.c(430): error:  #29: expected an expression
-..\Src\ffb_manager.c(434): error:  #136: struct "<unnamed>" has no field "Pointer_ID"
-..\Src\ffb_manager.c(434): error:  #29: expected an expression
-..\Src\ffb_manager.c(472): error:  #136: struct "_PID_Set_Effect_Report" has no field "pid_direction_enable"
-"FFBMK1.1\FFBMK1.1" - 30 Errors, 19 Warning(s).
-Target not created
-Build target 'FFBMK1.1'
-compiling ffb_manager.c...
-..\Src\ffb_manager.c(63): warning:  #231-D: declaration is not visible outside of function
-..\Src\ffb_manager.c(202): error:  #136: struct "_PID_PID_Block_Load_Report" has no field "pid_ram_pool_available"
-..\Src\ffb_manager.c(209): error:  #136: struct "_PID_PID_State_Report" has no field "pid_effect_block_index"
-..\Src\ffb_manager.c(226): error:  #70: incomplete type is not allowed
-..\Src\ffb_manager.c(226): error:  #70: incomplete type is not allowed
-..\Src\ffb_manager.c(246): error:  #20: identifier "ID_PID_PID_Device_Control_Report" is undefined
-..\Src\ffb_manager.c(261): error:  #70: incomplete type is not allowed
-..\Src\ffb_manager.c(261): error:  #70: incomplete type is not allowed
-..\Src\ffb_manager.c(291): error:  #70: incomplete type is not allowed
-..\Src\ffb_manager.c(291): error:  #70: incomplete type is not allowed
-..\Src\ffb_manager.c(302): warning:  #231-D: declaration is not visible outside of function
-..\Src\ffb_manager.c(302): error:  #147-D: declaration is incompatible with "uint8_t FFBFindOffset(uint8_t, enum Report_ID_Enum)" (declared at line 63)
-..\Src\ffb_manager.c(302): error:  #70: incomplete type is not allowed
-..\Src\ffb_manager.c(348): error:  #136: struct "_PID_Set_Condition_Report" has no field "pid_dead_band"
-..\Src\ffb_manager.c(352): error:  #136: struct "_PID_Set_Condition_Report" has no field "pid_negative_coefficient"
-..\Src\ffb_manager.c(352): error:  #136: struct "_PID_Set_Condition_Report" has no field "pid_negative_saturation"
-..\Src\ffb_manager.c(354): error:  #136: struct "_PID_Set_Condition_Report" has no field "pid_positive_saturation"
-..\Src\ffb_manager.c(362): error:  #70: incomplete type is not allowed
-..\Src\ffb_manager.c(422): error:  #136: struct "_PID_Set_Effect_Report" has no field "pid_direction_enable"
-..\Src\ffb_manager.c(430): error:  #136: struct "<unnamed>" has no field "Pointer_ID"
-..\Src\ffb_manager.c(434): error:  #136: struct "<unnamed>" has no field "Pointer_ID"
-..\Src\ffb_manager.c(472): error:  #136: struct "_PID_Set_Effect_Report" has no field "pid_direction_enable"
-..\Src\ffb_manager.c(473): error:  #136: struct "<unnamed>" has no field "Pointer_ID"
-..\Src\ffb_manager.c(478): error:  #136: struct "<unnamed>" has no field "Pointer_ID"
-..\Src\ffb_manager.c(479): error:  #136: struct "<unnamed>" has no field "Pointer_ID"
-..\Src\ffb_manager.c(480): error:  #136: struct "<unnamed>" has no field "Pointer_ID"
-..\Src\ffb_manager.c(481): error:  #136: struct "<unnamed>" has no field "Pointer_ID"
-"FFBMK1.1\FFBMK1.1" - 25 Errors, 2 Warning(s).
-Target not created
-Build target 'FFBMK1.1'
-compiling ffb_manager.c...
-..\Src\ffb_manager.c(226): error:  #70: incomplete type is not allowed
-..\Src\ffb_manager.c(226): error:  #70: incomplete type is not allowed
-..\Src\ffb_manager.c(261): error:  #70: incomplete type is not allowed
-..\Src\ffb_manager.c(261): error:  #70: incomplete type is not allowed
-..\Src\ffb_manager.c(291): error:  #70: incomplete type is not allowed
-..\Src\ffb_manager.c(291): error:  #70: incomplete type is not allowed
-..\Src\ffb_manager.c(348): error:  #136: struct "_PID_Set_Condition_Report" has no field "pid_dead_band"
-..\Src\ffb_manager.c(352): error:  #136: struct "_PID_Set_Condition_Report" has no field "pid_negative_coefficient"
-..\Src\ffb_manager.c(352): error:  #136: struct "_PID_Set_Condition_Report" has no field "pid_negative_saturation"
-..\Src\ffb_manager.c(354): error:  #136: struct "_PID_Set_Condition_Report" has no field "pid_positive_saturation"
-..\Src\ffb_manager.c(362): error:  #70: incomplete type is not allowed
-..\Src\ffb_manager.c(422): error:  #136: struct "_PID_Set_Effect_Report" has no field "pid_direction_enable"
-..\Src\ffb_manager.c(430): error:  #136: struct "<unnamed>" has no field "Pointer_ID"
-..\Src\ffb_manager.c(434): error:  #136: struct "<unnamed>" has no field "Pointer_ID"
-..\Src\ffb_manager.c(472): error:  #136: struct "_PID_Set_Effect_Report" has no field "pid_direction_enable"
-..\Src\ffb_manager.c(473): error:  #136: struct "<unnamed>" has no field "Pointer_ID"
-..\Src\ffb_manager.c(478): error:  #136: struct "<unnamed>" has no field "Pointer_ID"
-..\Src\ffb_manager.c(479): error:  #136: struct "<unnamed>" has no field "Pointer_ID"
-..\Src\ffb_manager.c(480): error:  #136: struct "<unnamed>" has no field "Pointer_ID"
-..\Src\ffb_manager.c(481): error:  #136: struct "<unnamed>" has no field "Pointer_ID"
-"FFBMK1.1\FFBMK1.1" - 20 Errors, 0 Warning(s).
-Target not created
-Build target 'FFBMK1.1'
-compiling ffb_manager.c...
-..\Src\ffb_manager.c(212): error:  #20: identifier "Mask_PID_Device_Paused" is undefined
-..\Src\ffb_manager.c(213): error:  #20: identifier "Mask_PID_Actuator_Override_Switch" is undefined
-"FFBMK1.1\FFBMK1.1" - 2 Errors, 0 Warning(s).
-Target not created
-Build target 'FFBMK1.1'
-compiling ffb_manager.c...
-linking...
-Program Size: Code=22234 RO-data=646 RW-data=1048 ZI-data=4096  
-"FFBMK1.1\FFBMK1.1" - 0 Errors, 0 Warning(s).
-Build target 'FFBMK1.1'
-compiling ffb_manager.c...
-linking...
-Program Size: Code=22234 RO-data=646 RW-data=1048 ZI-data=4096  
-"FFBMK1.1\FFBMK1.1" - 0 Errors, 0 Warning(s).
-Build target 'FFBMK1.1'
-linking...
-Program Size: Code=22234 RO-data=646 RW-data=1048 ZI-data=4096  
-"FFBMK1.1\FFBMK1.1" - 0 Errors, 0 Warning(s).
-Load "FFBMK1.1\\FFBMK1.1" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'FFBMK1.1'
-compiling usbd_conf.c...
-compiling main.c...
-compiling usb_device.c...
-compiling usbd_pid.c...
-compiling ffb_manager.c...
-compiling ffb_stick.c...
-compiling usbd_hid.c...
-linking...
-Program Size: Code=22234 RO-data=646 RW-data=1036 ZI-data=4092  
-"FFBMK1.1\FFBMK1.1" - 0 Errors, 0 Warning(s).
-Load "FFBMK1.1\\FFBMK1.1" 
-Erase Done.
-Programming Done.
-Verify OK.
-Build target 'FFBMK1.1'
-compiling usbd_conf.c...
-compiling main.c...
-compiling usb_device.c...
-compiling usbd_pid.c...
-compiling ffb_manager.c...
-..\Src\ffb_manager.c(349): error:  #136: struct "_PID_Set_Condition_Report" has no field "pid_dead_band"
-..\Src\ffb_manager.c(353): error:  #136: struct "_PID_Set_Condition_Report" has no field "pid_negative_coefficient"
-..\Src\ffb_manager.c(353): error:  #136: struct "_PID_Set_Condition_Report" has no field "pid_negative_saturation"
-..\Src\ffb_manager.c(355): error:  #136: struct "_PID_Set_Condition_Report" has no field "pid_positive_saturation"
+../Inc/pid_definition.h(293): error:  #20: identifier "uint10_t" is undefined
 ..\Src\ffb_manager.c(423): error:  #136: struct "_PID_Set_Effect_Report" has no field "pid_direction_enable"
-..\Src\ffb_manager.c(431): error:  #136: struct "<unnamed>" has no field "Pointer_ID"
-..\Src\ffb_manager.c(435): error:  #136: struct "<unnamed>" has no field "Pointer_ID"
 ..\Src\ffb_manager.c(473): error:  #136: struct "_PID_Set_Effect_Report" has no field "pid_direction_enable"
-..\Src\ffb_manager.c(474): error:  #136: struct "<unnamed>" has no field "Pointer_ID"
-..\Src\ffb_manager.c(479): error:  #136: struct "<unnamed>" has no field "Pointer_ID"
-..\Src\ffb_manager.c(480): error:  #136: struct "<unnamed>" has no field "Pointer_ID"
-..\Src\ffb_manager.c(481): error:  #136: struct "<unnamed>" has no field "Pointer_ID"
-..\Src\ffb_manager.c(482): error:  #136: struct "<unnamed>" has no field "Pointer_ID"
-compiling ffb_stick.c...
 compiling usbd_hid.c...
-"FFBMK1.1\FFBMK1.1" - 13 Errors, 0 Warning(s).
+"FFBMK1.1\FFBMK1.1" - 3 Errors, 0 Warning(s).
 Target not created
 Build target 'FFBMK1.1'
 compiling ffb_manager.c...
-..\Src\ffb_manager.c(349): error:  #136: struct "_PID_Set_Condition_Report" has no field "pid_dead_band"
-..\Src\ffb_manager.c(353): error:  #136: struct "_PID_Set_Condition_Report" has no field "pid_negative_coefficient"
-..\Src\ffb_manager.c(353): error:  #136: struct "_PID_Set_Condition_Report" has no field "pid_negative_saturation"
-..\Src\ffb_manager.c(355): error:  #136: struct "_PID_Set_Condition_Report" has no field "pid_positive_saturation"
-..\Src\ffb_manager.c(431): error:  #136: struct "<unnamed>" has no field "Pointer_ID"
-..\Src\ffb_manager.c(435): error:  #136: struct "<unnamed>" has no field "Pointer_ID"
-..\Src\ffb_manager.c(473): error:  #134: expected a field name
-..\Src\ffb_manager.c(474): error:  #136: struct "<unnamed>" has no field "Pointer_ID"
-..\Src\ffb_manager.c(479): error:  #136: struct "<unnamed>" has no field "Pointer_ID"
-..\Src\ffb_manager.c(480): error:  #136: struct "<unnamed>" has no field "Pointer_ID"
-..\Src\ffb_manager.c(481): error:  #136: struct "<unnamed>" has no field "Pointer_ID"
-..\Src\ffb_manager.c(482): error:  #136: struct "<unnamed>" has no field "Pointer_ID"
-"FFBMK1.1\FFBMK1.1" - 12 Errors, 0 Warning(s).
+../Inc/pid_definition.h(293): error:  #20: identifier "uint10_t" is undefined
+..\Src\ffb_manager.c(423): error:  #41: expression must have arithmetic or pointer type
+..\Src\ffb_manager.c(473): error:  #136: struct "_PID_Set_Effect_Report" has no field "pid_direction_enable"
+"FFBMK1.1\FFBMK1.1" - 3 Errors, 0 Warning(s).
 Target not created
 Build target 'FFBMK1.1'
 compiling ffb_manager.c...
-..\Src\ffb_manager.c(349): error:  #136: struct "_PID_Set_Condition_Report" has no field "pid_dead_band"
-..\Src\ffb_manager.c(353): error:  #136: struct "_PID_Set_Condition_Report" has no field "pid_negative_coefficient"
-..\Src\ffb_manager.c(353): error:  #136: struct "_PID_Set_Condition_Report" has no field "pid_negative_saturation"
-..\Src\ffb_manager.c(355): error:  #136: struct "_PID_Set_Condition_Report" has no field "pid_positive_saturation"
-"FFBMK1.1\FFBMK1.1" - 4 Errors, 0 Warning(s).
+..\Src\ffb_manager.c(423): error:  #41: expression must have arithmetic or pointer type
+compiling usbd_hid.c...
+"FFBMK1.1\FFBMK1.1" - 1 Errors, 0 Warning(s).
+Target not created
+Build target 'FFBMK1.1'
+compiling ffb_manager.c...
+..\Src\ffb_manager.c(423): error:  #41: expression must have arithmetic or pointer type
+"FFBMK1.1\FFBMK1.1" - 1 Errors, 0 Warning(s).
 Target not created
 Build target 'FFBMK1.1'
 compiling ffb_manager.c...
 linking...
-Program Size: Code=22234 RO-data=646 RW-data=1476 ZI-data=4092  
+Program Size: Code=22006 RO-data=650 RW-data=1516 ZI-data=4092  
 "FFBMK1.1\FFBMK1.1" - 0 Errors, 0 Warning(s).
+Load "FFBMK1.1\\FFBMK1.1" 
+Erase Done.
+Programming Done.
+Verify OK.
 Build target 'FFBMK1.1'
 compiling usbd_conf.c...
 compiling main.c...
@@ -215,7 +51,7 @@ compiling ffb_manager.c...
 compiling ffb_stick.c...
 compiling usbd_hid.c...
 linking...
-Program Size: Code=22234 RO-data=646 RW-data=1484 ZI-data=4092  
+Program Size: Code=22006 RO-data=650 RW-data=1504 ZI-data=4096  
 "FFBMK1.1\FFBMK1.1" - 0 Errors, 0 Warning(s).
 Load "FFBMK1.1\\FFBMK1.1" 
 Erase Done.

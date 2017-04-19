@@ -206,9 +206,9 @@ void FFBMngrStat(uint16_t *len, uint8_t *inputReport){
   *len = sizeof(PID_PID_State_Report) + 1;
   inputReport[0] = ID_PID_PID_State_Report; //report id
   PID_PID_State_Report *rpt = (PID_PID_State_Report*) (&inputReport[1]);
-  rpt->pid_effect_block_index = effBlkIdx; //????? effblkIdx
+  rpt->vars_2 = effBlkIdx; //????? effblkIdx
   rpt->vars_0 = actStat ? Mask_PID_Actuators_Enabled : 0;
-  rpt->vars_0 |= effStat[effBlkIdx] ? Mask_PID_Effect_Playing : 0;
+  rpt->vars_1 = effStat[effBlkIdx] ? Mask_PID_Effect_Playing : 0;
 	rpt->vars_0 |= effRunning ? 0 : Mask_PID_Device_Paused;
   rpt->vars_0 |= (Mask_PID_Actuator_Power | Mask_PID_Actuator_Override_Switch | Mask_PID_Safety_Switch);
 	//always power on, override, safety switch
@@ -344,16 +344,16 @@ void FFBMngrPrid(uint8_t effBlkIdx, int32_t *level, float tfunc(uint32_t t,uint1
   *level +=(int32_t) ((int16_t) pRpt->pid_magnitude) * tfunc(time, pRpt->pid_period);
 }
 void FFBMngrCond(uint8_t effBlkIdx, uint8_t offset, int16_t pos){
-  PID_Set_Condition_Report *pRpt =(PID_Set_Condition_Report *) &paraBlkPool[effBlkIdx * 2 + offset];
-  uint16_t CP = pRpt->pid_cp_offset;
-  uint16_t dead = pRpt->pid_dead_band;
+//  PID_Set_Condition_Report *pRpt =(PID_Set_Condition_Report *) &paraBlkPool[effBlkIdx * 2 + offset];
+//  uint16_t CP = pRpt->pid_cp_offset;
+//  uint16_t dead = pRpt->pid_dead_band;
 
-  PID_mltipler = 0;
-  if(pos < CP - dead){
-    PID_mltipler = pRpt->pid_negative_coefficient * (pos - (CP - dead)) / pRpt->pid_negative_saturation;
-  }else if(pos > CP + dead){
-    PID_mltipler = pRpt->pid_positive_coefficient * (pos - (CP + dead)) / pRpt->pid_positive_saturation;
-  }
+//  PID_mltipler = 0;
+//  if(pos < CP - dead){
+//    PID_mltipler = pRpt->pid_negative_coefficient * (pos - (CP - dead)) / pRpt->pid_negative_saturation;
+//  }else if(pos > CP + dead){
+//    PID_mltipler = pRpt->pid_positive_coefficient * (pos - (CP + dead)) / pRpt->pid_positive_saturation;
+//  }
 }
 void FFBMngrConstFoc(uint8_t idx) {
   int32_t magnitude;
@@ -420,7 +420,7 @@ void FFBMngrSprng(uint8_t idx) {
   x = (int32_t) ((float) x * 10000 / maxp); //normalized max 10000
   y = (int32_t) ((float) y * 10000 / maxp);
 
-  if(effRpt[idx].pid_direction_enable){
+  if(effRpt[idx].PID_Axes_Enable.vars_0 == (Mask_X_ID & Mask_Y_ID)){ //???beantowel
     int32_t dis = dirX * x + dirY * y;
     FFBMngrCond(idx, FFBFindOffset(idx, ID_PID_Set_Condition_Report), dis);
     PID_Tx = PID_Ty = 10000 * PID_mltipler;

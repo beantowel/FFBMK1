@@ -30,7 +30,8 @@ extern "C" {
 #define Mask_PID_Safety_Switch 0x4
 #define Mask_PID_Actuator_Override_Switch 0x8
 #define Mask_PID_Actuator_Power 0x10
-#define Mask_PID_Effect_Playing 0x20
+#define Mask_PID_Effect_Playing 0x1
+#define Mask_PID_Effect_Block_Index 0x7f
 #define Mask_X_ID 0x1
 #define Mask_Y_ID 0x2
 #define Mask_PID_Parameter_Block_Offset 0xf
@@ -78,12 +79,18 @@ enum PID_Block_Load_Status_Enum {
 typedef struct _PID_PID_State_Report {
     //Report_ID:2
     uint8_t vars_0;
-    //pid_device_paused,pid_actuators_enabled,pid_safety_switch,pid_actuator_override_switch,pid_actuator_power,pid_effect_playing,
+    //pid_device_paused,pid_actuators_enabled,pid_safety_switch,pid_actuator_override_switch,pid_actuator_power,
     //Check Pads
     //Logical_Maximum:1
-    //2-pads added
+    //3-pads added
     //Logical_Maximum:1
-    uint8_t pid_effect_block_index;
+    uint8_t vars_1;
+    //pid_effect_playing,
+    //Check Pads
+    //Logical_Maximum:1
+    uint8_t vars_2;
+    //pid_effect_block_index,
+    //Check Pads
     //Logical_Maximum:40
     //Logical_Minimum:1
 } PID_PID_State_Report;
@@ -114,9 +121,9 @@ typedef struct _PID_Set_Effect_Report {
         //x_id,y_id,
         //Check Pads
         //Logical_Maximum:1
+        //6-pads added
+        //Logical_Maximum:1
     } PID_Axes_Enable;
-    //6-pads added
-    //Logical_Maximum:1
     uint8_t pid_direction_enable;
     //Logical_Maximum:1
     struct {
@@ -161,13 +168,8 @@ typedef struct _PID_Set_Condition_Report {
     //Logical_Maximum:127
     //Logical_Minimum:-128
     int8_t pid_positive_coefficient;
-    int8_t pid_negative_coefficient;
     //Logical_Maximum:127
     //Logical_Minimum:-128
-    uint8_t pid_positive_saturation;
-    uint8_t pid_negative_saturation;
-    uint8_t pid_dead_band;
-    //Logical_Maximum:255
 } PID_Set_Condition_Report;
 
 typedef struct _PID_Set_Periodic_Report {
@@ -218,6 +220,7 @@ typedef struct _PID_Custom_Force_Data_Report {
     //Logical_Minimum:1
     uint16_t pid_custom_force_data_offset;
     //Logical_Maximum:10000
+    //Not supported Buffer usage
     //Logical_Maximum:127
     //Logical_Minimum:-127
 } PID_Custom_Force_Data_Report;
@@ -298,6 +301,7 @@ typedef struct _PID_PID_Block_Load_Report {
         //Logical_Maximum:3
         //Logical_Minimum:1
     } PID_Block_Load_Status;
+    uint16_t pid_ram_pool_available;
     //Logical_Maximum:65535
 } PID_PID_Block_Load_Report;
 

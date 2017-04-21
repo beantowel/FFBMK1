@@ -491,7 +491,7 @@ PCD_StateTypeDef HAL_PCD_GetState(PCD_HandleTypeDef *hpcd);
   * @param  wState: new state
   * @retval None
   */
-#define PCD_SET_EP_RX_STATUS(USBx, bEpNum,wState) {\
+#define PCD_SET_EP_RX_STATUS(USBx, bEpNum, wState) {\
     register uint16_t _wRegVal;   \
     \
     _wRegVal = PCD_GET_ENDPOINT((USBx), (bEpNum)) & USB_EPRX_DTOGMASK;\

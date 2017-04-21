@@ -178,7 +178,7 @@ USBD_StatusTypeDef  USBD_RegisterClass(USBD_HandleTypeDef *pdev, USBD_ClassTypeD
   * @param  pdev: Device Handle
   * @retval USBD Status
   */
-USBD_StatusTypeDef  USBD_Start  (USBD_HandleTypeDef *pdev)
+USBD_StatusTypeDef  USBD_Start(USBD_HandleTypeDef *pdev)
 {
   
   /* Start the low level driver  */

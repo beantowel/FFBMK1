@@ -4,6 +4,7 @@
 */
 #include "usbd_pid.h"
 #include "usbd_hid.h"
+#include "stm32f1xx_hal_pcd.h"
 #include "ffb_manager.h"
 #include "ffb_stick.h"
 
@@ -12,6 +13,7 @@ const uint16_t HID_Out_Report_Maxlen = 0x20;
 const uint16_t HID_Joystick_In_Report_len = 7, HID_In_Report_Maxlen = 0x20;
 uint8_t HID_Out_Report[HID_Out_Report_Maxlen];
 uint8_t HID_In_Report[HID_In_Report_Maxlen];
+uint8_t HID_Joystick_In_Report[HID_Joystick_In_Report_len];
 uint8_t reportID, reportType;
 uint16_t reportLen;
 enum _PIDStat {
@@ -81,9 +83,10 @@ uint8_t USBD_PID_ReqServ()
     case PID_INVALID:
       break;
     case PID_SET_FEATURE:
-      USBD_CtlPrepareRx(&hUsbDeviceFS, HID_Out_Report, reportLen);
+      USBD_CtlPrepareRx(&hUsbDeviceFS, HID_Out_Report, reportLen); //prepare receive
       break;
     case PID_SET_OUTPUT:
+			//USBD_LL_PrepareReceive(&hUsbDeviceFS, HID_EPOUT_ADDR, HID_Out_Report, HID_EPOUT_SIZE); //prepare receive
       break;
     case PID_GET_FEATURE:
       FFBMngrFeatureServ(reportID, 1, NULL);
@@ -100,11 +103,14 @@ uint8_t USBD_PID_Init (USBD_HandleTypeDef *pdev)
   /*add FFBmngrInit to HID_Init*/
   FFBMngrInit();
   USBD_LL_PrepareReceive(&hUsbDeviceFS, HID_EPOUT_ADDR, HID_Out_Report, HID_EPOUT_SIZE);
-  //prepare first OUT pipe report
+  /*prepare first OUT pipe report*/
   return USBD_OK;
 }
 uint8_t USBD_PID_DataOut (USBD_HandleTypeDef *pdev, uint8_t epnum)
 {
+	/*set EP1 NAK when processing dataout stage*/
+	PCD_HandleTypeDef *hpcd =  (PCD_HandleTypeDef*) hUsbDeviceFS.pData;
+	PCD_SET_EP_RX_STATUS(hpcd->Instance, PCD_ENDP2, USB_EP_RX_NAK); //beantowel
   /*EP1 out pipe data out Stage hook*/
   if(epnum == HID_EPOUT_ADDR) {
     HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_11); //toggle PC11
@@ -113,14 +119,15 @@ uint8_t USBD_PID_DataOut (USBD_HandleTypeDef *pdev, uint8_t epnum)
   } else {
     USBD_ErrLog("Out on unexpected Endpoint");
   }
+	/*clear EP1 NAK when processing dataout stage*/
+	PCD_SET_EP_RX_STATUS(hpcd->Instance, PCD_ENDP2, USB_EP_RX_VALID); //beantowel
+  /*prepare for next Output Report*/
   USBD_LL_PrepareReceive(&hUsbDeviceFS, HID_EPOUT_ADDR, HID_Out_Report, HID_EPOUT_SIZE);
-  //prepare for next Output Report
   return USBD_OK;
 }
 uint8_t USBD_PID_EP0_RxReady (USBD_HandleTypeDef *pdev)
 {
-  /*control pipe receive ready*/
-	if(reqStat == PID_IDLE || reqStat == PID_INVALID) return USBD_OK;
+  /*control pipe receive ready hook*/
   HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_11); //toggle PC11
   FFBMngrFeatureServ(HID_Out_Report[0], 0, HID_Out_Report); //host to device
   return USBD_OK;

@@ -15,7 +15,7 @@ const int32_t Angle_Max = 45, ACDeadBand = 10, ACSprngMin = 300;
 const int32_t Position_Gain = 180 / Angle_Max; //p*gain-> Value -2048~2047:Angle -45~45
 const int32_t Pos_Max = 2048 / 180 * Angle_Max; //pos Constrian value 2048 / 180 * 45 <= 495
 const int32_t T_Max = 10000;
-const int32_t PWM_pulseMax = 900; // 10.281MHz/1000Period = 10.281KHz  
+const int32_t PWM_pulseMax = 900; // 10.281MHz/1000Period = 10.281KHz
 
 /* private function prototype*/
 int32_t truncVal(int32_t val, int32_t range);
@@ -38,13 +38,14 @@ void HID_GenerateInputRpt(uint32_t *adcValue) {
   Y_Position = truncVal(Y_Position, Pos_Max);
   x = X_Position * Position_Gain;
   y = Y_Position * Position_Gain;
-  HID_In_Report[1] = (uint8_t) 127; //(adcValue[2] >> 5); //throttle 4096/32 = 128 max
-  HID_In_Report[2] = (uint8_t) (x & 0x00ff); //x pos: -2047~2048
-  HID_In_Report[3] = (uint8_t) (x >> 8);
-  HID_In_Report[4] = (uint8_t) (y & 0x00ff); //y pos
-  HID_In_Report[5] = (uint8_t) (y >> 8);
-  HID_In_Report[6] = HID_Button_Status; //button
-	//stick_sendPos(); //send Pos Report
+  HID_Joystick_In_Report[0] = 1; //Report ID==1
+  HID_Joystick_In_Report[1] = (uint8_t) 127; //(adcValue[2] >> 5); //throttle 4096/32 = 128 max
+  HID_Joystick_In_Report[2] = (uint8_t) (x & 0x00ff); //x pos: -2047~2048
+  HID_Joystick_In_Report[3] = (uint8_t) (x >> 8);
+  HID_Joystick_In_Report[4] = (uint8_t) (y & 0x00ff); //y pos
+  HID_Joystick_In_Report[5] = (uint8_t) (y >> 8);
+  HID_Joystick_In_Report[6] = HID_Button_Status; //button
+	stick_sendPos(); //send Pos Report
 }
 void stick_Set_Acutator_PWM(int32_t PWMvalue, uint8_t axes) { //Direction Automatic Switch Enabled
 	uint32_t PWMchannel,PWMchannel2,temp;
@@ -98,9 +99,9 @@ void stick_EffectExecuter(void) {
 		//defalut Spring P Control
 		//direction: reverse to cartesian coordinates
 		x = X_Position * PWM_pulseMax / Pos_Max;
-		if(abs(X_Position ) > ACDeadBand && abs(x) < ACSprngMin) x = x > 0 ? ACSprngMin : -ACSprngMin; 
+		if(abs(X_Position ) > ACDeadBand && abs(x) < ACSprngMin) x = x > 0 ? ACSprngMin : -ACSprngMin;
 		y = Y_Position * PWM_pulseMax / Pos_Max;
-		if(abs(Y_Position ) > ACDeadBand && abs(y) < ACSprngMin) y = y > 0 ? ACSprngMin : -ACSprngMin; 
+		if(abs(Y_Position ) > ACDeadBand && abs(y) < ACSprngMin) y = y > 0 ? ACSprngMin : -ACSprngMin;
 		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_12, GPIO_PIN_RESET); //PC_12 Off (auto centering)
 	}
 	stick_Set_Acutator_PWM(x,0); //set axis 0
@@ -119,11 +120,11 @@ int32_t stick_Get_Position(uint8_t axis){
 int32_t stick_Get_Positioon_Max(void){
 	return Pos_Max;
 }
-void stick_Init(void){	
-  HID_In_Report[0] = 1; //Report ID==1
+void stick_Init(void){
+  HID_Joystick_In_Report[0] = 1; //Report ID==1
 }
 void stick_sendPos(void){
-  USBD_PID_Send(HID_In_Report, HID_Joystick_In_Report_len); //send stickInput Report??EP0
+  USBD_PID_Send(HID_Joystick_In_Report, HID_Joystick_In_Report_len); //send stickInput Report??EP0
 }
 
 

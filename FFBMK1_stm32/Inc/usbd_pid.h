@@ -20,6 +20,7 @@
 extern const uint16_t HID_Out_Report_Maxlen, HID_In_Report_Maxlen, HID_Joystick_In_Report_len;
 extern uint8_t HID_Out_Report[];
 extern uint8_t HID_In_Report[];
+extern uint8_t HID_Joystick_In_Report[];
 /** @defgroup USB_CORE_Exported_Functions
   * @{
   */

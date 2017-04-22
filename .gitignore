@@ -57,6 +57,7 @@
 **/Debug
 HID Descriptor tool/__pycache__/
 ffbStuff/PID FFB test/*.txt
+FFBMK1_stm32/MDK-ARM
 *.VC.db
 
 #ffbStuff Debug Wizards
@@ -64,6 +65,10 @@ ffbStuff/PID FFB test/*.txt
 !FFBMK1_stm32/Inc/
 !ffbStuff/*.exe
 !ffbStuff/PID FFB test/*.exe
+!FFBMK1_stm32/MDK-ARM/*.uvproj
+!FFBMK1_stm32/MDK-ARM/*.x
+!FFBMK1_stm32/MDK-ARM/*.lst
+!FFBMK1_stm32/MDK-ARM/*.uvopt
 
 modules.order
 Module.symvers

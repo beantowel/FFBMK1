@@ -6,6 +6,8 @@ extern "C" {
 #endif
 
 #include "stdint.h"
+#pragma pack(push)
+#pragma pack(1)
 
 #define ID_PID_PID_State_Report 2
 #define ID_PID_Set_Effect_Report 1
@@ -267,7 +269,7 @@ typedef struct _PID_PID_Pool_Report {
     //Logical_Maximum:1
 } PID_PID_Pool_Report;
 
-
+#pragma pack(pop)
 #ifdef __cplusplus
 }
 #endif

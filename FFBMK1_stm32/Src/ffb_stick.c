@@ -89,7 +89,7 @@ void stick_EffectExecuter(void) {
 	uint8_t switcher = HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_3);
 	if(switcher){
 		//acting
-		FFBMngrEffRun((uint16_t) Run_Time - pre_Run_Time, &x, &y);
+		FFBMngrEffRun((uint16_t) (Run_Time - pre_Run_Time), &x, &y);
 		x = x * PWM_pulseMax / T_Max;
 		y = y * PWM_pulseMax / T_Max;
 //		x = x % PWM_pulseMax;

@@ -14,8 +14,8 @@
 #define PI 3.1415926535898f
 
 //private variable
-const uint16_t maxEffN = 21, maxParaBlkBytes = 20;
-const uint8_t EffTypeArray[]={ //supported effect types
+static const uint16_t maxEffN = 21, maxParaBlkBytes = 20;
+static const uint8_t EffTypeArray[]={ //supported effect types
   PID_ET_Constant_Force,
   PID_ET_Ramp,
   PID_ET_Triangle,
@@ -35,8 +35,6 @@ static uint8_t paraBlkPool[maxEffN * 2][maxParaBlkBytes]; //parameter block pool
 static uint8_t paraType[maxEffN * 2]; //parameter block type -1==not visited
 
 static uint8_t mallocIdx = 0;
-//static int32_t PID_Tx, PID_Ty; //temp global variable
-//static float PID_mltipler; //temp mltipler, dirction
 
 //exported function
 void FFBMngrDataOutServ(uint8_t *data, uint16_t size);
@@ -50,7 +48,7 @@ void FFBMngrInit(void);
 void FFBMngrStat(uint16_t *len, uint8_t *inputReport);
 //Output
 void FFBMngrEffAcpt(uint8_t *data);
-void FFBMngrParaAcpt(uint8_t *data, uint8_t size);
+void FFBMngrParaAcpt(uint8_t *data, uint16_t size);
 void FFBMngrOpre(uint8_t *data);
 void FFBMngrDelete(uint8_t effBlkIdx);
 void FFBMngrCtrl(uint8_t *data);
@@ -88,7 +86,7 @@ void FFBMngrInit(void) {
 uint8_t FFBMngrMalloc(uint8_t *data) {
   //return a effect block index,
   //assume type==data[1]
-  uint8_t effType = ((PID_Create_New_Effect_Report*) (data+1))\
+  uint8_t effType = ((PID_Create_New_Effect_Report*) &data[1])\
   ->PID_Effect_Type.pid_effect_type_enum_0; //more general way
   //uint8_t effType = data[1];
   uint8_t i, legal = 0;
@@ -119,13 +117,13 @@ void FFBMngrDelete(uint8_t effBlkIdx) {
 }
 void FFBMngrEffAcpt(uint8_t *data) {
   //data[0]==packetID
-  uint8_t idx = ((PID_Set_Effect_Report *) data+1)->pid_effect_block_index;
-	memcpy(&effRpt[idx],data+1,sizeof(PID_Set_Effect_Report));
-  //effRpt[effBlkIdx] = *((PID_Set_Effect_Report *) data+1);
-  effStat[idx] = 0;
+  uint8_t idx = ((const PID_Set_Effect_Report *) &data[1])->pid_effect_block_index;
+	memcpy(&effRpt[idx], &data[1], sizeof(PID_Set_Effect_Report));
+	effVis[idx] = 1; //set use flag and initialize
+  effStat[idx] = 0; //loop 0 times
   effRunTime[idx] = 0;
 }
-void FFBMngrParaAcpt(uint8_t *data, uint8_t size) {
+void FFBMngrParaAcpt(uint8_t *data, uint16_t size) {
   //data[0]==packetID, assume effIdx==data[1]
   uint8_t effBlkIdx = data[1];
 	uint8_t type = data[0]; //packet ID
@@ -135,13 +133,13 @@ void FFBMngrParaAcpt(uint8_t *data, uint8_t size) {
   if(type == ID_PID_Set_Condition_Report) idx = effBlkIdx * 2 + data[2]; //data[2]=PID_Parameter_Block_Offset
 
   paraType[idx] = type;
-	memcpy(&paraBlkPool[idx], data+1, size);
-//  for(uint8_t i = 1; i < size; i++)
-//    paraBlkPool[idx][i-1] = data[i];
+	uint16_t minSize = maxParaBlkBytes; //size=min(RxSize, maxBlkSize)
+	minSize = minSize > size ? size : minSize;
+	memcpy(&paraBlkPool[idx], &data[1], minSize);
 }
 void FFBMngrOpre(uint8_t *data) {
   //data[0]==packetID
-  PID_Effect_Operation_Report *effOp = (PID_Effect_Operation_Report *) (data+1);
+  PID_Effect_Operation_Report *effOp = (PID_Effect_Operation_Report *) &data[1];
   uint8_t effBlkIdx = effOp->pid_effect_block_index;
   uint8_t operation = effOp->PID_Effect_Operation.pid_effect_operation_enum_0;
   uint8_t loop = effOp->pid_loop_count;
@@ -160,7 +158,7 @@ void FFBMngrOpre(uint8_t *data) {
 void FFBMngrCtrl(uint8_t *data) {
   //assume ctrl==data[1] arrayN=1
   enum PID_PID_Device_Control_Enum ctrl = \
-	((PID_PID_Device_Control*) (data+1))->pid_pid_device_control_enum_0;
+	((PID_PID_Device_Control*) &data[1])->pid_pid_device_control_enum_0;
   switch(ctrl) {
     case PID_DC_Enable_Actuators:
       actStat = 1;
@@ -185,7 +183,7 @@ void FFBMngrCtrl(uint8_t *data) {
 }
 void FFBMngrGain(uint8_t *data) {
   //assume gain==data[1]
-  uint8_t gain = ((PID_Device_Gain_Report*) data+1)->pid_device_gain;
+  uint8_t gain = ((PID_Device_Gain_Report*) &data[1])->pid_device_gain;
   effGlbGain = gain; //max 0xff
 }
 void FFBMngrBlkLd(uint8_t idx, uint16_t *len, uint8_t *inputReport){
@@ -308,7 +306,7 @@ void FFBMngrEnvlp(uint8_t effBlkIdx, float *PID_mltipler) {
   uint8_t offset = FFBFindOffset(effBlkIdx,  ID_PID_Set_Envelope_Report); //find parameter offset
 
   PID_Set_Envelope_Report *pRpt =(PID_Set_Envelope_Report *) &paraBlkPool[effBlkIdx * 2 + offset];
-  PID_Set_Effect_Report *eRpt = &effRpt[effBlkIdx];
+  const PID_Set_Effect_Report *eRpt = &effRpt[effBlkIdx];
   uint32_t runtime, pid_duration;
   float lambda;
   const int16_t nrmlLevel=10000;
@@ -359,7 +357,7 @@ void FFBMngrConstFoc(uint8_t idx, int32_t *PID_Tx, int32_t *PID_Ty) {
   uint8_t offset = FFBFindOffset(idx, ID_PID_Set_Constant_Force_Report);
   PID_Set_Constant_Force_Report *con = (PID_Set_Constant_Force_Report *) paraBlkPool[idx * 2 + offset];
   magnitude = offset == 0xFF ? 10000 : con->pid_magnitude;
-  *PID_Tx = *PID_Ty =(int32_t) (magnitude * PID_mltipler);
+  *PID_Tx = *PID_Ty = (int32_t) (magnitude * PID_mltipler);
 }
 void FFBMngrRampFoc(uint8_t idx, int32_t *PID_Tx, int32_t *PID_Ty) {
 	float PID_mltipler;
@@ -389,7 +387,7 @@ void FFBMngrTrngl(uint8_t idx, int32_t *PID_Tx, int32_t *PID_Ty) {
   int32_t level;
   FFBMngrEnvlp(idx, &PID_mltipler);
   FFBMngrPrid(idx, &level, FFBtriangle);
-  *PID_Tx = *PID_Ty = (int32_t) level * PID_mltipler;
+  *PID_Tx = *PID_Ty = (int32_t) (level * PID_mltipler);
 }
 float FFBSine(uint32_t t, uint16_t period) {
   float phase = t / (float)period * 2 * PI;
@@ -400,7 +398,7 @@ void FFBMngrSine(uint8_t idx, int32_t *PID_Tx, int32_t *PID_Ty) {
   int32_t level;
   FFBMngrEnvlp(idx, &PID_mltipler);
   FFBMngrPrid(idx, &level, FFBSine);
-  *PID_Tx = *PID_Ty = (int32_t)level * PID_mltipler;
+  *PID_Tx = *PID_Ty = (int32_t) (level * PID_mltipler);
 }
 void FFBMngrSprng(uint8_t idx, int32_t *PID_Tx, int32_t *PID_Ty) {
   int32_t x, y, maxp;
@@ -417,24 +415,6 @@ void FFBMngrSprng(uint8_t idx, int32_t *PID_Tx, int32_t *PID_Ty) {
 
 	FFBMngrCond(idx, 1, (int16_t) y, &PID_mltipler);
 	*PID_Ty = (int32_t) (10000 * PID_mltipler);
-//  if(effRpt[idx].pid_direction_enable){
-//    int32_t dis = dirX * x + dirY * y;
-//    FFBMngrCond(idx, FFBFindOffset(idx, ID_PID_Set_Condition_Report), dis);
-//    PID_Tx = PID_Ty = 10000 * PID_mltipler;
-//    return;
-//  }
-//  else{
-//    PID_Tx = PID_Ty = 0;
-//    if (effRpt[idx].PID_Axes_Enable.vars_0 & Mask_X_ID){
-//      FFBMngrCond(idx, 0, (int16_t) x);
-//      PID_Tx = 10000 * PID_mltipler; //normalized max 10000
-//    }
-//    if (effRpt[idx].PID_Axes_Enable.vars_0 & Mask_Y_ID){
-//      FFBMngrCond(idx, 1, (int16_t) y);
-//      PID_Ty = 10000 * PID_mltipler;
-//    }
-//    return;
-//  }
 }
 void FFBMngrEffRun(uint16_t deltaT, int32_t *Tx, int32_t *Ty) {
   //given deltaTime(ms),return Torque on x&y axes
@@ -444,7 +424,7 @@ void FFBMngrEffRun(uint16_t deltaT, int32_t *Tx, int32_t *Ty) {
 		BridgeGetXY(Tx, Ty);
 	}
   for(uint8_t i = 1; i < maxEffN; i++) {
-    PID_Set_Effect_Report *eRpt = &effRpt[i];
+    const PID_Set_Effect_Report *eRpt = &effRpt[i];
     if(effVis[i] && effStat[i] > 0 && effRunning) {
       effRunTime[i] += deltaT; //update runtime
       uint16_t pid_duration = eRpt->pid_duration;
@@ -465,14 +445,6 @@ void FFBMngrEffRun(uint16_t deltaT, int32_t *Tx, int32_t *Ty) {
 				dirX = 1.0;
 				dirY = 1.0;
 			}
-//      if(eRpt->pid_direction_enable > 0) { //<USB PID Definition> messed there up
-//        uint8_t direction = eRpt->PID_Direction.instance_1; //normalized value 0x00-0xFF
-//        dirX = cos((float) (-direction * 2 * PI / 0xFF + PI / 2));
-//        dirY = sin((float) (-direction * 2 * PI / 0xFF + PI / 2));
-//      } else {
-//        dirX = eRpt->PID_Axes_Enable.vars_0 & Mask_X_ID ? 1.0 : 0;
-//        dirY = eRpt->PID_Axes_Enable.vars_0 & Mask_Y_ID ? 1.0 : 0;
-//      }
 			int32_t PID_Tx = 0, PID_Ty = 0;
       switch(eRpt->PID_Effect_Type.pid_effect_type_enum_0) {
         case PID_ET_Constant_Force:
@@ -493,9 +465,6 @@ void FFBMngrEffRun(uint16_t deltaT, int32_t *Tx, int32_t *Ty) {
         default:
           break;
       }
-			// HID_Joystick_In_Report[5] = eRpt->PID_Effect_Type.pid_effect_type_enum_0; //debug
-			// if (PID_Tx!=0) HID_Joystick_In_Report[6] |= 8; //debug
-			// stick_sendPos(); //debug
       *Tx +=(int32_t) (PID_Tx * dirX * gain * effGlbGain / maxGain / maxGain);
       *Ty +=(int32_t) (PID_Ty * dirY * gain * effGlbGain / maxGain / maxGain);
 			//max 10000

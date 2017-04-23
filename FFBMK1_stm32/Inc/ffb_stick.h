@@ -4,8 +4,9 @@
 #ifdef __cplusplus
  extern "C" {
 #endif
-#include "stdint.h"	 
-	 
+#include "stdint.h"
+extern const int32_t Pos_Max;
+
 void stick_Init(void);
 void HID_GenerateInputRpt(uint32_t *adcValue);
 void stick_Set_Acutator_PWM(int32_t PWMvalue,uint8_t axes); //Direction Automatic Switch Enabled

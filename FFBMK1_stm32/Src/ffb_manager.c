@@ -61,7 +61,7 @@ void FFBMngrPoolReport(uint16_t *len, uint8_t *inputReport);
 uint8_t FFBFindOffset(uint8_t idx,uint8_t type);
 void FFBMngrEnvlp(uint8_t effBlkIdx, float *PID_mltipler);
 void FFBMngrPrid(uint8_t effBlkIdx, int32_t *level, float tfunc(uint32_t t,uint16_t p));
-void FFBMngrCond(uint8_t effBlkIdx, uint8_t offset, int16_t pos, float *PID_mltipler);
+void FFBMngrCond(uint8_t effBlkIdx, uint8_t offset, int32_t pos, float *PID_mltipler);
 //wave generation for Period para
 float FFBtriangle(uint32_t t,uint16_t period);
 float FFBSine(uint32_t t, uint16_t period);
@@ -337,16 +337,20 @@ void FFBMngrPrid(uint8_t effBlkIdx, int32_t *level, float tfunc(uint32_t t,uint1
   *level =(int16_t) pRpt->pid_offset;
   *level +=(int32_t) (((int16_t) pRpt->pid_magnitude) * tfunc(time, pRpt->pid_period));
 }
-void FFBMngrCond(uint8_t effBlkIdx, uint8_t offset, int16_t pos, float *PID_mltipler){
+void FFBMngrCond(uint8_t effBlkIdx, uint8_t offset, int32_t pos, float *PID_mltipler){
+	//pos: normalized
   PID_Set_Condition_Report *pRpt =(PID_Set_Condition_Report *) &paraBlkPool[effBlkIdx * 2 + offset];
-  uint16_t CP = pRpt->pid_cp_offset;
-  uint16_t dead = pRpt->pid_dead_band;
+  int16_t CP = pRpt->pid_cp_offset;
+  int16_t dead = 0; //pRpt->pid_dead_band; current PID fedit has some bugs
+	const float Normalized_SprngGain = 10000.0 / 1.5; //pos nml max=10000
 
   *PID_mltipler = 0;
   if(pos < CP - dead){ //???beantowel
-    *PID_mltipler = pRpt->pid_negative_coefficient * (pos - (CP - dead)) / pRpt->pid_negative_saturation;
+    *PID_mltipler = pRpt->pid_negative_coefficient * (pos - (CP - dead))\
+		/ ((float) pRpt->pid_negative_saturation) / Normalized_SprngGain;
   }else if(pos > CP + dead){
-    *PID_mltipler = pRpt->pid_positive_coefficient * (pos - (CP + dead)) / pRpt->pid_positive_saturation;
+    *PID_mltipler = pRpt->pid_positive_coefficient * (pos - (CP + dead))\
+		/ ((float) pRpt->pid_positive_saturation) / Normalized_SprngGain;
   }
 }
 void FFBMngrConstFoc(uint8_t idx, int32_t *PID_Tx, int32_t *PID_Ty) {
@@ -406,14 +410,15 @@ void FFBMngrSprng(uint8_t idx, int32_t *PID_Tx, int32_t *PID_Ty) {
   x = stick_Get_Position(0);
   y = stick_Get_Position(1);
   maxp = stick_Get_Positioon_Max();
-  x = (int32_t) ((float) x * 10000 / maxp); //normalized max 10000
-  y = (int32_t) ((float) y * 10000 / maxp);
+  x = (int32_t) ( x * 10000 / maxp); //normalized max 10000
+  y = (int32_t) ( y * 10000 / maxp);
 
 	*PID_Tx = *PID_Ty = 0;
-	FFBMngrCond(idx, 0, (int16_t) x, &PID_mltipler);
+	//-x: some direction-related problems
+	FFBMngrCond(idx, 0, -x, &PID_mltipler); //should check code to make sure x<=10000
 	*PID_Tx = (int32_t) (10000 * PID_mltipler); //normalized max 10000
 
-	FFBMngrCond(idx, 1, (int16_t) y, &PID_mltipler);
+	FFBMngrCond(idx, 1, y, &PID_mltipler);
 	*PID_Ty = (int32_t) (10000 * PID_mltipler);
 }
 void FFBMngrEffRun(uint16_t deltaT, int32_t *Tx, int32_t *Ty) {

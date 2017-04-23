@@ -96,7 +96,7 @@ int main(void) {
   /* USER CODE BEGIN 2 */
   User_Defined_Init(); //GPIO Init
 	stick_Init();
-	HAL_Delay(2000);
+	HAL_Delay(20);
 	HAL_GPIO_WritePin(GPIOC, GPIO_PIN_10, GPIO_PIN_RESET);
   /* USER CODE END 2 */
 
@@ -240,30 +240,26 @@ static void MX_TIM3_Init(void) {
   }
 
   sConfigOC.OCMode = TIM_OCMODE_PWM1;
-  sConfigOC.Pulse = 101;
+  sConfigOC.Pulse = 0;
   sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
   sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
   if (HAL_TIM_PWM_ConfigChannel(&htim3, &sConfigOC, TIM_CHANNEL_1) != HAL_OK) {
     Error_Handler();
   }
 
-  sConfigOC.Pulse = 202;
   if (HAL_TIM_PWM_ConfigChannel(&htim3, &sConfigOC, TIM_CHANNEL_2) != HAL_OK) {
     Error_Handler();
   }
 
-  sConfigOC.Pulse = 303;
   if (HAL_TIM_PWM_ConfigChannel(&htim3, &sConfigOC, TIM_CHANNEL_3) != HAL_OK) {
     Error_Handler();
   }
 
-  sConfigOC.Pulse = 404;
   if (HAL_TIM_PWM_ConfigChannel(&htim3, &sConfigOC, TIM_CHANNEL_4) != HAL_OK) {
     Error_Handler();
   }
 
   HAL_TIM_MspPostInit(&htim3);
-
 }
 
 /**

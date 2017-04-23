@@ -12,8 +12,8 @@ static int32_t X_Absolute, Y_Absolute; //Value 0~4096:Angle -180~180
 static int32_t X_Zero = 2048, Y_Zero = 2048;
 static uint8_t HID_Button_Status = 0;
 const int32_t Angle_Max = 45, ACDeadBand = 10, ACSprngMin = 300;
-const int32_t Position_Gain = 180 / Angle_Max; //p*gain-> Value -2048~2047:Angle -45~45
-const int32_t Pos_Max = 2048 / 180 * Angle_Max; //pos Constrian value 2048 / 180 * 45 <= 495
+const int32_t Position_Gain = 180 / Angle_Max; //position * gain=Value -2048~2047:Angle -45~45
+const int32_t Joystick_Pos_Max = 2048 / 180 * Angle_Max; //pos Constrian value 2048 / 180 * 45 <= 495
 const int32_t T_Max = 10000;
 const int32_t PWM_pulseMax = 900; // 10.281MHz/1000Period = 10.281KHz
 
@@ -32,10 +32,10 @@ void HID_GenerateInputRpt(uint32_t *adcValue) {
   int32_t x, y;
 	X_Absolute = adcValue[0]; //0~4096
 	Y_Absolute = adcValue[1];
-  X_Position = X_Absolute - X_Zero; //-Pos_Max~Pos_Max expected
+  X_Position = X_Absolute - X_Zero; //-Joystick_Pos_Max~Joystick_Pos_Max expected
   Y_Position = Y_Absolute - Y_Zero;
-  X_Position = truncVal(X_Position, Pos_Max);
-  Y_Position = truncVal(Y_Position, Pos_Max);
+  X_Position = truncVal(X_Position, Joystick_Pos_Max);
+  Y_Position = truncVal(Y_Position, Joystick_Pos_Max);
   x = X_Position * Position_Gain;
   y = Y_Position * Position_Gain;
   HID_Joystick_In_Report[0] = 1; //Report ID==1
@@ -90,17 +90,16 @@ void stick_EffectExecuter(void) {
 	if(switcher){
 		//acting
 		FFBMngrEffRun((uint16_t) (Run_Time - pre_Run_Time), &x, &y);
-		x = x * PWM_pulseMax / T_Max;
-		y = y * PWM_pulseMax / T_Max;
-//		x = x % PWM_pulseMax;
-//		y = y % PWM_pulseMax; //make sure x,y < PWM_pulseMax
+		x = -x * PWM_pulseMax / T_Max; //weird direction
+		y = y * PWM_pulseMax / T_Max; //normalized value max=10000
 		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_12, GPIO_PIN_SET); //PC_12 On (PID Device)
 	}else{
 		//defalut Spring P Control
 		//direction: reverse to cartesian coordinates
-		x = X_Position * PWM_pulseMax / Pos_Max;
+		//FFBMngrInit(); //clear PID device status
+		x = X_Position * PWM_pulseMax / Joystick_Pos_Max;
 		if(abs(X_Position ) > ACDeadBand && abs(x) < ACSprngMin) x = x > 0 ? ACSprngMin : -ACSprngMin;
-		y = Y_Position * PWM_pulseMax / Pos_Max;
+		y = Y_Position * PWM_pulseMax / Joystick_Pos_Max;
 		if(abs(Y_Position ) > ACDeadBand && abs(y) < ACSprngMin) y = y > 0 ? ACSprngMin : -ACSprngMin;
 		HAL_GPIO_WritePin(GPIOC, GPIO_PIN_12, GPIO_PIN_RESET); //PC_12 Off (auto centering)
 	}
@@ -118,9 +117,10 @@ int32_t stick_Get_Position(uint8_t axis){
 	else return(Y_Position);
 }
 int32_t stick_Get_Positioon_Max(void){
-	return Pos_Max;
+	return Joystick_Pos_Max;
 }
 void stick_Init(void){
+	FFBMngrInit();
   HID_Joystick_In_Report[0] = 1; //Report ID==1
 }
 void stick_sendPos(void){

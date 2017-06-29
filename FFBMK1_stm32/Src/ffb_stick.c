@@ -116,8 +116,24 @@ int32_t stick_Get_Position(uint8_t axis){
 	if(axis == 0) return(X_Position);
 	else return(Y_Position);
 }
-int32_t stick_Get_Positioon_Max(void){
+int32_t stick_Get_Position_Max(void){
 	return Joystick_Pos_Max;
+}
+int32_t stick_Get_Velocity(uint8_t axis){
+//to be implemented
+	return 0;
+}
+int32_t stick_Get_Velocity_Max(void){
+//to be implemented
+	return 0;
+}
+int32_t stick_Get_Acceleration(uint8_t axis){
+//to be implemented
+	return 0;
+}
+int32_t stick_Get_Acceleration_Max(void){
+//to be implemented
+	return 0;
 }
 void stick_Init(void){
 	FFBMngrInit();

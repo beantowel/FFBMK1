@@ -56,10 +56,10 @@
 /** @defgroup USBD_DESC_Private_Defines
   * @{
   */ 
-#define USBD_VID     0x0483
+#define USBD_VID     0x045E
 #define USBD_LANGID_STRING     1033
 #define USBD_MANUFACTURER_STRING     "STMicroelectronics"
-#define USBD_PID_FS     0x572B
+#define USBD_PID_FS     0x001B
 #define USBD_PRODUCT_STRING_FS     "STM32 FFBMK1"
 #define USBD_SERIALNUMBER_STRING_FS     "00000000001A"
 #define USBD_CONFIGURATION_STRING_FS     "HID-PID FFBMK1"

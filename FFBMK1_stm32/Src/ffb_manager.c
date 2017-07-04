@@ -589,6 +589,21 @@ void FFBMngrEffRun(uint16_t deltaT, int32_t *Tx, int32_t *Ty)
             case PID_ET_Sine:
                 FFBMngrSine(i, &PID_Tx, &PID_Ty);
                 break;
+            case PID_ET_Square:
+                FFBMngrSquare(i, &PID_Tx, &PID_Ty);
+                break;
+            case PID_ET_Sawtooth_Up:
+                FFBMngrSawtoothUp(i, &PID_Tx, &PID_Ty);
+                break;
+            case PID_ET_Sawtooth_Down:
+                FFBMngrSawtoothDown(i, &PID_Tx, &PID_Ty);
+                break;
+            case PID_ET_Damper:
+                FFBMngrDamper(i, &PID_Tx, &PID_Ty);
+                break;
+            case PID_ET_Inertia:
+                FFBMngrInertia(i, &PID_Tx, &PID_Ty);
+                break;
             default:
                 break;
             }
